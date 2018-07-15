@@ -1,6 +1,6 @@
 package sharemer.business.api.master.controller;
 
-import sharemer.business.api.master.service.VideoService;
+import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.service.music.MusicService;
 import sharemer.business.api.master.utils.Constant;

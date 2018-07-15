@@ -1,4 +1,4 @@
-package sharemer.business.api.master.service;
+package sharemer.business.api.master.service.music;
 
 import sharemer.business.api.master.po.MusicList;
 import sharemer.business.api.master.utils.Page;

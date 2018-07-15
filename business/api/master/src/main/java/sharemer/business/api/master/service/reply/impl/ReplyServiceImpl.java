@@ -1,11 +1,11 @@
-package sharemer.business.api.master.service.music.impl;
+package sharemer.business.api.master.service.reply.impl;
 
 import sharemer.business.api.master.dao.ReplyMapper;
 import sharemer.business.api.master.mao.reply.ReplyMao;
 import sharemer.business.api.master.mao.user.UserMao;
 import sharemer.business.api.master.po.Reply;
 import sharemer.business.api.master.rao.reply.ReplyRao;
-import sharemer.business.api.master.service.music.ReplyService;
+import sharemer.business.api.master.service.reply.ReplyService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;
 import sharemer.business.api.master.vo.ReplyVo;

@@ -5,7 +5,7 @@ import sharemer.business.api.master.dto.MusicIndex;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.rao.music.MusicRao;
-import sharemer.business.api.master.service.TagService;
+import sharemer.business.api.master.service.tag.TagService;
 import sharemer.business.api.master.service.music.MusicService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;

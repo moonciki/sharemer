@@ -1,4 +1,4 @@
-package sharemer.business.api.master.service;
+package sharemer.business.api.master.service.video;
 
 import sharemer.business.api.master.dto.VideoIndex;
 import sharemer.business.api.master.utils.Page;

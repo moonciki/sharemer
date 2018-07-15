@@ -1,8 +1,8 @@
-package sharemer.business.api.master.service.impl;
+package sharemer.business.api.master.service.music.impl;
 
 import sharemer.business.api.master.dao.MusicListMapper;
 import sharemer.business.api.master.po.MusicList;
-import sharemer.business.api.master.service.MusicListService;
+import sharemer.business.api.master.service.music.MusicListService;
 import org.springframework.stereotype.Service;
 import sharemer.business.api.master.utils.Page;
 

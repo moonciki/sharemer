@@ -1,9 +1,9 @@
-package sharemer.business.api.master.service.impl;
+package sharemer.business.api.master.service.tag.impl;
 
 import sharemer.business.api.master.dao.TagMapper;
 import sharemer.business.api.master.mao.tag.TagMao;
 import sharemer.business.api.master.po.Tag;
-import sharemer.business.api.master.service.TagService;
+import sharemer.business.api.master.service.tag.TagService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

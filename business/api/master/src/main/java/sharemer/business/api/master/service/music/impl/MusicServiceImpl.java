@@ -8,7 +8,7 @@ import sharemer.business.api.master.mao.tag.TagMao;
 import sharemer.business.api.master.mao.video.VideoMao;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.po.User;
-import sharemer.business.api.master.service.TagService;
+import sharemer.business.api.master.service.tag.TagService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.service.music.MusicService;
 import sharemer.business.api.master.utils.Constant;

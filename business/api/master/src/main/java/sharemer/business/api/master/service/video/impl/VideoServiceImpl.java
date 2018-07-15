@@ -1,4 +1,4 @@
-package sharemer.business.api.master.service.impl;
+package sharemer.business.api.master.service.video.impl;
 
 import sharemer.business.api.master.dao.VideoMapper;
 import sharemer.business.api.master.dto.VideoIndex;
@@ -7,8 +7,8 @@ import sharemer.business.api.master.mao.user.UserMao;
 import sharemer.business.api.master.mao.video.VideoMao;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.po.User;
-import sharemer.business.api.master.service.TagService;
-import sharemer.business.api.master.service.VideoService;
+import sharemer.business.api.master.service.tag.TagService;
+import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;
 import sharemer.business.api.master.vo.VideoVo;

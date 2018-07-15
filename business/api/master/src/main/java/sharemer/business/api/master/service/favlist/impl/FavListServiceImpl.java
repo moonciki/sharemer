@@ -11,7 +11,7 @@ import sharemer.business.api.master.po.FavList;
 import sharemer.business.api.master.po.FavMedia;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.rao.favlist.FavListRao;
-import sharemer.business.api.master.service.TagService;
+import sharemer.business.api.master.service.tag.TagService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;

@@ -1,4 +1,4 @@
-package sharemer.business.api.master.service;
+package sharemer.business.api.master.service.tag;
 
 import sharemer.business.api.master.po.Tag;
 

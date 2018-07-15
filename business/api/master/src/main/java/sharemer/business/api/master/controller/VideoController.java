@@ -3,7 +3,7 @@ package sharemer.business.api.master.controller;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.dto.VideoIndex;
 import sharemer.business.api.master.po.User;
-import sharemer.business.api.master.service.VideoService;
+import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;
