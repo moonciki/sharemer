@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.VideoMapper">
+
+    <insert id="insert" parameterType="sharemer.business.api.master.po.Video" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_video
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.v_id != null">v_id,</if>
+            <if test="pojo.page != null">page,</if>
+            <if test="pojo.msg != null">msg,</if>
+            <if test="pojo.cover != null">cover,</if>
+            <if test="pojo.embed_type != null">`embed_type`,</if>
+            <if test="pojo.type != null">`type`,</if>
+            <if test="pojo.video_url != null">video_url,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.v_id != null">#{pojo.v_id},</if>
+            <if test="pojo.page != null">#{pojo.page},</if>
+            <if test="pojo.msg != null">#{pojo.msg},</if>
+            <if test="pojo.cover != null">#{pojo.cover},</if>
+            <if test="pojo.embed_type != null">#{pojo.embed_type},</if>
+            <if test="pojo.type != null">#{pojo.type},</if>
+            <if test="pojo.video_url != null">#{pojo.video_url},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.Video">
+        UPDATE t_video
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">title = #{pojo.title},</if>
+            <if test="pojo.v_id != null">v_id = #{pojo.v_id},</if>
+            <if test="pojo.page != null">page = #{pojo.page},</if>
+            <if test="pojo.msg != null">msg = #{pojo.msg},</if>
+            <if test="pojo.cover != null">cover = #{pojo.cover},</if>
+            <if test="pojo.embed_type != null">`embed_type` = #{pojo.embed_type},</if>
+            <if test="pojo.type != null">`type` = #{pojo.type},</if>
+            <if test="pojo.video_url != null">video_url = #{pojo.video_url},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
+    <select id="one" resultType="sharemer.business.api.master.po.Video">
+        SELECT
+        *
+        FROM
+        t_video
+        WHERE id = #{id}
+    </select>
+
+    <select id="getOneByVIdAndType" resultType="sharemer.business.api.master.po.Video">
+        SELECT
+        *
+        FROM
+        t_video
+        WHERE v_id = #{v_id} AND `type` = #{type} LIMIT 1
+    </select>
+
+    <select id="getAll" resultType="sharemer.business.api.master.vo.VideoVo">
+        SELECT *
+        FROM t_video
+        <if test="key != null and type == 0">
+            WHERE title LIKE "%"#{key}"%"
+        </if>
+        <if test="key != null and type == 1">
+            WHERE v_id = #{key}
+        </if>
+        ORDER BY id DESC
+    </select>
+
+    <select id="getBaseVideoVo" resultType="sharemer.business.api.master.vo.VideoVo">
+        SELECT id, title, v_id, page, msg, cover, `type`, embed_type, video_url, r_id,
+        r_name, source_url, mtime, ctime
+        FROM t_video
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        AND `status` = 0;
+    </select>
+
+    <select id="getVideosByUid" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_video WHERE status=0 AND r_id=#{uid}
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
+
+    <select id="getVideosByKey" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_video WHERE status=0 AND title LIKE "%"#{key}"%"
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
+
+</mapper>

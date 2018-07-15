@@ -1,0 +1,16 @@
+apply plugin: 'java-library'
+version = '0.0.9'
+
+dependencies{
+    api libs['retrofit']
+    api libs['okhttp']
+    implementation libs['guava']
+    implementation libs['fastjson']
+    implementation libs['junit']
+    implementation libs['okhttp-mockws']
+    implementation libs['okhttp-testing']
+}
+
+jar {
+    baseName "http-client"
+}

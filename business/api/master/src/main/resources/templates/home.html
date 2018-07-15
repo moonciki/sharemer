@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ShareMer</title>
+    <link rel="icon" type="image/x-icon" href="/image/icon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/lib/bootstrap/3.3.4/bootstrap-delta.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/css/base/dashboard.css">
+</head>
+
+<body style="word-break:break-all;">
+<!-- 顶部状态栏 -->
+<div class="header_top">
+    <nav id="top" style="position: absolute; z-index: 1000; background-image: url('http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png')" class="navbar navbar-fixed-top"></nav>
+    <div class="main_foot_02">
+        <div class="search_area">
+            <div class="search_area_main">
+                <div class="input-group">
+                    <input type="text" class="form-control sc-text" placeholder="音乐、视频、稿件、收藏单标题关键词">
+                    <span class="input-group-btn">
+						<button class="btn btn-warning" type="button">
+							<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;检索
+						</button>
+					</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="main">
+            <ol id="locationTip" class="breadcrumb">
+            </ol>
+            <!-- page -->
+            <div id="page" style="margin-top: 160px"></div>
+
+        </div>
+        <!-- end of main -->
+    </div>
+    <!-- end of row -->
+</div>
+<!-- end of fluid container -->
+<div class="main_foot">
+    <div class="main_foot_01">
+        <div class="main_foot_01_01 main_foot_01_01_line"></div>
+        <div class="main_foot_01_01 main_foot_01_01_line"></div>
+        <div class="main_foot_01_01"></div>
+    </div>
+    <div class="main_foot_02"></div>
+</div>
+<!-- Processing Bar Modal -->
+<div class="modal fade" id="processingModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">正在处理请求，请稍等</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" style="width: 95%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- frameworks -->
+<script src="/ng/lib/framework/jquery/1.11.3/jquery.js"></script>
+<script src="/ng/lib/framework/underscore/1.8.3/underscore.js"></script>
+<script src="/ng/lib/framework/backbone/1.2.1/backbone.js"></script>
+<script src="/ng/lib/framework/sugarjs/1.4.1/sugar.js"></script>
+<script src="/ng/lib/framework/bootstrap/3.3.4/bootstrap.js"></script>
+<!-- include 'sea.js' and boot front end app -->
+<script src="/ng/lib/framework/seajs/3.0.0/sea.js" id="seajsnode"></script>
+<script src="/ng/lib/framework/seajs-text/1.0.2/seajs-text.js"></script>
+<script src="/ng/lib/framework/seajs-css/1.0.5/seajs-css.js"></script>
+<script src="/ng/lib/framework/xiuxiu/xiuxiu.js"></script>
+<script src="/ng/lib/plugin/bootbox/4.4.0/bootbox.js"></script>
+
+<p th:utext="${SCRIPT}" ></p>
+
+<script type="text/javascript">
+    // Set configuration
+    seajs.config({
+        base : "./ng/",
+        charset : 'utf-8'
+    });
+
+    seajs.use("boot/ContractBooter");
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.FavListMapper">
+
+    <insert id="insert" parameterType="sharemer.business.api.master.po.FavList" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_fav_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.cover != null">cover,</if>
+            <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.status != null">status,</if>
+            <if test="pojo.is_hide != null">is_hide,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.cover != null">#{pojo.cover},</if>
+            <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.status != null">#{pojo.status},</if>
+            <if test="pojo.is_hide != null">#{pojo.is_hide},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.Music">
+        UPDATE t_fav_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">title = #{pojo.title},</if>
+            <if test="pojo.cover != null">cover = #{pojo.cover},</if>
+            <if test="pojo.user_id != null">user_id = #{pojo.user_id},</if>
+            <if test="pojo.status != null">status = #{pojo.status},</if>
+            <if test="pojo.is_hide != null">is_hide = #{pojo.is_hide},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
+    <select id="getBaseOne" resultType="sharemer.business.api.master.po.FavList">
+        SELECT *
+        FROM
+        t_fav_list
+        WHERE id = #{id} AND status = 0
+    </select>
+
+    <select id="getBaseFavs" resultType="sharemer.business.api.master.po.FavList">
+        SELECT *
+        FROM t_fav_list
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        AND `status` = 0;
+    </select>
+
+    <select id="getFavsByKey" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_fav_list WHERE status = 0 AND title LIKE "%"#{key}"%"
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
+
+    <select id="getFavsByUserId" resultType="sharemer.business.api.master.po.FavList">
+        SELECT id, ctime
+        FROM t_fav_list WHERE user_id = #{userId} AND status = 0
+    </select>
+
+</mapper>

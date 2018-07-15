@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.manager.master.dao.MusicVideoMapper">
+
+    <insert id="insertMusicVideo" parameterType="sharemer.business.manager.master.po.MusicVideo">
+        INSERT INTO r_music_video_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.music_id != null">music_id,</if>
+            <if test="pojo.video_id != null">video_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.music_id != null">#{pojo.music_id},</if>
+            <if test="pojo.video_id != null">#{pojo.video_id},</if>
+        </trim>
+    </insert>
+
+    <insert id="insertVideoMusic" parameterType="sharemer.business.manager.master.po.MusicVideo">
+        INSERT INTO r_video_music_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.music_id != null">music_id,</if>
+            <if test="pojo.video_id != null">video_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.music_id != null">#{pojo.music_id},</if>
+            <if test="pojo.video_id != null">#{pojo.video_id},</if>
+        </trim>
+    </insert>
+
+    <select id="getOneFromMusicVideoByMusicIdAndVideoId" resultType="sharemer.business.manager.master.po.MusicVideo">
+        SELECT
+        *
+        FROM
+        r_music_video_${num}
+        WHERE music_id = #{music_id} AND video_id = #{video_id} LIMIT 1
+    </select>
+
+    <select id="getVideosByMusicId" resultType="sharemer.business.manager.master.po.Video">
+        SELECT tv.*
+        FROM r_music_video_${num} mv
+        INNER JOIN t_video tv ON tv.id = mv.video_id
+        WHERE mv.music_id = #{music_id}
+    </select>
+
+</mapper>

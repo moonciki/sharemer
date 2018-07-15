@@ -1,0 +1,17 @@
+/* typeahead 插件调整*/
+form.season-input .form-group {
+	margin: 2px 4px;
+}
+
+form.season-input .input-group span.twitter-typeahead {
+	float: left;
+}
+
+/* 移动推荐分类 form 样式调整 */
+form.mobile-recommend .form-group .confirm-btn {
+	margin-bottom: 10px;
+}
+
+table.season-rank .control {
+	width: 15em;
+}

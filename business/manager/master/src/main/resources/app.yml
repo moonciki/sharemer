@@ -1,0 +1,45 @@
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+
+sharemer:
+  mysql:
+    dogvane:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/dogvane?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: sun123456`
+      maxActive: 10
+      maxIdle: 5
+      minIdle: 2
+      maxWait: 1000
+      defaultQueryTimeout: 200
+      testOnBorrow: true
+
+  memcache:
+    dogvane:
+      servers: 127.0.0.1:11212 127.0.0.1:11213
+
+  redis:
+    dogvane:
+      maxWaitMillis: 2000
+      maxTotal: 400
+      maxIdle: 400
+      minIdle: 100
+      timeout: 1000
+      servers: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003
+
+  source:
+      dogvane:
+        NETEASESOURCE: http://music.163.com/#/song?id=%d
+        A: http://www.acfun.cn/v/ac%d_%d
+        B: https://www.bilibili.com/video/av%d/#page=%d
+        C: http://www.tucao.tv/play/h%d
+        M: http://www.missevan.com/sound/player?id=%d
+        MTV: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003

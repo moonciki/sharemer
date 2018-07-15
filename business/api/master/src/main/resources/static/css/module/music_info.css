@@ -1,0 +1,262 @@
+.tag_base{
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.tag_big_base{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.tag_key{
+    background: url("/image/key.png");
+    background-size: 100% 100%;
+}
+
+.tag_tv{
+    background: url("/image/tv.png");
+    background-size: 100% 100%;
+}
+
+.tag_share{
+    background: url("/image/v_share.png");
+    background-size: 100% 100%;
+}
+
+.tag_tag{
+    background: url("/image/bq.png");
+    background-size: 100% 100%;
+}
+.tag_msg{
+    background: url("/image/grms.png");
+    background-size: 100% 100%;
+}
+
+
+.tag_songer{
+    background: url("/image/t_mjusic.png");
+    background-size: 100% 100%;
+}
+
+.tag_time{
+    background: url("/image/v_sj.png");
+    background-size: 100% 100%;
+}
+
+.tag_album{
+    background: url("/image/t_tg.png");
+    background-size: 100% 100%;
+}
+
+.tag_mv{
+    background: url("/image/t_video.png");
+    background-size: 100% 100%;
+}
+
+.main_page_info{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+}
+
+.main_data_area_info{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    color: #5e5e5e;
+}
+
+.data_unit_right_info{
+    width: 350px;
+    height: 450px;
+    float: left;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.data_unit_left_info{
+    width: 630px;
+    height: 450px;
+    float: left;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.data_info_title{
+    width: 630px;
+    height: 50px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.data_info_col{
+    width: 630px;
+    height: 50px;
+    float: left;
+    font-size: 13px;
+    padding-left: 30px;
+}
+
+.data_info_msg{
+    padding: 10px;
+    color: #919191;
+    line-height: 1.8;
+    height: 70px;
+}
+
+.img_data_info{
+    width: 327px;
+    height: 327px;
+    border-radius: 200px;
+    background-size: 100%;
+    position: absolute;
+}
+
+.img_splice_info{
+    width: 327px;
+    height: 327px;
+    border-radius: 200px;
+    background-size: 100%;
+    background-image: url("/image/splice.png");
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+.player_data_info{
+    width: 300px;
+    min-height: 10px;
+    height: auto;
+    margin-top: 330px;
+}
+
+.td_col_01{
+    width: 350px;
+    height: 50px;
+}
+
+.td_col_02{
+    width: 200px;
+    height: 50px;
+}
+
+.share_btn{
+    width: 120px;
+    height: 30px;
+    padding-top: 5px;
+    text-align: center;
+    color: #ff595d;
+    cursor: pointer;
+    margin: 0 auto;
+    border: solid 1px #ff595d;
+    border-radius: 100px;
+}
+
+.share_btn:hover{
+    color: #FFF;
+    background-color: #ff595d;
+}
+
+.tag_style{
+    width: auto;
+    min-width: 10px;
+    height: 25px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #ff709f;
+    border: solid 1px #ff709f;
+    cursor: pointer;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.tag_style:hover{
+    color: #FFF;
+    background-color: #ff709f;
+}
+
+.data_main_video{
+    width: 318px;
+    height: auto;
+    min-height: 100px;
+    float: right;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.data_main_reply{
+    width: 710px;
+    height: auto;
+    min-height: 100px;
+    float: left;
+}
+
+.data_main_video_area{
+    width: 318px;
+    height: auto;
+    min-height: 100px;
+    float: left;
+}
+
+.data_main_video_area_unit{
+    width: 237px;
+    min-height: 200px;
+    height: auto;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.data_main_video_area_unit_01{
+    width: 227px;
+    height: 150px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.m_tag_video{
+    background-image: url("/image/ds.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.data_video_play_on{
+    display: none;
+    width: 227px;
+    height: 150px;
+    padding-top: 20px;
+    border-radius: 4px;
+    background-image: url("/image/play_bg.png");
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+.data_main_video_area_unit_01:hover .data_video_play_on{
+    display: block;
+}
+
+.data_main_video_area_unit_02{
+    width: 227px;
+    font-size: 13px;
+    min-height: 50px;
+    height: auto;
+    border-radius: 4px;
+    margin: 0 auto;
+}

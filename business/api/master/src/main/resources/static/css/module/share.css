@@ -1,0 +1,56 @@
+.v_player_btn_group{
+    padding: 10px;
+    text-align: center;
+    min-width: 100px;
+    width: auto;
+    height: 35px;
+    margin-right: 20px;
+    border-radius: 100px;
+}
+
+.v_player_btn_group_source{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    text-align: center;
+    min-width: 100px;
+    width: auto;
+    height: 35px;
+    margin-right: 20px;
+    border-radius: 100px;
+}
+
+.v_fav_btn{
+    float: left;
+    border: solid #3dcfc5 1px;
+    color: #3dcfc5;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.v_fav_btn:hover{
+    color: #fff;
+    background-color: #3dcfc5;
+}
+
+.v_y_fav_btn{
+    float: left;
+    border: solid #3dcfc5 1px;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #3dcfc5;
+}
+
+
+.v_share_btn{
+    float: left;
+    border: solid #ff921f 1px;
+    color: #ff921f;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.v_share_btn:hover{
+    color: #fff;
+    background-color: #ff921f;
+}

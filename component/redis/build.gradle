@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+version = '0.0.9'
+dependencies {
+    api libs["redis"]
+    implementation libs["guava"]
+    implementation libs["slf4j"]
+}
+
+jar {
+    baseName "redis-client"
+}

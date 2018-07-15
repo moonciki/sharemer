@@ -1,0 +1,12 @@
+/* 电影分类中图片的样式 */
+table tr td .movie-thumbnail {
+	max-width: 160px;
+	max-height: 50px;
+	margin-bottom: 0px;
+	padding: 1px;
+	border-radius: 0px;
+	display: inline-block;
+}
+table tr td .movie-thumbnail img {
+	max-height: 40px;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.UserMapper">
+
+    <insert id="insert" parameterType="sharemer.business.api.master.po.User" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.name != null">`name`,</if>
+            <if test="pojo.sex != null">sex,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.name != null">#{pojo.name},</if>
+            <if test="pojo.sex != null">#{pojo.sex},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.User">
+        UPDATE t_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.name != null">`name` = #{pojo.name},</if>
+            <if test="pojo.sex != null">sex = #{pojo.sex},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
+    <select id="one" resultType="sharemer.business.api.master.po.User">
+        SELECT
+        *
+        FROM
+        t_user
+        WHERE id = #{id}
+    </select>
+
+    <select id="getBaseOne" resultType="sharemer.business.api.master.po.User">
+        SELECT *
+        FROM t_user
+        WHERE id = #{id}
+        AND status = 0
+    </select>
+
+    <select id="getUserIdByNameAndPwd" resultType="java.lang.Integer">
+        SELECT tl.id FROM t_login tl
+        INNER JOIN t_user tu ON tu.id = tl.id
+        WHERE tl.name = #{email} AND tl.pwd = #{pwd} AND tu.status = 0
+    </select>
+
+</mapper>

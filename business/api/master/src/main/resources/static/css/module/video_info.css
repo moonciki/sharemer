@@ -1,0 +1,219 @@
+.v_info_main{
+    width: 100%;
+    min-height: 500px;
+    color: #505050;
+    height: auto;
+}
+
+.v_info_main_page{
+    padding-top: 20px;
+    width: 1050px;
+    min-height: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.v_info_title{
+    width: 1050px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.v_info_player{
+    width: 1050px;
+    height: 500px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.sj_share{
+    width: 1050px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px #dedede solid;
+    border-radius: 4px;
+}
+
+.v_player_msg{
+    float: right;
+    border: solid #c9c9c9 1px;
+    color: #c9c9c9;
+    border-radius: 100px;
+}
+
+.v_info_desc{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.info_area{
+    margin-top: 25px;
+    width: 710px;
+    min-height: 100px;
+    height: auto;
+    float: left;
+    line-height: 1.8;
+    font-size: 13px;
+    color: #a2a2a2;
+}
+
+.user_info_area{
+    width: 320px;
+    margin-left: 20px;
+    min-height: 100px;
+    height: auto;
+    float: left;
+}
+
+.user_info_area_info{
+    width: 318px;
+    min-height: 100px;
+    margin-top: 110px;
+    padding: 10px;
+    height: auto;
+}
+.hrLine{
+    width: 110px;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+
+.v_info_uname{
+    color: #777777;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.v_info_title_f{
+    color: #9b9b9b;
+    font-size: 14px;
+}
+
+.user_info_area_01{
+    width: 318px;
+    margin-top: 70px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    height: auto;
+    min-height: 450px;
+    position: absolute;
+}
+
+.user_info_area_02{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 2px solid #e5e5e5;
+    margin-top: -50px;
+    margin-left: 109px;
+}
+
+.tag_man{
+    background-image: url("/image/man.png");
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.tag_woman{
+    background-image: url("/image/woman.png");
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tag_grms{
+    background-image: url("/image/grms.png");
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tag_addr{
+    background-image: url("/image/addr.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tag_sj{
+    background-image: url("/image/v_sj.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tag_dsj{
+    background-image: url("/image/ds.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tag_bq{
+    background-image: url("/image/bq.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.v_tag_style {
+    width: auto;
+    min-width: 40px;
+    height: 30px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #ff709f;
+    border: solid 1px #ff709f;
+    cursor: pointer;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.v_tag_style:hover{
+    color: #FFF;
+    background-color: #ff709f;
+}
+
+
+.u_desc{
+    color: #999999;
+}
+
+.user_home_btn{
+    padding-top: 8px;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    margin: 0 auto;
+    border: solid #ff7777 1px;
+    color: #ff7777;
+    background-color: #FFF;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.user_home_btn:hover{
+    background-color: #ff7777;
+    color: #FFF;
+}

@@ -1,0 +1,15 @@
+.tm_big_unit{
+    margin: 0 auto;
+    width: 560px;
+    border: solid 1px #a2d8d8;
+    border-radius: 4px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.tm_small_unit{
+    float: left;
+    padding: 10px;
+    width: 278px;
+    height: 38px;
+}

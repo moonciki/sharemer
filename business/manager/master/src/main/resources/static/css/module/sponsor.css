@@ -1,0 +1,21 @@
+table.sponsor th.dt {
+	width: 13rem;
+}
+
+table.sponsor th.id {
+	width: 4rem;
+}
+
+table.sponsor th.status {
+	width: 7rem;
+}
+
+table.sponsor tbody td.season span.label {
+	margin: .13rem .4rem;
+	display: inline-block;
+	line-height: 1.2;
+}
+
+table.sponsor tbody td.season span a {
+	color: #fff;
+}

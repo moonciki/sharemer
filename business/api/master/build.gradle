@@ -1,0 +1,34 @@
+buildscript {
+    dependencies {
+        classpath libs["springboot-gradle-plugin"]
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    implementation project(":component:http")
+    implementation project(":component:mysql")
+    implementation project(":component:global")
+    implementation project(":component:memcache")
+    implementation project(":component:redis")
+    implementation libs["springboot-starter-web"]
+    implementation libs["springboot-starter-aop"]
+    implementation libs["spring-context-support"]
+    implementation libs["spring-jdbc"]
+    implementation libs["mybatis-spring"]
+    implementation libs["springboot-autoconfigure"]
+    implementation libs["springboot-starter-thymeleaf"]
+    implementation libs["fastjson"]
+    implementation libs["codec"]
+    implementation libs["jsoup"]
+    implementation libs['junit']
+    implementation libs['guava']
+}
+
+bootJar {
+    baseName "master-api"
+    version ''
+}

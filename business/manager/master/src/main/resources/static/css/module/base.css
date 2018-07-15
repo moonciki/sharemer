@@ -1,0 +1,9 @@
+tbody td.tag span.label {
+    margin: .13rem .4rem;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+tbody td.tag span a {
+    color: #fff;
+}

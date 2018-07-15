@@ -1,0 +1,24 @@
+table.log th.dt {
+	width: 12rem;
+}
+
+table.log th.username {
+	width: 10rem;
+}
+
+table.log th.id {
+	width: 6rem;
+}
+
+table.log th.main-module {
+	width: 8rem;
+}
+
+table.log th.sub-module {
+	width: 10rem;
+}
+
+table.log th.detail {
+	min-width: 35rem;
+	word-break: break-all;
+}

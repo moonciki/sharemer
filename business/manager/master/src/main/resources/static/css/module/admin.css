@@ -1,0 +1,21 @@
+form.group dl.dl-horizontal {
+	margin-bottom: 0px;
+}
+
+form.group td label.sub-label {
+	font-weight: normal;
+	vertical-align: middle;
+	margin: 0 .5rem 0 0;
+}
+
+form.group td .checkbox-inline {
+	padding-top: 0px;
+}
+
+table.admin td p.ellipsis {
+	margin-bottom: 0px;
+}
+
+.read_cp{
+	margin-top: 7px;
+}

@@ -1,0 +1,298 @@
+
+.fl_main_page_info{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+}
+
+.fl_main_data_area_info{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    color: #5e5e5e;
+}
+
+.fl_main_info_area{
+    position: absolute;
+    width: 1050px;
+    height: 300px;
+    background-size: 100%;
+    background-position:center;
+    -webkit-filter: blur(40px);
+    -moz-filter: blur(40px);
+    -ms-filter: blur(40px);
+    filter: blur(40px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+    overflow: hidden;
+}
+
+.fl_main_info_area_on{
+    width: 1050px;
+    height: 300px;
+    z-index: 100;
+}
+
+.fl_main_info_area_down{
+    width: 1050px;
+    height: auto;
+    min-height: 300px;
+    border-top: solid 5px #ff7d7e;
+    padding-top: 30px;
+}
+
+.fl_main_info_area_main_1{
+    width: 710px;
+    float: left;
+    height: 315px;
+    margin-right: 20px;
+    overflow: auto;
+    border-top: solid 1px #e2e2e2;
+}
+
+.fl_main_info_area_reply{
+    width: 710px;
+    float: left;
+    height: auto;
+    min-height: 315px;
+    margin-top: 20px;
+}
+
+.fl_main_info_area_main_2{
+    width: 320px;
+    height: 237px;
+    float: left;
+    background-color: #ffeee3;
+    border-radius: 4px;
+}
+
+.fl_main_info_area_main_2_1{
+    width: 320px;
+    height: 237px;
+    float: left;
+    background-image: url("http://oyjdgrp4g.bkt.clouddn.com/cpj.jpg");
+    background-size: 100%;
+    border-radius: 4px;
+}
+
+.fl_main_info_area_main_2_1_base{
+    width: 177px;
+    height: 177px;
+    margin-left: 54px;
+    margin-top: 37px;
+    position: absolute;
+    background-size: 100%;
+    border-radius: 150px;
+    box-shadow:0px 0px 26px #000;
+}
+
+.fl_main_info_area_main_2_1_cp{
+    transform-origin:50% 50%;
+    animation: a 2000s;
+    -webkit-animation: a 1000s;
+    -moz-animation: a 1000s;
+}
+
+@keyframes a{
+    form{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(36000deg);
+        -webkit-transform: rotate(36000deg);
+        -moz-transform: rotate(36000deg);
+    }
+}
+
+.fl_main_info_area_main_2_1_cp_top{
+    width: 177px;
+    height: 177px;
+    background-image: url("/image/splice.png");
+    background-size: 100% 100%;
+    border-radius: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.fl_main_info_area_1{
+    width: 700px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.cover_img{
+    width: 200px;
+    height: 200px;
+    border: solid #FFF 5px;
+    border-radius: 6px;
+}
+
+.fl_main_info_area_1_1{
+    width: 200px;
+    height: 300px;
+    float: left;
+    padding-top: 50px;
+    filter: blur(0px);
+}
+
+.fl_main_info_area_1_2{
+    width: 500px;
+    height: 300px;
+    float: left;
+    padding-left: 30px;
+    padding-top: 50px;
+    filter: blur(0px);
+    color: #FFF;
+    text-shadow:0 0 0.2em #717171,
+    -0 -0 0.2em #717171;
+}
+
+.fl_main_info_area_1_2_1{
+    width: 500px;
+    height: 120px;
+    float: left;
+}
+
+.fl_main_info_area_1_2_2{
+    width: 500px;
+    height: 100px;
+    float: left;
+}
+
+.fl_main_info_area_1_2_3{
+    width: 500px;
+    height: 30px;
+    float: left;
+}
+
+.fl_main_info_player{
+    width: 1050px;
+    height: 90px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: inset 0px 0px 16px #eaeaea;
+    border: solid 1px #eaeaea;
+    border-radius: 4px;
+    float: left;
+}
+
+.fl_main_info_area_1_2_3_unit{
+    width: 100px;
+    height: 30px;
+    float: left;
+    margin-right: 20px;
+}
+
+.f1_main_mz{
+    background-image: url("/image/md.png");
+}
+
+.fl_main_info_area_1_2_2_unit{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 30px;
+    float: left;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.fl_main_info_area_1_2_2_unit:hover{
+    color: #ff6c7e;
+    cursor: pointer;
+    text-shadow:0 0 0.2em #ffffff,
+    -0 -0 1em #ffffff;
+}
+
+.fl_main_info_area_1_2_2_unit_pointer{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 30px;
+    float: left;
+    margin-right: 20px;
+    font-weight: bolder;
+    color: #ff6c7e;
+    text-shadow:0 0 0.2em #ffffff,
+    -0 -0 1em #ffffff;
+}
+
+.fl_title_font{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.big_font{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.fl_tag{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 20px;
+    padding: 0 8px;
+    line-height: 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.fl_tag:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.fl_player_btn_group {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    min-width: 50px;
+    width: auto;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 100px;
+}
+
+.fl_play_btn {
+    float: left;
+    border: solid #ff7c93 1px;
+    color: #ff7c93;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.fl_play_btn:hover{
+    background-color: #ff7c93;
+    color: #FFF;
+}
+
+.fl_playing_btn {
+    float: left;
+    border: solid #ff605d 1px;
+    color: #FFF;
+    border-radius: 100px;
+    background-color: #ff605d;
+    cursor: pointer;
+}
+
+.fl_share_btn {
+    float: left;
+    border: solid #47a6ff 1px;
+    color: #47a6ff;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.fl_share_btn:hover{
+    background-color: #47a6ff;
+    color: #FFF;
+}

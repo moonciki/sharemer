@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.MusicListMapper">
+
+    <insert id="insert" parameterType="sharemer.business.api.master.po.MusicList" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_music_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.wy_id != null">wy_id,</if>
+            <if test="pojo.wy_type != null">wy_type,</if>
+            <if test="pojo.is_done != null">is_done,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.wy_id != null">#{pojo.wy_id},</if>
+            <if test="pojo.wy_type != null">#{pojo.wy_type},</if>
+            <if test="pojo.is_done != null">#{pojo.is_done},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.MusicList">
+        UPDATE t_music_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">`title` = #{pojo.title},</if>
+            <if test="pojo.wy_id != null">wy_id = #{pojo.wy_id},</if>
+            <if test="pojo.wy_type != null">wy_type = #{pojo.wy_type},</if>
+            <if test="pojo.is_done != null">is_done = #{pojo.is_done},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByWyId" parameterType="sharemer.business.api.master.po.MusicList">
+        UPDATE t_music_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">`title` = #{pojo.title},</if>
+            <if test="pojo.wy_id != null">wy_id = #{pojo.wy_id},</if>
+            <if test="pojo.wy_type != null">wy_type = #{pojo.wy_type},</if>
+            <if test="pojo.is_done != null">is_done = #{pojo.is_done},</if>
+        </trim>
+        WHERE wy_id = #{pojo.wy_id,jdbcType=INTEGER}
+    </update>
+
+    <select id="one" resultType="sharemer.business.api.master.po.MusicList">
+        SELECT
+        *
+        FROM
+        t_music_list
+        WHERE id = #{id}
+    </select>
+
+    <select id="getOneByWyId" resultType="sharemer.business.api.master.po.MusicList">
+        SELECT
+        *
+        FROM
+        t_music_list
+        WHERE wy_id = #{wy_id} LIMIT 1
+    </select>
+
+    <select id="getAll" resultType="sharemer.business.api.master.po.MusicList">
+        SELECT *
+        FROM t_music_list ORDER BY id DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,173 @@
+.child_menu{
+    color: #373737;
+    font-size: 12px;
+    margin-left: 30px;
+    cursor: pointer;
+    float: left;
+    list-style:none;
+}
+
+.child_menu_pointer{
+    color: #ff80a6;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 30px;
+    cursor: pointer;
+    float: left;
+    list-style:none;
+}
+
+.child_menu_box{
+    width: 100%;
+    height: 45px;
+}
+.menu_main_box_01{
+    width: 1050px;
+    height: 45px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #494949;
+    border: 1px solid #39C5BB;
+    border-radius: 4px;
+    padding-top: 13px;
+    box-shadow:inset 0px 0px 16px #e5e5e5;
+}
+.main_page{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+}
+.main_data_area{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.tag_top{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.main_tag{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 1050px;
+    border-radius: 4px;
+    padding-top: 30px;
+    background-image: url("/image/music_tag_bg.jpg");
+    background-size: 100%, 100%;
+    font-size: 18px;
+    height: 95px;
+    float: left;
+    color: #39C5BB;
+}
+
+.tag_name_text{
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 8px;
+    text-align: center;
+    border-radius: 100px;
+    height: 40px;
+    font-weight: bold;
+    border: solid 1px #39C5BB;
+    background-image: url("http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png");
+}
+
+.data_unit_right{
+    border-bottom: solid 1px #d5d5d5;
+    border-right: solid 1px #d5d5d5;
+    width: 525px;
+    height: 150px;
+    float: left;
+}
+
+.data_unit_left{
+    border-bottom: solid 1px #d5d5d5;
+    width: 525px;
+    height: 150px;
+    float: left;
+}
+
+.data_img{
+    float: left;
+    width: 150px;
+    padding: 10px;
+    height: 150px;
+}
+
+.img_back{
+    width:130px;
+    height:130px;
+    background-size: 100%;
+    border-radius: 4px;
+}
+
+.img_back_play{
+    display: none;
+    width:130px;
+    height:130px;
+    background-size: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    background-image: url("/image/mus_play.png");
+}
+
+.img_back:hover .img_back_play{
+    display: block;
+}
+
+.data_c1{
+    float: left;
+    width: 358px;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.data_c1_1{
+    float: left;
+    font-size: 14px;
+    width: 308px;
+    height: 40px;
+}
+
+.data_c1_2{
+    float: left;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    color: #ff80a6;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 4px;
+    font-weight: bold;
+    background-image: url("/image/score_bg.png");
+    background-size: 100%;
+}
+
+.data_c2{
+    float: left;
+    width: 358px;
+    height: 30px;
+}
+
+.data_c2_1{
+    float: left;
+    width: 179px;
+    color: rgb(73, 73, 73);
+    height: 30px;
+}
+
+.data_c3{
+    float: left;
+    width: 348px;
+    border-top: solid 1px #dfdfe7;
+    color: rgb(145, 145, 145);
+    height: 80px;
+    line-height: 1.8;
+    padding-top: 5px;
+}

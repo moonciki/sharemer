@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.FavMediaMapper">
+
+    <insert id="insertsFavMedia">
+        INSERT INTO r_list_media_${num} (oid, otype, list_id)
+        VALUES
+        <foreach item="rlm" index="index" collection="list" separator=",">
+            (#{rlm.oid}, #{rlm.otype}, #{rlm.list_id})
+        </foreach>
+    </insert>
+
+    <insert id="insertFavMedia">
+        INSERT INTO r_list_media_${num} (oid, otype, list_id)
+        VALUES (#{favMedia.oid}, #{favMedia.otype}, #{favMedia.list_id})
+    </insert>
+
+    <insert id="insertsMediaFav">
+        INSERT INTO r_media_list_${num} (oid, otype, list_id)
+        VALUES
+        <foreach item="rlm" index="index" collection="list" separator=",">
+            (#{rlm.oid}, #{rlm.otype}, #{rlm.list_id})
+        </foreach>
+    </insert>
+
+    <insert id="insertMediaFav">
+        INSERT INTO r_media_list_${num} (oid, otype, list_id)
+        VALUES (#{favMedia.oid}, #{favMedia.otype}, #{favMedia.list_id})
+    </insert>
+
+</mapper>

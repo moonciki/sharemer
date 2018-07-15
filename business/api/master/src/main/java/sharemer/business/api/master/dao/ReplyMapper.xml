@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.ReplyMapper">
+
+    <insert id="insert" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO
+        t_o_reply_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.real_id != null">real_id,</if>
+            <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.oid != null">oid,</if>
+            <if test="pojo.otype != null">otype,</if>
+            <if test="pojo.reply_id != null">reply_id,</if>
+            <if test="pojo.content != null">content,</if>
+            <if test="pojo.like != null">`like`,</if>
+            <if test="pojo.dislike != null">dislike,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.real_id != null">#{pojo.real_id},</if>
+            <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.oid != null">#{pojo.oid},</if>
+            <if test="pojo.otype != null">#{pojo.otype},</if>
+            <if test="pojo.reply_id != null">#{pojo.reply_id},</if>
+            <if test="pojo.content != null">#{pojo.content},</if>
+            <if test="pojo.like != null">#{pojo.like},</if>
+            <if test="pojo.dislike != null">#{pojo.dislike},</if>
+        </trim>
+    </insert>
+
+    <insert id="insertU" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO
+        t_u_reply_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.real_id != null">real_id,</if>
+            <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.oid != null">oid,</if>
+            <if test="pojo.otype != null">otype,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.real_id != null">#{pojo.real_id},</if>
+            <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.oid != null">#{pojo.oid},</if>
+            <if test="pojo.otype != null">#{pojo.otype},</if>
+        </trim>
+    </insert>
+
+    <select id="getBaseOne" resultType="sharemer.business.api.master.vo.ReplyVo">
+        SELECT
+        *
+        FROM
+        t_o_reply_${num}
+        WHERE real_id = #{id}
+    </select>
+
+    <select id="getReplysByOid" resultType="sharemer.business.api.master.vo.ReplyVo">
+        SELECT
+        real_id, ctime
+        FROM
+        t_o_reply_${num}
+        WHERE oid = #{oid}
+        AND otype = #{otype}
+        AND reply_id = 0
+        AND status = 0
+    </select>
+
+    <select id="getChildReplysByOid" resultType="sharemer.business.api.master.vo.ReplyVo">
+        SELECT
+        real_id, ctime
+        FROM
+        t_o_reply_${num}
+        WHERE reply_id = #{reply_id}
+        AND otype = #{otype}
+        AND reply_id > 0
+        AND status = 0
+    </select>
+
+    <select id="getBaseList" resultType="sharemer.business.api.master.vo.ReplyVo">
+        SELECT
+        *
+        FROM
+        t_o_reply_${num}
+        WHERE real_id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        AND status = 0
+    </select>
+
+    <update id="like">
+        UPDATE
+        t_o_reply_${num}
+        SET `like` = `like`+1
+        WHERE real_id=#{reply_id}
+    </update>
+
+    <update id="cancel_like">
+        UPDATE
+        t_o_reply_${num}
+        SET `like` = `like`-1
+        WHERE real_id=#{reply_id}
+    </update>
+
+    <update id="dislike">
+        UPDATE
+        t_o_reply_${num}
+        SET `dislike` = `dislike`+1
+        WHERE real_id=#{reply_id}
+    </update>
+
+    <update id="cancel_dislike">
+        UPDATE
+        t_o_reply_${num}
+        SET `dislike` = `dislike`-1
+        WHERE real_id=#{reply_id}
+    </update>
+
+</mapper>

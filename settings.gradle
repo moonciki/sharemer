@@ -1,0 +1,10 @@
+rootProject.name = 'sharemer'
+include 'component:http'
+include 'component:mysql'
+include 'component:global'
+include 'component:memcache'
+include 'component:redis'
+include 'business:api:master'
+include 'business:job:master'
+include 'business:manager:master'
+

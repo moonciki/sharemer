@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.MusicMapper">
+
+    <insert id="insert" parameterType="sharemer.business.api.master.po.Music" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_music
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.album_title != null">album_title,</if>
+            <if test="pojo.other_msg != null">other_msg,</if>
+            <if test="pojo.song_id != null">song_id,</if>
+            <if test="pojo.score_num != null">score_num,</if>
+            <if test="pojo.score != null">score,</if>
+            <if test="pojo.duration != null">duration,</if>
+            <if test="pojo.mv_id != null">mv_id,</if>
+            <if test="pojo.mv_playurl != null">mv_playurl,</if>
+            <if test="pojo.cover != null">cover,</if>
+            <if test="pojo.publish_time != null">publish_time,</if>
+            <if test="pojo.songer != null">songer,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.album_title != null">#{pojo.album_title},</if>
+            <if test="pojo.other_msg != null">#{pojo.other_msg},</if>
+            <if test="pojo.song_id != null">#{pojo.song_id},</if>
+            <if test="pojo.score_num != null">#{pojo.score_num},</if>
+            <if test="pojo.score != null">#{pojo.score},</if>
+            <if test="pojo.duration != null">#{pojo.duration},</if>
+            <if test="pojo.mv_id != null">#{pojo.mv_id},</if>
+            <if test="pojo.mv_playurl != null">#{pojo.mv_playurl},</if>
+            <if test="pojo.cover != null">#{pojo.cover},</if>
+            <if test="pojo.publish_time != null">#{pojo.publish_time},</if>
+            <if test="pojo.songer != null">#{pojo.songer},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.Music">
+        UPDATE t_music_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">title = #{pojo.title},</if>
+            <if test="pojo.album_title != null">album_title = #{pojo.album_title},</if>
+            <if test="pojo.other_msg != null">other_msg = #{pojo.other_msg},</if>
+            <if test="pojo.song_id != null">song_id = #{pojo.song_id},</if>
+            <if test="pojo.score_num != null">score_num = #{pojo.score_num},</if>
+            <if test="pojo.score != null">score = #{pojo.score},</if>
+            <if test="pojo.duration != null">duration = #{pojo.duration},</if>
+            <if test="pojo.mv_id != null">mv_id = #{pojo.mv_id},</if>
+            <if test="pojo.mv_playurl != null">mv_playurl = #{pojo.mv_playurl},</if>
+            <if test="pojo.cover != null">cover = #{pojo.cover},</if>
+            <if test="pojo.publish_time != null">publish_time = #{pojo.publish_time},</if>
+            <if test="pojo.songer != null">songer = #{pojo.songer},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
+    <select id="one" resultType="sharemer.business.api.master.po.Music">
+        SELECT
+        *
+        FROM
+        t_music
+        WHERE id = #{id}
+    </select>
+
+    <select id="getOneBySongId" resultType="sharemer.business.api.master.po.Music">
+        SELECT
+        *
+        FROM
+        t_music
+        WHERE song_id = #{song_id} LIMIT 1
+    </select>
+
+    <select id="getAll" resultType="sharemer.business.api.master.vo.MusicVo">
+        SELECT *
+        FROM t_music
+        <if test="key != null and type == 0">
+            WHERE title LIKE "%"#{key}"%"
+        </if>
+        <if test="key != null and type == 1">
+            WHERE song_id = #{key}
+        </if>
+        ORDER BY id DESC
+    </select>
+
+    <select id="getBaseMusicVo" resultType="sharemer.business.api.master.vo.MusicVo">
+        SELECT id, title, album_title, other_msg, song_id,
+        score_num, score, duration, mv_id, mv_playurl, cover,
+        publish_time, songer, r_id, r_name, source_url, ctime
+        FROM t_music
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        AND `status` = 0;
+    </select>
+
+    <select id="getMusicsByUid" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_music WHERE status=0 AND r_id=#{uid}
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
+
+    <select id="getMusicsByKey" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_music WHERE status=0 AND title LIKE "%"#{key}"%"
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
+
+</mapper>

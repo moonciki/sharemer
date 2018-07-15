@@ -1,0 +1,19 @@
+table.episode th.date {
+	width: 9rem;
+}
+
+table.episode th.time {
+	width: 6rem;
+}
+
+table.episode th.avid {
+	width: 9rem;
+}
+
+table.episode th.part {
+	width: 5rem;
+}
+
+table.episode td.control {
+	width: 15em;
+}

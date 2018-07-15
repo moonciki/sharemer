@@ -1,0 +1,66 @@
+/* 滚动监听导航样式 */
+.scrollspy {
+	display: block;
+	position: fixed;
+	top: 120px;
+	right: 35px;
+}
+.scrollspy ul li a {
+	cursor: pointer;
+	padding: 10px 15px;
+}
+.scrollspy > ul > .active > a {
+	padding-left: 18px;
+	font-weight: 700;
+	color: #563d7c;
+	background-color: transparent;
+	border-left: 2px solid #563d7c;
+}
+/* 调整 Season 表单的 div 样式 */
+div.season-form {
+	margin: 5px 15px !important;
+}
+
+/* season 表格中 分类标签的样式 */
+table.season tr td span.label {
+	margin: 0px 3px;
+	line-height: 2em;
+}
+
+/* season 提交按钮样式优化*/
+.save-tip {
+	position: fixed;
+	bottom: 0px;
+	opacity: .9;
+	z-index: 3;
+	text-align: right;
+	display: none;
+	padding: 8px;
+}
+.save-tip > button {
+	margin-left: 10px;
+}
+/* 右边导航 响应式调整 */
+@media ( max-width : 1001px) {
+	.scrollspy{
+		display: none;
+	}
+}
+
+form.form-horizontal .form-group .category-dispalyed {
+	padding-top: 7px;
+	display: inline;
+}
+
+form.form-horizontal .form-group .category-dispalyed span {
+	margin: 7px 4px;
+	display: inline-block;
+}
+
+#seasonSpiderModal .modal-body .btn-group {
+	margin-bottom: 10px;
+}
+
+.table.season td.control {
+	width: 17em;
+}

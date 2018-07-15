@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+version = '0.0.9'
+dependencies {
+    api libs["mybatis"]
+    implementation libs["druid"]
+    implementation libs["mysql"]
+    implementation libs["spring-jdbc"]
+    implementation libs["slf4j"]
+    implementation libs["prometheus"]
+}
+
+jar {
+    baseName "mysql-client"
+}

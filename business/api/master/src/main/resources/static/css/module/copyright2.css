@@ -1,0 +1,17 @@
+.sr_hide_area{
+    width:100%;
+    height:auto;
+    min-height:1px;
+    border-top: solid 1px #ccc
+}
+.sr_hide_show{
+    width:200px;
+    height:20px;
+    margin:0 auto;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 2px;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc
+}

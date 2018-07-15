@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+version = '0.0.9'
+
+dependencies{
+    implementation libs['xmemcached']
+    implementation libs['fastjson']
+    implementation libs['junit']
+    implementation libs['kryo']
+    implementation libs["guava"]
+}
+
+jar {
+    baseName "memcache-client"
+}

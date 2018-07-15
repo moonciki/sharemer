@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.manager.master.dao.TagMediaMapper">
+
+    <insert id="insertMediaTag" parameterType="sharemer.business.manager.master.po.TagMedia">
+        INSERT INTO r_media_tag_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.tag_id != null">tag_id,</if>
+            <if test="pojo.media_id != null">media_id,</if>
+            <if test="pojo.type != null">`type`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.tag_id != null">#{pojo.tag_id},</if>
+            <if test="pojo.media_id != null">#{pojo.media_id},</if>
+            <if test="pojo.type != null">#{pojo.type},</if>
+        </trim>
+    </insert>
+
+    <insert id="insertTagMedia" parameterType="sharemer.business.manager.master.po.TagMedia">
+        INSERT INTO r_tag_media_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.tag_id != null">tag_id,</if>
+            <if test="pojo.media_id != null">media_id,</if>
+            <if test="pojo.type != null">`type`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.tag_id != null">#{pojo.tag_id},</if>
+            <if test="pojo.media_id != null">#{pojo.media_id},</if>
+            <if test="pojo.type != null">#{pojo.type},</if>
+        </trim>
+    </insert>
+
+    <select id="getOneFromMediaTagByMediaIdAndTagId" resultType="sharemer.business.manager.master.po.TagMedia">
+        SELECT
+        *
+        FROM
+        r_media_tag_${num}
+        WHERE media_id = #{media_id} AND tag_id = #{tag_id} AND `type` = #{type} LIMIT 1
+    </select>
+
+</mapper>
