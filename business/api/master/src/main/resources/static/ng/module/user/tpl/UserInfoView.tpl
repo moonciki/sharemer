@@ -48,6 +48,7 @@
                 <div class="u_info_all_main">
 
                 </div>
+                <span class="more_add"></span>
             </div>
             <div class="u_info_bottom_02">
                 <center><h4>个人情报</h4></center>

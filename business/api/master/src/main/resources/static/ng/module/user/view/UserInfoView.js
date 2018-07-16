@@ -2,7 +2,6 @@ define(function(require, exports, module) {
 
     seajs.use('./css/module/user_info.css');
     seajs.use('./css/module/fav.css');
-    seajs.use('./css/module/timeline.css');
 
     var menuTemplate = require('module/common/tpl/menu.tpl');
 
@@ -10,7 +9,9 @@ define(function(require, exports, module) {
 
     var FavTemplate = require('module/fav/tpl/FavListUserPageView.tpl');
 
-    var TimeLineTemplate = require('module/timeline/timeline.tpl');
+    var musTemplate = require('module/user/tpl/MusicList.tpl');
+
+    var vTemplate = require('module/user/tpl/VideoList.tpl');
 
     var User = require('module/user/model/User');
 
@@ -22,8 +23,11 @@ define(function(require, exports, module) {
         fav_need_template: $($(FavTemplate).filter("#need_mr").html().trim()),
         fav_not_template: $($(FavTemplate).filter("#not_mr").html().trim()),
 
-        init_timeline: $($(TimeLineTemplate).filter('#init_timeline').html().trim()),
-        timeline_content: $($(TimeLineTemplate).filter('#timeline_content').html().trim()),
+        init_mus: $($(musTemplate).filter('#init_mus').html().trim()),
+        mus_content: $($(musTemplate).filter('#musics_info_unit').html().trim()),
+
+        init_video: $($(vTemplate).filter('#init_video').html().trim()),
+        video_content: $($(vTemplate).filter('#videos_info_unit').html().trim()),
 
         initialize: function() {
             this.model = new User();
@@ -63,11 +67,13 @@ define(function(require, exports, module) {
             param.uid=this.model.user_id;
             param.sort=this.model.current_sort;
             param.c_p=this.model.current_page;
-            this.$el.find(".timeline_core_content").html("");
+
             if(type == 0){
+                this.$el.find(".mus_list_content").html("");
                 this.getMusicsByUid(param);
             }
             if(type == 1){
+                this.$el.find(".video_list_content").html("");
                 this.getVideosByUid(param);
             }
         },
@@ -121,8 +127,8 @@ define(function(require, exports, module) {
             param.c_p=1;
             this.model.current_page = 1;
             this.model.current_sort = 1;
-            var $div = this.init_timeline.clone();
-            $div.find('.more_data').html("<button type=\"button\" class=\"more_music btn btn-primary btn-lg btn-block\">加载更多</button>");
+            var $div = this.init_mus.clone();
+            this.$el.find('.more_add').html("<button type=\"button\" class=\"more_music btn btn-primary btn-lg btn-block\">加载更多</button>");
             view.menuChange(view.$el.find(".info_music"));
             view.$el.find(".u_info_home_top").html("<div class=\"u_info_tag u_info_tag_music\"></div>音乐分享<div class='info_media_sort_pointer time_dx' data-type='0' data-sort='1'>按时间倒序</div><div class='info_media_sort time_zx' data-type='0' data-sort='0'>按时间正序</div>");
             view.$el.find(".u_info_all_main").html($div);
@@ -137,8 +143,8 @@ define(function(require, exports, module) {
             param.c_p=1;
             this.model.current_page = 1;
             this.model.current_sort = 1;
-            var $div = this.init_timeline.clone();
-            $div.find('.more_data').html("<button type=\"button\" class=\"more_video btn btn-primary btn-lg btn-block\">加载更多</button>")
+            var $div = this.init_video.clone();
+            this.$el.find('.more_add').html("<button type=\"button\" class=\"more_video btn btn-primary btn-lg btn-block\">加载更多</button>")
             view.menuChange(view.$el.find(".info_video"));
             view.$el.find(".u_info_home_top").html("<div class=\"u_info_tag u_info_tag_video\"></div>视频分享<div class='info_media_sort_pointer time_dx' data-type='1' data-sort='1'>按时间倒序</div><div class='info_media_sort time_zx' data-type='1' data-sort='0'>按时间正序</div>");
             view.$el.find(".u_info_all_main").html($div);
@@ -169,9 +175,14 @@ define(function(require, exports, module) {
                     var mus = resp.result;
                     if(mus != null && mus !== undefined && mus.length > 0){
                         for(var i = 0; i < mus.length; i++){
-                            div.push(view.renderMusic(mus[i]));
+                            if((i+1)%4 !== 0){
+                                div.push(view.renderMusic(mus[i], true));
+                            }else{
+                                div.push(view.renderMusic(mus[i], false));
+                            }
+
                         }
-                        view.$el.find(".timeline_core_content").append(div);
+                        view.$el.find(".mus_list_content").append(div);
                         view.model.current_page+=1;
                     }else{
                         alert("已经拉到底没数据啦ヽ(•̀ω•́ )ゝ");
@@ -184,14 +195,18 @@ define(function(require, exports, module) {
         getVideosByUid: function (param) {
             var view = this;
             this.model.get_video_by_uid(param).done(function(resp) {
-                if (resp.code == 0) {
+                if (resp.code === 0) {
                     var div = [];
                     var vs = resp.result;
-                    if(vs != null && vs != undefined && vs.length > 0){
+                    if(vs != null && vs !== undefined && vs.length > 0){
                         for(var i = 0; i < vs.length; i++){
-                            div.push(view.renderVideo(vs[i]));
+                            if((i+1)%4 !== 0) {
+                                div.push(view.renderVideo(vs[i], true));
+                            }else {
+                                div.push(view.renderVideo(vs[i], false));
+                            }
                         }
-                        view.$el.find(".timeline_core_content").append(div);
+                        view.$el.find(".video_list_content").append(div);
                         view.model.current_page+=1;
                     }else{
                         alert("已经拉到底没数据啦ヽ(•̀ω•́ )ゝ");
@@ -201,31 +216,33 @@ define(function(require, exports, module) {
             });
         },
 
-        renderMusic: function (mus) {
-            var $div = this.timeline_content.clone();
-            var timed = mus.ctime.substring(0, 10).split('-');
-            var time = mus.ctime.replace("T"," ");
-            $div.find('.timeline_year').text(timed[0]);
-            $div.find('.timeline_month').text(timed[1]);
-            $div.find('.timeline_day').html(timed[2]+"<sup>th</sup>");
-            $div.find('.timeline_title').text("于 "+time+" 分享了单曲");
-            $div.find('.timeline_description').html("<div class='u_timeline_music'><div class='common_play u_timeline_music_cover' style=\"background-image: url('"+mus.cover+"')\"><div class='u_timeline_music_back_play' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+mus.song_id+"&auto=1&height=66' data-title='"+mus.title+"'></div></div>" +
-                "<div class='u_timeline_music_msg'><div class='u_timeline_music_title'><a href='/#music/info/"+mus.id+"' target='_blank'>"+mus.title+"</a></div>" +
-                "<div class='u_timeline_music_songer'>音乐人："+mus.songer+"</div></div></div>");
+        renderMusic: function (mus, right) {
+            var $div = this.mus_content.clone();
+
+            if(right){
+                $div.addClass("u_media_unit_jx");
+            }
+
+            $div.find('.u_info_mus_unit_1').html("<div class='common_play u_timeline_music_cover' style=\"background-image: url('"+mus.cover+"')\"><div class='u_timeline_music_back_play' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+mus.song_id+"&auto=1&height=66' data-title='"+mus.title+"'></div></div>");
+            $div.find('.u_info_mus_unit_2').text(mus.title);
+
             return $div;
         },
 
-        renderVideo: function (vs) {
-            var $div = this.timeline_content.clone();
-            var timed = vs.ctime.substring(0, 10).split('-');
-            var time = vs.ctime.replace("T"," ");
-            $div.find('.timeline_year').text(timed[0]);
-            $div.find('.timeline_month').text(timed[1]);
-            $div.find('.timeline_day').html(timed[2]+"<sup>th</sup>");
-            $div.find('.timeline_title').text("于 "+time+" 分享了视频");
-            $div.find('.timeline_description').html("<div class='u_timeline_music'><div class='common_play u_timeline_music_cover' style=\"background-image: url('"+vs.cover+"'), url('/image/default_v.jpg')\"><div class='u_timeline_music_back_play' data-type='1' data-url='"+vs.video_url+"' data-title='"+vs.title+"'></div></div>" +
-                "<div class='u_timeline_music_msg'><div class='u_timeline_music_title'><a href='/#video/info/"+vs.id+"' target='_blank'>"+vs.title+"</a></div>" +
-                "<div class='u_timeline_music_songer'><img src='"+vs.logo_url+"' height=\"25px\">&nbsp;&nbsp;"+vs.net_name+"</div></div></div>");
+        renderVideo: function (vs, right) {
+            var $div = this.video_content.clone();
+
+            if(right){
+                $div.addClass("u_media_unit_jx");
+            }
+
+            $div.find('.u_info_video_unit_1').html("<div class='common_play u_timeline_video_cover' style=\"background-image: url('"+vs.cover+"'), url('/image/default_v.jpg')\"><div class='u_timeline_video_back_play' data-type='1' data-url='"+vs.video_url+"' data-title='"+vs.title+"'></div></div>");
+            if(vs.title.length > 35){
+                $div.find('.u_info_video_unit_2').text(vs.title.substring(0, 35));
+            }else{
+                $div.find('.u_info_video_unit_2').text(vs.title);
+            }
+
             return $div;
         },
 

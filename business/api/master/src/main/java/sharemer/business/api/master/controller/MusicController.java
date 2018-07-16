@@ -62,7 +62,7 @@ public class MusicController {
         if(sort != 0 && sort != 1){
             sort = 1;
         }
-        c_p = (c_p-1)*10;
+        c_p = (c_p-1)*20;
         List<MusicVo> result = this.musicService.getMusicsByUid(uid, sort, c_p);
         return WrappedResult.success(result);
     }

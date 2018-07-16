@@ -162,7 +162,6 @@
     height: 40px;
     border-radius: 4px;
     font-size: 13px;
-    font-weight: bold;
     border: solid #dadada 1px;
 }
 
@@ -191,11 +190,55 @@
 }
 
 .u_info_all_main{
-    margin-top: 10px;
+    margin-top: 20px;
     width: 750px;
     float: left;
     height: auto;
     min-height: 40px;
+}
+
+.u_media_unit_jx{
+    margin-right: 28px;
+}
+
+.u_info_mus_unit{
+    width: 166px;
+    height: 226px;
+    float: left;
+}
+
+.u_info_mus_unit_1{
+    width: 166px;
+    height: 166px;
+    float: left;
+}
+
+.u_info_mus_unit_2{
+    padding-top: 5px;
+    width: 166px;
+    height: 40px;
+    font-size: 12px;
+    float: left;
+}
+
+.u_info_video_unit{
+    width: 166px;
+    height: 170px;
+    float: left;
+}
+
+.u_info_video_unit_1{
+    width: 166px;
+    height: 116px;
+    float: left;
+}
+
+.u_info_video_unit_2{
+    padding-top: 5px;
+    width: 166px;
+    height: 40px;
+    font-size: 12px;
+    float: left;
 }
 
 .u_info_bottom_02{
@@ -274,24 +317,42 @@
 }
 
 .u_timeline_music_cover{
-    border-radius: 4px;
     float: left;
-    width: 100px;
-    height: 100px;
+    width: 166px;
+    height: 166px;
     background-size: 100% 100%;
 }
 
 .u_timeline_music_back_play{
     display: none;
-    width:100px;
-    height:100px;
+    width:166px;
+    height:166px;
     background-size: 100%;
-    border-radius: 4px;
     cursor: pointer;
     background-image: url("/image/mus_play.png");
 }
 
+.u_timeline_video_cover{
+    float: left;
+    width: 166px;
+    height: 110px;
+    background-size: 100% 100%;
+}
+
+.u_timeline_video_back_play{
+    display: none;
+    width:166px;
+    height:110px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    background-image: url("/image/play_bg.png");
+}
+
 .u_timeline_music_cover:hover .u_timeline_music_back_play{
+    display: block;
+}
+
+.u_timeline_video_cover:hover .u_timeline_video_back_play{
     display: block;
 }
 
@@ -316,4 +377,6 @@
     color: #AAA;
     font-size: 12px;
 }
+
+
 

@@ -93,7 +93,7 @@
         <if test="sort == 1">
             ORDER BY ctime DESC
         </if>
-        LIMIT #{page}, 10
+        LIMIT #{page}, 20
     </select>
 
     <select id="getVideosByKey" resultType="java.lang.Integer">
