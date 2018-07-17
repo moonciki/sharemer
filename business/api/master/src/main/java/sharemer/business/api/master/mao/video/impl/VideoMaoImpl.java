@@ -63,6 +63,7 @@ public class VideoMaoImpl implements VideoMao {
                 result.forEach(v->{
                     v.setLogo_url(Constant.videoLogos.get(v.getType()));
                     v.setNet_name(Constant.videoNetName.get(v.getType()));
+                    v.setNet_color(Constant.videoColor.get(v.getType()));
                     shareMerMemcacheClient.set(MemcachedKeys.Video.getBaseVideo(v.getId()), v);
                 });
             }

@@ -3,7 +3,7 @@ define(function (require, exports, module) {
     var Video = function () {
         this.params = {
             pageNo: 1,
-            pageSize: 12
+            pageSize: 20
         };
 
         this.reply_params = {

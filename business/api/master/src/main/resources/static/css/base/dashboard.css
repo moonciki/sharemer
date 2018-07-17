@@ -23,7 +23,7 @@ body {
 }
 a{
 	text-decoration: none;
-	color: #39C5BB;
+	color: #000000;
 }
 
 a:hover{
@@ -38,7 +38,7 @@ a:focus{
 
 a:after{
 	text-decoration: none;
-	color: #39C5BB;
+	color: #000000;
 }
 /*
  * Global add-ons

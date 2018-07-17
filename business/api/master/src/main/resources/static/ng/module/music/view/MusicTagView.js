@@ -98,25 +98,15 @@ define(function(require, exports, module) {
             }
             var html = "";
             for (var i = 0; i < musics.length; i++) {
-                if(i % 2 != 0){
-                    html += "<div class='data_unit_left'>";
+
+                if((i+1)%5 != 0){
+                    html += "<div class='main_data_area_unit main_data_area_unit_jx'>";
                 }else{
-                    html += "<div class='data_unit_right'>";
+                    html += "<div class='main_data_area_unit'>";
                 }
-                html+="<div class='data_img'><div class='img_back' style=\"background-image: url("+musics[i].cover+");\"><div class='common_play img_back_play' data-title='"+musics[i].title+"' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+musics[i].song_id+"&auto=1&height=66'></div></div></div>"+
-                    "<div class='data_c1'><div class='data_c1_1'><a href='/#music/info/"+musics[i].id+"' target='_blank'>"+
-                    musics[i].title
-                    +"</a></div>" +
-                    "<div class='data_c2'><div class='data_c2_1'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;音乐人：" +
-                        musics[i].songer +
-                    "</div><div class='data_c2_1'><span class='glyphicon glyphicon-time'></span>&nbsp;&nbsp;发行时间：";
-                    if(musics[i].publish_time != null && musics[i].publish_time != undefined) {
-                        html += musics[i].publish_time.replace("T00:00","");
-                    }
-                    html+="</div></div>"+
-                    "<div class='data_c3'><span class='glyphicon glyphicon-info-sign'></span>&nbsp;&nbsp;音乐信息："+ musics[i].desc+"</div>"+
-                    "</div>";
-                html+="</div>";
+
+                html+="<div class='main_data_area_unit_cover'><div class='img_back' style=\"background-image: url("+musics[i].cover+");\"><div class='common_play img_back_play' data-title='"+musics[i].title+"' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+musics[i].song_id+"&auto=1&height=66'></div></div>" +
+                    "<div class='main_data_area_unit_txt'><a href='/#music/info/"+musics[i].id+"' target='_blank'>"+ musics[i].title +"</a></div></div></div>"
             }
             this.$el.find('.main_data_area').append(html);
             this.pagination.render(page.pageNo, page.pageCount);

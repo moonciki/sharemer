@@ -94,9 +94,11 @@ define(function(require, exports, module) {
             view.menuChange(view.$el.find(".info_home"));
             view.$el.find(".u_info_home_top").html("<div class=\"u_info_tag u_info_tag_home\"></div>首页")
             view.$el.find(".u_info_all_main").html("");
+            view.$el.find(".more_add").html("");
         },
 
         tagSc: function () {
+            this.$el.find(".more_add").html("");
             var view = this;
             var param = {};
             this.model.get_fav_list_by_uid(param).done(function(resp) {

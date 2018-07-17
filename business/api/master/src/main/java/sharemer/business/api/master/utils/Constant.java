@@ -12,6 +12,7 @@ public class Constant {
     视频源logo和网站名称*/
     public static Map<Integer, String> videoLogos = new HashMap<>();
     public static Map<Integer, String> videoNetName = new HashMap<>();
+    public static Map<Integer, String> videoColor = new HashMap<>();
 
     static {
         videoLogos.put(0, "http://static.hdslb.com/images/favicon.ico");
@@ -31,7 +32,7 @@ public class Constant {
         videoLogos.put(14, "https://ss2.bdstatic.com/kfoZeXSm1A5BphGlnYG/icon/9898.png");
         videoLogos.put(15, "https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/icon/9609.png");
 
-        videoNetName.put(0, "BiLiBiLi");
+        videoNetName.put(0, "哔哩哔哩");
         videoNetName.put(1, "AcFun");
         videoNetName.put(2, "TuCao");
         videoNetName.put(3, "优酷");
@@ -47,6 +48,23 @@ public class Constant {
         videoNetName.put(13, "搜狐视频");
         videoNetName.put(14, "新浪视频");
         videoNetName.put(15, "PPTV");
+
+        videoColor.put(0, "#ff8eb3");
+        videoColor.put(1, "#fd4c5d");
+        videoColor.put(2, "#FF1493");
+        videoColor.put(3, "#4876FF");
+        videoColor.put(4, "#66CD00");
+        videoColor.put(5, "#FFA500");
+        videoColor.put(6, "#FF4040");
+        videoColor.put(7, "#EE3A8C");
+        videoColor.put(8, "#EE0000");
+        videoColor.put(9, "#404040");
+        videoColor.put(10, "#EE9A00");
+        videoColor.put(11, "#EEB422");
+        videoColor.put(12, "#9ACD32");
+        videoColor.put(13, "#EE4000");
+        videoColor.put(14, "#63B8FF");
+        videoColor.put(15, "#4876FF");
     }
 
     public static String LOGIN_TOKEN = "user-token";

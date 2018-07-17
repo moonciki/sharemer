@@ -44,6 +44,32 @@
     margin: 0 auto;
 }
 
+.main_data_area_unit_jx{
+    margin-right: 30px;
+}
+
+.main_data_area_unit{
+    margin-top: 20px;
+    width: 186px;
+    height: 226px;
+    float: left;
+}
+
+.main_data_area_unit_cover{
+    width: 186px;
+    height: 186px;
+    border-radius: 6px;
+    float: left;
+}
+
+.main_data_area_unit_txt{
+    padding-top: 10px;
+    width: 186px;
+    height: 40px;
+    font-size: 12px;
+    float: left;
+}
+
 .tag_top{
     width: 1050px;
     min-height: 100px;
@@ -77,97 +103,23 @@
     background-image: url("http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png");
 }
 
-.data_unit_right{
-    border-bottom: solid 1px #d5d5d5;
-    border-right: solid 1px #d5d5d5;
-    width: 525px;
-    height: 150px;
-    float: left;
-}
-
-.data_unit_left{
-    border-bottom: solid 1px #d5d5d5;
-    width: 525px;
-    height: 150px;
-    float: left;
-}
-
-.data_img{
-    float: left;
-    width: 150px;
-    padding: 10px;
-    height: 150px;
-}
-
 .img_back{
-    width:130px;
-    height:130px;
+    width:186px;
+    height:186px;
     background-size: 100%;
     border-radius: 4px;
 }
 
 .img_back_play{
     display: none;
-    width:130px;
-    height:130px;
+    width:186px;
+    height:186px;
     background-size: 100%;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     background-image: url("/image/mus_play.png");
 }
 
 .img_back:hover .img_back_play{
     display: block;
-}
-
-.data_c1{
-    float: left;
-    width: 358px;
-    height: 40px;
-    padding-top: 10px;
-}
-
-.data_c1_1{
-    float: left;
-    font-size: 14px;
-    width: 308px;
-    height: 40px;
-}
-
-.data_c1_2{
-    float: left;
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    color: #ff80a6;
-    font-size: 15px;
-    text-align: center;
-    padding-top: 7px;
-    border-radius: 4px;
-    font-weight: bold;
-    background-image: url("/image/score_bg.png");
-    background-size: 100%;
-}
-
-.data_c2{
-    float: left;
-    width: 358px;
-    height: 30px;
-}
-
-.data_c2_1{
-    float: left;
-    width: 179px;
-    color: rgb(73, 73, 73);
-    height: 30px;
-}
-
-.data_c3{
-    float: left;
-    width: 348px;
-    border-top: solid 1px #dfdfe7;
-    color: rgb(145, 145, 145);
-    height: 80px;
-    line-height: 1.8;
-    padding-top: 5px;
 }

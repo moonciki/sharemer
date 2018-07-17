@@ -224,6 +224,7 @@
 .u_info_video_unit{
     width: 166px;
     height: 170px;
+    border-radius: 4px;
     float: left;
 }
 
@@ -320,6 +321,7 @@
     float: left;
     width: 166px;
     height: 166px;
+    border-radius: 4px;
     background-size: 100% 100%;
 }
 
@@ -329,6 +331,7 @@
     height:166px;
     background-size: 100%;
     cursor: pointer;
+    border-radius: 4px;
     background-image: url("/image/mus_play.png");
 }
 
@@ -336,6 +339,7 @@
     float: left;
     width: 166px;
     height: 110px;
+    border-radius: 4px;
     background-size: 100% 100%;
 }
 
@@ -345,6 +349,7 @@
     height:110px;
     background-size: 100% 100%;
     cursor: pointer;
+    border-radius: 4px;
     background-image: url("/image/play_bg.png");
 }
 

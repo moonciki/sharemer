@@ -98,27 +98,23 @@ define(function(require, exports, module) {
             }
             var html = "";
             for (var i = 0; i < videos.length; i++) {
-                if(i % 4 != 0){
-                    html += "<div class='v_data_unit_left'>";
+                if((i+1)%5 != 0){
+                    html += "<div class='v_main_data_area_unit v_main_data_area_unit_jx'>";
                 }else{
-                    html += "<div class='v_data_unit_right'>";
+                    html += "<div class='v_main_data_area_unit'>";
                 }
 
-                html+="<div class=\"v_data_01\" style=\"background-size: 100%;background-image: url('"+videos[i].cover+"'), url('/image/default_v.jpg')\"><div class='common_play v_img_back_play' data-title='"+videos[i].title+"' data-type='1' data-url='"+videos[i].video_url+"'></div></div>"+
-                "<div class=\"v_data_02\"><a href=\"/#video/info/"+videos[i].id+"\" target='_blank'>"+videos[i].title+"</a></div>"+
-                    "<div class=\"v_data_03\"><span class=\"glyphicon glyphicon-random\"></span>&nbsp;&nbsp;<b>源：</b>"+videos[i].net_name+
-                    "&nbsp;&nbsp;<span class=\"glyphicon glyphicon-time\"></span>&nbsp;&nbsp;<b>时间：</b>";
+                html+="<div class='v_main_data_area_unit_cover'><div class=\"v_data_01\" style=\"background-size: 100%;background-image: url('"+videos[i].cover+"'), url('/image/default_v.jpg')\">" +
+                    "<div class='v_net_tag' style='background-color: "+videos[i].net_color+"' title='来源'>"+videos[i].net_name+"</div>"+
+                    "<div class='common_play v_img_back_play' data-title='"+videos[i].title+"' data-type='1' data-url='"+videos[i].video_url+"'></div></div>" +
+                    "<div class='v_main_data_area_unit_txt'><a href=\"/#video/info/"+videos[i].id+"\" target='_blank' title='"+videos[i].title+"'>";
 
-                if(videos[i].mtime != null && videos[i].mtime != undefined) {
-                    html += videos[i].mtime.substring(0,10);
+                if(videos[i].title.length > 30){
+                    html+=videos[i].title.substring(0, 30);
+                }else{
+                    html+=videos[i].title;
                 }
-
-                html+="</div><div class=\"v_data_03\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;&nbsp;<b>分享人：</b><a href=\"#/user/info/"+videos[i].r_id+"\" target='_blank'>"+videos[i].r_name+"</a></div>"+
-                    "<div class=\"v_data_03\">"+
-                    "<div class=\"v_tag_base_l\"></div>"+
-                    "<div class=\"v_tag_base\" style=\"background-size: 100% 100%; background-image: url('"+videos[i].logo_url+"')\"></div>"+
-                    "<div class=\"v_tag_base_r\"></div>"+
-                    "</div></div>";
+                html+="</a></div></div></div>";
             }
             this.$el.find('.v_main_data_area').append(html);
             this.pagination.render(page.pageNo, page.pageCount);

@@ -21,6 +21,8 @@ public class VideoVo extends Video implements java.io.Serializable {
 
     private String net_name;
 
+    private String net_color;
+
     private String logo_url;
 
     private Integer is_faved = 0;
@@ -63,5 +65,13 @@ public class VideoVo extends Video implements java.io.Serializable {
 
     public void setIs_faved(Integer is_faved) {
         this.is_faved = is_faved;
+    }
+
+    public String getNet_color() {
+        return net_color;
+    }
+
+    public void setNet_color(String net_color) {
+        this.net_color = net_color;
     }
 }

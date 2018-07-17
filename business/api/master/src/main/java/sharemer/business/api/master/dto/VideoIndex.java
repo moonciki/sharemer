@@ -21,6 +21,8 @@ public class VideoIndex {
 
     private String net_name;
 
+    private String net_color;
+
     private String logo_url;
 
     private String video_url;
@@ -37,6 +39,7 @@ public class VideoIndex {
         videoIndex.setCover(videoVo.getCover());
         videoIndex.setId(videoVo.getId());
         videoIndex.setNet_name(videoVo.getNet_name());
+        videoIndex.setNet_color(videoVo.getNet_color());
         videoIndex.setLogo_url(videoVo.getLogo_url());
         videoIndex.setMtime(videoVo.getMtime());
         videoIndex.setCtime(videoVo.getCtime());
@@ -122,5 +125,13 @@ public class VideoIndex {
 
     public void setVideo_url(String video_url) {
         this.video_url = video_url;
+    }
+
+    public String getNet_color() {
+        return net_color;
+    }
+
+    public void setNet_color(String net_color) {
+        this.net_color = net_color;
     }
 }
