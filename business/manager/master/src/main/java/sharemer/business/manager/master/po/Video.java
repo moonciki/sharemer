@@ -1,5 +1,7 @@
 package sharemer.business.manager.master.po;
 
+import org.jsoup.Jsoup;
+
 import java.util.List;
 
 /**
@@ -48,7 +50,7 @@ public class Video implements java.io.Serializable {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title = Jsoup.parse(title).text();
     }
 
     public Integer getV_id() {

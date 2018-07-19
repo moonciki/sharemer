@@ -78,7 +78,7 @@ public class Constant {
     public static String FILTER_VIDEO_TAG = "音乐";
 
     public static String getBUrl(Integer avId){
-        return String.format("http://static.hdslb.com/miniloader.swf?aid=%d&page=1", avId);
+        return String.format("http://player.bilibili.com/player.html?aid=%d&page=1", avId);
     }
 
     public static String getAUrl(Integer acId, String vid){
