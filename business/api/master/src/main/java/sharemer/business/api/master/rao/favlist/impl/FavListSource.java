@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Create by 18073 on 2018/7/15.
  */
-@Repository("favListSource")
+@Repository
 public class FavListSource {
 
     @Resource

@@ -31,6 +31,9 @@ public class FavListRaoImpl implements FavListRao {
 
     @Resource
     private FavListSource favListSource;
+
+    @Resource
+    private MusicSource musicSource;
     
     @Override
     public void addFavsByUserId(Integer fid, Integer uid) {
@@ -112,7 +115,11 @@ public class FavListRaoImpl implements FavListRao {
     @Override
     public Set<String> getMusicIds(Integer fid) {
         try{
-            return sharemerRedisClient.smembers(String.format(RedisKeys.FavList.getMusicListByFavId(), fid));
+            String key = String.format(RedisKeys.FavList.getMusicListByFavId(), fid);
+            if (!constantProperties.getRedisSourceValue().equals(sharemerRedisClient.get(RedisKeys.getSourceKey(key)))) {//如果回源key不存在，或者存在但不等于当前回源键，则触发redis异步回源
+                PriorityExecutor.execute(() -> musicSource.sourceMusicIdsByFavId(fid), 1);
+            }
+            return sharemerRedisClient.smembers(key);
         }catch (Exception e){
             logger.error("get music count error ! fid = {}", fid);
         }

@@ -193,6 +193,8 @@ public class Constant {
         public static final Integer COMMON = 0;
         /** 私有收藏夹*/
         public static final Integer PRIVATE = 1;
+        /** 关系表分表个数*/
+        public static final Integer TABLE_TOTAL = 10;
     }
 
     public static class Reply{

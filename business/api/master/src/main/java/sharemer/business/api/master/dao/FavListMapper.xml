@@ -70,4 +70,10 @@
         FROM t_fav_list WHERE user_id = #{userId} AND status = 0
     </select>
 
+    <select id="getMusicIdsByFavId" resultType="java.lang.String">
+        SELECT oid
+        FROM r_list_media_${num}
+        WHERE list_id=#{favId} AND otype = 0 AND oid > 0
+    </select>
+
 </mapper>
