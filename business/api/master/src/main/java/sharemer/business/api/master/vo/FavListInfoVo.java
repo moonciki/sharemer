@@ -3,6 +3,7 @@ package sharemer.business.api.master.vo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import sharemer.business.api.master.po.FavList;
 import sharemer.business.api.master.po.Tag;
+import sharemer.business.api.master.po.User;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +24,8 @@ public class FavListInfoVo implements Serializable {
     private Integer v_count;
 
     private Integer g_count;
+
+    private User user;
 
     public FavList getFav() {
         return fav;
@@ -62,5 +65,13 @@ public class FavListInfoVo implements Serializable {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

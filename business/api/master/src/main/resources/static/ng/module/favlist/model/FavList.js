@@ -10,6 +10,7 @@ define(function (require, exports, module) {
         this.lastPage = null;
         this.favlist_id = null;
         this.favlistInfo = null;
+        this.current_type = 0;
     };
 
     FavList.prototype = {

@@ -165,24 +165,21 @@
 }
 
 .tag_style{
-    width: auto;
-    min-width: 10px;
-    height: 25px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 10px;
-    font-size: 12px;
-    color: #ff709f;
-    border: solid 1px #ff709f;
-    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 20px;
+    padding: 0 8px;
+    line-height: 20px;
+    color: #ff72b5;
+    border: 1px solid #ff72b5;
     border-radius: 100px;
-    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .tag_style:hover{
     color: #FFF;
-    background-color: #ff709f;
+    background-color: #ff72b5;
 }
 
 .data_main_video{

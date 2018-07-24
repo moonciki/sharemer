@@ -7,6 +7,7 @@ import sharemer.business.api.master.exception.BusinessRollBackException;
 import sharemer.business.api.master.mao.favlist.FavListMao;
 import sharemer.business.api.master.mao.music.MusicMao;
 import sharemer.business.api.master.mao.tag.TagMao;
+import sharemer.business.api.master.mao.user.UserMao;
 import sharemer.business.api.master.po.FavList;
 import sharemer.business.api.master.po.FavMedia;
 import sharemer.business.api.master.po.Tag;
@@ -53,6 +54,9 @@ public class FavListServiceImpl implements FavListService {
 
     @Resource
     private MusicMao musicMao;
+
+    @Resource
+    private UserMao userMao;
 
     @Override
     public void addFavList(FavList favList) {
@@ -199,6 +203,7 @@ public class FavListServiceImpl implements FavListService {
         vo.setM_count(favListRao.getMusicCount(favId));
         vo.setV_count(favListRao.getVideoCount(favId));
         vo.setG_count(favListRao.getSubCount(favId));
+        vo.setUser(userMao.getBaseOne(fav.getUser_id()));
         return vo;
     }
 

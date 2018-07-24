@@ -31,10 +31,99 @@ define(function(require, exports, module) {
         },
 
         events: {
-            'click .fl_tags': 'flTags',
+            'click .fl_tag': 'flTags',
             'click .j_fl_m_play':'fmPlay',
             'click .j_fl_m_stop':'fmStop'
         },
+
+        request: function(id) {
+            if(id == null || id == undefined || id == ""){
+                window.location.href="/#favlist";
+                return;
+            }
+            this.replyView.oid = id;
+            this.model.favlist_id = id;
+            var view = this;
+            this.model.get_fav_info().done(function (resp) {
+                if(resp.code == 0){
+                    if(resp.result != null && resp.result != undefined){
+                        var info = resp.result;
+                        view.$el.find('.fl_main_data_head_cover').html("<img src='"+info.fav.cover+"' class='cover_img'/>");
+                        view.$el.find('.fl_main_data_head_title').text(info.fav.title.substring(0, 40));
+                        var tagHtml = "<div class='fl_tag_info fl_tag_bq'></div><span class='fl_tag_text'>标签：</span>";
+                        if(info.tags != null && info.tags.length > 0){
+                            for(var i = 0; i < info.tags.length; i++){
+                                tagHtml+="<span class=\"fl_tag\" data-tag-id='"+info.tags[i].id+"'>"+info.tags[i].tag_name+"</span>"
+                            }
+                        }
+                        var infoHtml = "<div class='fl_tag_info fl_tag_user'></div><span class='fl_tag_text'>创建人：</span><a href='#user/info/"+info.user.id+"' target='_blank'>"+info.user.name+"</a>";
+                        infoHtml+="<div class='fl_tag_info fl_tag_time'></div><span class='fl_tag_text'>创建时间：</span>"+info.fav.ctime.replace("T", " ");
+                        view.$el.find('.fl_main_data_head_tag').html(tagHtml);
+                        view.$el.find('.fl_main_data_head_info').html(infoHtml);
+                        view.$el.find('.music_num').text(info.m_count);
+                        view.$el.find('.video_num').text(info.v_count);
+                        view.$el.find('.gaojian_num').text(info.g_count);
+                    }
+                }else{
+                    view.$el.find('.fl_main_data_area_info').html("<h1>-内部错误-</h1>");
+                }
+            });
+
+            this.musicList();
+
+            this.replyView.getReplies();
+        },
+
+        musicList:function(){
+
+            this.model.current_type = 0;
+            this.$el.find('.fl_main_data_body_menu_unit_pointer').removeClass("fl_main_data_body_menu_unit_pointer").addClass("fl_main_data_body_menu_unit");
+            this.$el.find('.music_list').removeClass("fl_main_data_body_menu_unit").addClass("fl_main_data_body_menu_unit_pointer");
+
+            var view = this;
+            this.model.get_fav_musics().done(function (resp) {
+                if(resp.code == 0) {
+                    var trs = [];
+                    if(resp.result.length > 0){
+                        view.putPlayHtml(resp.result[0].cover, resp.result[0].song_id, 0);
+                        for (var i = 0; i < resp.result.length; i++) {
+                            trs.push(view._renderOne(resp.result[i]));
+                        }
+                        view.$el.find('tbody').html(trs);
+                    }
+                }
+            });
+        },
+
+        _renderOne: function(music) {
+            var $tr = this.$mtrTemplate.clone();
+            $tr.find('.j_fl_m_id').text(music.id);
+            $tr.find('.j_fl_m_cover').html("<img src='"+music.cover+"' width='50px'/>")
+            $tr.find('.j_fl_m_title').html("<a href='/#music/info/"+music.id+"' target='_blank'>"+music.title+"</a>");
+            $tr.find('.j_fl_m_songer').text(music.songer);
+            $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+music.uid+"' target='_blank'>"+music.uname+"</a>")
+            $tr.find('.j_fl_m_cz').attr("data-song-id", music.song_id).attr("data-cover", music.cover).html(this.playHtml());
+            return $tr;
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         fmStop: function (event) {
             var $div = $(event.target).parents('.j_fl_m_cz');
@@ -76,65 +165,6 @@ define(function(require, exports, module) {
             var tag_id = $div.attr("data-tag-id");
             window.location.href="/#favlist/tag/"+tag_id;
         },
-
-        request: function(id) {
-            if(id == null || id == undefined || id == ""){
-                window.location.href="/#favlist";
-                return;
-            }
-            this.replyView.oid = id;
-            this.model.favlist_id = id;
-            var view = this;
-            this.model.get_fav_info().done(function (resp) {
-                if(resp.code == 0){
-                    if(resp.result != null && resp.result != undefined){
-                        var info = resp.result;
-                        view.$el.find('.fl_main_info_area').attr("style", "background-image: url('"+info.fav.cover+"');");
-                        view.$el.find('.fl_main_info_area_1_1').html("<img src='"+info.fav.cover+"' class='cover_img'/>");
-                        view.$el.find('.fl_title_font').text(info.fav.title);
-                        var tagHtml = "";
-                        if(info.tags != null && info.tags.length > 0){
-                            for(var i = 0; i < info.tags.length; i++){
-                                tagHtml+="<span class=\"fl_tag\" data-tag-id='"+info.tags[i].id+"'>"+info.tags[i].tag_name+"</span>"
-                            }
-                        }
-                        view.$el.find('.fl_tags').html(tagHtml);
-                        view.$el.find('.fl_tags').html(tagHtml);
-                        view.$el.find('.fl_m_count').text(info.m_count);
-                        view.$el.find('.fl_v_count').text(info.v_count);
-                        view.$el.find('.fl_g_count').text(info.g_count);
-                    }
-                }else{
-                    view.$el.find('.fl_main_info_area').html("<h1>-内部错误-</h1>");
-                }
-            });
-
-            var view = this;
-            this.model.get_fav_musics().done(function (resp) {
-                if(resp.code == 0) {
-                    var trs = [];
-                    if(resp.result.length > 0){
-                        view.putPlayHtml(resp.result[0].cover, resp.result[0].song_id, 0);
-                        for (var i = 0; i < resp.result.length; i++) {
-                            trs.push(view._renderOne(resp.result[i]));
-                        }
-                        view.$el.find('tbody').html(trs);
-                    }
-                }
-            });
-
-            this.replyView.getReplies();
-        },
-
-        _renderOne: function(music) {
-            var $tr = this.$mtrTemplate.clone();
-            $tr.find('.j_fl_m_id').text(music.id);
-            $tr.find('.j_fl_m_title').html("<a href='/#music/info/"+music.id+"' target='_blank'>"+music.title+"</a>");
-            $tr.find('.j_fl_m_songer').text(music.songer);
-            $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+music.uid+"' target='_blank'>"+music.uname+"</a>")
-            $tr.find('.j_fl_m_cz').attr("data-song-id", music.song_id).attr("data-cover", music.cover).html(this.playHtml());
-            return $tr;
-        }
     });
 
     module.exports = FavListInfoView;
