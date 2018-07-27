@@ -457,3 +457,42 @@ label.required {
 .sc-text{
 	background: url("http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png");
 }
+
+.page_area{
+	padding-top: 20px;
+	width: 100%;
+	height: 100px;
+	float: left;
+	text-align: center;
+}
+
+.page_main{
+	width: auto;
+	min-width: 1px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.page_unit{
+	min-width: 30px;
+	width: auto;
+	height: 30px;
+	padding: 6px;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #39C5BB;
+	border: 1px solid #39C5BB;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.page_unit:hover{
+	background-color: #39C5BB;
+	color: #FFF;
+}
+
+.page_pointer{
+	background-color: #39C5BB;
+	color: #FFF;
+}

@@ -12,7 +12,6 @@ define(function(require, exports, module) {
 
 	var Template = require('component/tpl/Pagination.tpl');
 
-	var BackboneUtil = require('util/BackboneUtil');
 	var StringUtil = require('util/StringUtil');
 
 	/**
@@ -37,7 +36,7 @@ define(function(require, exports, module) {
 		},
 
 		events: {
-			'click a.pointer': '_specClick'
+			'click div.pointer': '_specClick'
 		},
 
 		_specClick: function(event) {
@@ -50,7 +49,7 @@ define(function(require, exports, module) {
 			this.changed(pageNo);
 		},
 
-		render: function(pageNo, pageCount, totalCount ) {
+		render: function(pageNo, pageCount) {
 			var $el = this.$el;
 
 			var group = this.currentPageGroup(pageNo, pageCount);
@@ -58,29 +57,18 @@ define(function(require, exports, module) {
 			var lis = [], liTpl, liStr;
 			for (var index = group[0]; index <= group[1]; index++) {
 				if (index !== pageNo) {
-					liTpl = '<li><a class="pointer" data-page-no="{{pageNo}}">{{pageNo}}</a></li>';
+					liTpl = '<div class="page_unit pointer" data-page-no="{{pageNo}}">{{pageNo}}</div> ';
 				} else {
-					liTpl = '<li class="active"><a>{{pageNo}}</a></li>';
+					liTpl = '<div class="page_unit page_pointer">{{pageNo}}</div>';
 				}
 
 				liStr = liTpl/*.replace(/{{hash}}/g, this._hashString(index))*/.replace(/{{pageNo}}/g, index);
 
 				lis.push(liStr);
 			}
-			
-			if(pageCount-4>pageNo) {
-				liStr = '<li><a class="pointer" data-page-no="{{pageNo}}">{{pageNo}}</a></li>'/*.replace(/{{hash}}/g, this._hashString(index))*/.replace(/{{pageNo}}/g, "...");
-				lis.push(liStr);
-				liStr = '<li><a class="pointer" data-page-no="{{pageNo}}">{{pageNo}}</a></li>'/*.replace(/{{hash}}/g, this._hashString(index))*/.replace(/{{pageNo}}/g, pageCount);
-				lis.push(liStr);
-			}else if(pageCount-3>pageNo){
-				liStr = '<li><a class="pointer" data-page-no="{{pageNo}}">{{pageNo}}</a></li>'/*.replace(/{{hash}}/g, this._hashString(index))*/.replace(/{{pageNo}}/g, pageCount);
-				lis.push(liStr);
-			}
-			
 
-			$el.find('li').not(':first').not(':last').remove();
-			$(lis.join('')).insertAfter(this.$el.find('li:first'));
+			$el.find('div').not(':first').not(':last').remove();
+			$(lis.join('')).insertAfter(this.$el.find('div:first'));
 
 			this.renderPrevNext(pageNo, pageCount);
 		},

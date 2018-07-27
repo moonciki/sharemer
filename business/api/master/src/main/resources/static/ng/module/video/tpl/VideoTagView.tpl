@@ -28,4 +28,6 @@
 </div>
 
 
-<nav id="pageNav" class="center"></nav>
+<div class="page_area">
+    <div id="pageNav" class="page_main"></div>
+</div>
