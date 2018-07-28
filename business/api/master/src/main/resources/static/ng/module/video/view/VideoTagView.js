@@ -117,7 +117,7 @@ define(function(require, exports, module) {
                 html+="</a></div></div></div>";
             }
             this.$el.find('.v_main_data_area').append(html);
-            this.pagination.render(page.pageNo, page.pageCount);
+            this.pagination.render(page.pageNo, page.pageCount, page.totalCount);
         }
     });
 

@@ -110,7 +110,7 @@ define(function(require, exports, module) {
                 div.push(view.renderOne(favlists[i-1], isMr));
             }
             this.$el.find('.f_main_data_area').html(div);
-            this.pagination.render(page.pageNo, page.pageCount);
+            this.pagination.render(page.pageNo, page.pageCount, page.totalCount);
         },
 
         renderOne: function (fav, isMr) {

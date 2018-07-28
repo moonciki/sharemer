@@ -109,7 +109,7 @@ define(function(require, exports, module) {
                     "<div class='main_data_area_unit_txt'><a href='/#music/info/"+musics[i].id+"' target='_blank'>"+ musics[i].title +"</a></div></div></div>"
             }
             this.$el.find('.main_data_area').append(html);
-            this.pagination.render(page.pageNo, page.pageCount);
+            this.pagination.render(page.pageNo, page.pageCount, page.totalCount);
         }
     });
 

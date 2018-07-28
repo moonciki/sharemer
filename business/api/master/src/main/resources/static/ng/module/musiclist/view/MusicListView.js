@@ -83,7 +83,7 @@ define(function(require, exports, module) {
 
             this.$el.find('tbody').append(trs);
 
-            this.pagination.render(page.pageNo, page.pageCount);
+            this.pagination.render(page.pageNo, page.pageCount, page.totalCount);
         },
 
         _renderOne: function(musiclist) {

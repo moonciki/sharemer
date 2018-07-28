@@ -26,7 +26,7 @@ define(function(require, exports, module) {
 	 */
 	var Pagination = Backbone.View.extend({
 		template: Template,
-		groupSize: 6,
+		groupSize: 10,
 
 		initialize: function(options) {
 
@@ -49,7 +49,7 @@ define(function(require, exports, module) {
 			this.changed(pageNo);
 		},
 
-		render: function(pageNo, pageCount) {
+		render: function(pageNo, pageCount, totalCount) {
 			var $el = this.$el;
 
 			var group = this.currentPageGroup(pageNo, pageCount);
@@ -67,10 +67,10 @@ define(function(require, exports, module) {
 				lis.push(liStr);
 			}
 
-			$el.find('div').not(':first').not(':last').remove();
-			$(lis.join('')).insertAfter(this.$el.find('div:first'));
+			$el.find('div').not('.j_page_first').not('.j_prev').not('.j_next').not('.j_page_tail').not('.page_text').remove();
+			$(lis.join('')).insertAfter(this.$el.find('.j_prev'));
 
-			this.renderPrevNext(pageNo, pageCount);
+			this.renderPrevNext(pageNo, pageCount, totalCount);
 		},
 
 		currentPageGroup: function(pageNo, pageCount) {
@@ -97,15 +97,26 @@ define(function(require, exports, module) {
 			}
 		},
 
-		renderPrevNext: function(pageNo, pageCount) {
-			var $prev = this.$el.find('.j_prev'),
-				$next = this.$el.find('.j_next');
+		renderPrevNext: function(pageNo, pageCount, totalCount) {
+			var $first = this.$el.find('.j_page_first'),
+				$prev = this.$el.find('.j_prev'),
+				$next = this.$el.find('.j_next'),
+				$tail = this.$el.find('.j_page_tail'),
+            	$text = this.$el.find('.page_text');
 
-			$prev.attr('data-page-no', Math.max(1, pageNo - 1))	;
+            $first.attr('data-page-no', 1);
+            $first.toggleClass('pointer', !Boolean(pageNo == 1));
+
+            $prev.attr('data-page-no', Math.max(1, pageNo - 1))	;
 			$prev.toggleClass('pointer', !Boolean(pageNo == 1));	
 
 			$next.attr('data-page-no', Math.min(pageNo + 1, pageCount));
 			$next.toggleClass('pointer', !Boolean(pageNo == pageCount || pageCount === 0));
+
+            $tail.attr('data-page-no', pageCount);
+            $tail.toggleClass('pointer', !Boolean(pageNo == pageCount || pageCount === 0));
+
+            $text.html("共<span style='color:#ff98b6; font-weight: bold'> "+pageCount+" </span>页，共<span style='color:#ff98b6; font-weight: bold'> "+totalCount+" </span>条数据");
 		}
 	});
 
