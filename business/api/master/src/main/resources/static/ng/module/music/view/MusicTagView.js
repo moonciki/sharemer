@@ -94,8 +94,10 @@ define(function(require, exports, module) {
                 musics = page.records;
             if(musics == null || musics.length == 0){
                 this.$el.find('.main_data_area').html("<h1>再怎么找也没有啦~</h1>");
+                this.$el.find('.page_area').hide();
                 return;
             }
+            this.$el.find('.page_area').show();
             var html = "";
             for (var i = 0; i < musics.length; i++) {
 

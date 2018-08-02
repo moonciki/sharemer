@@ -95,10 +95,11 @@ define(function(require, exports, module) {
                 favlists = page.records;
             if(favlists == null || favlists.length == 0){
                 this.$el.find('.f_main_data_area').html("<h1>再怎么找也没有啦~</h1>");
+                this.$el.find('.page_area').hide();
                 return;
             }
+            this.$el.find('.page_area').show();
             var view = this;
-            var html = "";
             var div = [];
             var isMr = false;
             for (var i = 1; i <= favlists.length; i++) {
