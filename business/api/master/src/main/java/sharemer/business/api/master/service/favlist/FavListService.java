@@ -25,8 +25,10 @@ public interface FavListService {
 
     FavListInfoVo getFavListInfo(Integer favId);
 
-    List getMusicsByFavId(Integer favId);
+    Page getMusicsByFavId(Integer favId, Integer pageNo, Integer pageSize);
 
-    List<FavList> getFavsByKey(String key, Integer sort, Integer c_p);
+    Page getVideosByFavId(Integer favId, Integer pageNo, Integer pageSize);
+
+    List<FavList> getFavsByKey(String key, Integer sort, Integer cp);
 
 }

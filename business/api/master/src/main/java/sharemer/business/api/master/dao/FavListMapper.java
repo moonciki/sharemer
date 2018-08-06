@@ -27,4 +27,6 @@ public interface FavListMapper {
     List<FavList> getFavsByUserId(@Param("userId") Integer userId);
 
     List<String> getMusicIdsByFavId(@Param("favId") Integer favId, @Param("num") Integer num);
+
+    List<String> getVideoIdsByFavId(@Param("favId") Integer favId, @Param("num") Integer num);
 }

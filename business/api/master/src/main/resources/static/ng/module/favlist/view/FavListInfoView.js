@@ -10,6 +10,8 @@ define(function(require, exports, module) {
 
     var ReplyView = require('module/reply/view/ReplyView');
 
+    var Pagination = require('component/Pagination');
+
     var FavListInfoView = Backbone.View.extend({
         m_template: menuTemplate,
         template: Template,
@@ -23,6 +25,13 @@ define(function(require, exports, module) {
             view.$el.find('.menu_unit_point').removeClass("menu_unit_point").addClass("menu_unit");
             view.$el.find('.favlist').removeClass("menu_unit").addClass("menu_unit_point");
 
+            this.pagination = new Pagination({
+                el: '#pageNav',
+                changed: function(newPageNo) {
+                    view.transferPage(newPageNo);
+                }
+            });
+
             this.replyView = new ReplyView({
                 oid: this.id,
                 otype: 0,
@@ -33,7 +42,10 @@ define(function(require, exports, module) {
         events: {
             'click .fl_tag': 'flTags',
             'click .j_fl_m_play':'fmPlay',
-            'click .j_fl_m_stop':'fmStop'
+            'click .j_fl_m_stop':'fmStop',
+
+            'click .music_list':'musicList',
+            'click .video_list': 'videoList'
         },
 
         request: function(id) {
@@ -48,6 +60,10 @@ define(function(require, exports, module) {
                 if(resp.code == 0){
                     if(resp.result != null && resp.result != undefined){
                         var info = resp.result;
+                        if(info.fav.id == null || info.fav.id == undefined){
+                            view.$el.find('.fl_main_data_area_info').html("<h1>-未找到相关信息-</h1>");
+                            return false;
+                        }
                         view.$el.find('.fl_main_data_head_cover').html("<img src='"+info.fav.cover+"' class='cover_img'/>");
                         view.$el.find('.fl_main_data_head_title').text(info.fav.title.substring(0, 40));
                         var tagHtml = "<div class='fl_tag_info fl_tag_bq'></div><span class='fl_tag_text'>标签：</span>";
@@ -69,28 +85,75 @@ define(function(require, exports, module) {
                 }
             });
 
-            this.musicList();
+            this.musicList(1);
 
             this.replyView.getReplies();
         },
 
-        musicList:function(){
+        transferPage(pageNo){
+            if(this.model.current_type == 0){
+                this.musicList(pageNo);
+            }else{
+                this.videoList(pageNo);
+            }
+        },
+
+        musicList:function(pageNo){
 
             this.model.current_type = 0;
             this.$el.find('.fl_main_data_body_menu_unit_pointer').removeClass("fl_main_data_body_menu_unit_pointer").addClass("fl_main_data_body_menu_unit");
             this.$el.find('.music_list').removeClass("fl_main_data_body_menu_unit").addClass("fl_main_data_body_menu_unit_pointer");
 
+            if(pageNo == undefined || pageNo == null){
+                pageNo = 1;
+            }
+            this.model.params.pageNo = pageNo;
+
             var view = this;
             this.model.get_fav_musics().done(function (resp) {
+                var page = view.model.lastPage,
+                    musics = page.records;
                 if(resp.code == 0) {
                     var trs = [];
-                    if(resp.result.length > 0){
-                        view.putPlayHtml(resp.result[0].cover, resp.result[0].song_id, 0);
-                        for (var i = 0; i < resp.result.length; i++) {
-                            trs.push(view._renderOne(resp.result[i]));
+                    if(musics.length > 0){
+                        for (var i = 0; i < musics.length; i++) {
+                            trs.push(view._renderOne(musics[i]));
                         }
                         view.$el.find('tbody').html(trs);
+                    }else{
+                        view.$el.find('tbody').html("");
                     }
+                    view.pagination.render(page.pageNo, page.pageCount, page.totalCount);
+                }
+            });
+        },
+
+        videoList:function(pageNo){
+
+            this.model.current_type = 1;
+            this.$el.find('.fl_main_data_body_menu_unit_pointer').removeClass("fl_main_data_body_menu_unit_pointer").addClass("fl_main_data_body_menu_unit");
+            this.$el.find('.video_list').removeClass("fl_main_data_body_menu_unit").addClass("fl_main_data_body_menu_unit_pointer");
+
+            if(pageNo == undefined || pageNo == null){
+                pageNo = 1;
+            }
+            this.model.params.pageNo = pageNo;
+
+            var view = this;
+            this.model.get_fav_videos().done(function (resp) {
+                var page = view.model.lastPage,
+                    videos = page.records;
+                if(resp.code == 0) {
+                    var trs = [];
+                    if(videos.length > 0){
+                        for (var i = 0; i < videos.length; i++) {
+                            trs.push(view._renderVideoOne(videos[i]));
+                        }
+                        view.$el.find('tbody').html(trs);
+                    }else{
+                        view.$el.find('tbody').html("");
+                    }
+                    view.pagination.render(page.pageNo, page.pageCount, page.totalCount);
                 }
             });
         },
@@ -102,6 +165,17 @@ define(function(require, exports, module) {
             $tr.find('.j_fl_m_title').html("<a href='/#music/info/"+music.id+"' target='_blank'>"+music.title+"</a>");
             $tr.find('.j_fl_m_songer').text(music.songer);
             $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+music.uid+"' target='_blank'>"+music.uname+"</a>")
+            $tr.find('.j_fl_m_cz').attr("data-song-id", music.song_id).attr("data-cover", music.cover).html(this.playHtml());
+            return $tr;
+        },
+
+        _renderVideoOne: function(video) {
+            var $tr = this.$mtrTemplate.clone();
+            $tr.find('.j_fl_m_id').text(video.id);
+            $tr.find('.j_fl_m_cover').html("<img src='"+video.cover+"' width='50px'/>")
+            $tr.find('.j_fl_m_title').html("<a href='/#video/info/"+video.id+"' target='_blank'>"+video.title+"</a>");
+            $tr.find('.j_fl_m_songer').html("<img src='"+video.logo_url+"' height='25px'/>&nbsp;&nbsp;<span style='color: "+video.net_color+"'>"+video.net_name+"</span>");
+            $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+video.r_id+"' target='_blank'>"+video.r_name+"</a>")
             $tr.find('.j_fl_m_cz').attr("data-song-id", music.song_id).attr("data-cover", music.cover).html(this.playHtml());
             return $tr;
         },
@@ -149,15 +223,6 @@ define(function(require, exports, module) {
 
         playingHtml: function () {
             return "<div title='去详情页点击分享到社区吧~' class=\"fl_player_btn_group fl_share_btn\"><span class=\"glyphicon glyphicon-share-alt\"/> 去分享</div>&nbsp;&nbsp;<div title='点击停止播放' class=\"fl_player_btn_group fl_playing_btn j_fl_m_stop\"><span class=\"glyphicon glyphicon-volume-up\"/> 放送中...</div>";
-        },
-
-        putPlayHtml: function (cover, song_id, auto) {
-            this.$el.find('.fl_main_info_player').html("<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=\"1050\" height=\"90\" src=\"//music.163.com/outchain/player?type=2&amp;id="+song_id+"&amp;auto="+auto+"&amp;height=66\"></iframe>");
-            if(auto == 1){
-                this.$el.find('.fl_main_info_area_main_2_1_base').attr("style", "background-image:url('"+cover+"'),url('/image/default_cover.jpg')").addClass("fl_main_info_area_main_2_1_cp");
-            }else{
-                this.$el.find('.fl_main_info_area_main_2_1_base').attr("style", "background-image:url('"+cover+"'),url('/image/default_cover.jpg')").removeClass("fl_main_info_area_main_2_1_cp");
-            }
         },
 
         flTags: function (event) {

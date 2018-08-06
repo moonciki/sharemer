@@ -1,13 +1,16 @@
 package sharemer.business.api.master.service.favlist.impl;
 
+import com.google.common.collect.Lists;
 import sharemer.business.api.master.dao.FavListMapper;
 import sharemer.business.api.master.dao.FavMediaMapper;
 import sharemer.business.api.master.dto.MusicIndex;
+import sharemer.business.api.master.dto.VideoIndex;
 import sharemer.business.api.master.exception.BusinessRollBackException;
 import sharemer.business.api.master.mao.favlist.FavListMao;
 import sharemer.business.api.master.mao.music.MusicMao;
 import sharemer.business.api.master.mao.tag.TagMao;
 import sharemer.business.api.master.mao.user.UserMao;
+import sharemer.business.api.master.mao.video.VideoMao;
 import sharemer.business.api.master.po.FavList;
 import sharemer.business.api.master.po.FavMedia;
 import sharemer.business.api.master.po.Tag;
@@ -20,6 +23,7 @@ import sharemer.business.api.master.utils.RedisKeys;
 import sharemer.business.api.master.vo.FavListInfoVo;
 import sharemer.business.api.master.vo.MusicVo;
 import org.springframework.stereotype.Service;
+import sharemer.business.api.master.vo.VideoVo;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -57,6 +61,9 @@ public class FavListServiceImpl implements FavListService {
 
     @Resource
     private UserMao userMao;
+
+    @Resource
+    private VideoMao videoMao;
 
     @Override
     public void addFavList(FavList favList) {
@@ -208,42 +215,78 @@ public class FavListServiceImpl implements FavListService {
     }
 
     @Override
-    public List getMusicsByFavId(Integer favId) {
+    public Page<MusicIndex> getMusicsByFavId(Integer favId, Integer pageNo, Integer pageSize) {
         /** 首先获取该fav_list下所有的musicId*/
+        Page result = new Page(pageNo, pageSize);
         Set<String> musicIds = this.favListRao.getMusicIds(favId);
+
         if(musicIds != null && musicIds.size() > 0){
-            /** 需要回源的musicIds*/
-            List<Integer> needDb = new ArrayList<>();
-            List<MusicVo> currentMusics = new ArrayList<>();
-            musicIds.forEach(id->{
-                Integer idInt = Integer.parseInt(id);
-                    MusicVo musicVo = this.musicMao.getBaseOneWithoutDb(idInt);
-                    if(musicVo != null){
-                        currentMusics.add(musicVo);
-                    }else{
-                        needDb.add(idInt);
-                    }
-                });
 
-                if(needDb.size() > 0){
-                    List<MusicVo> fill = this.musicMao.setBaseMusics(needDb);
-                    if(fill != null && fill.size() > 0){
-                        /** 回源成功，将回源后的结果并入结果集*/
-                        currentMusics.addAll(fill);
-                    }
-                }
+            result.setTotalCount(musicIds.size());
 
-                /** 封装*/
+            List<String> musicIdArr = Lists.newArrayList(musicIds);
+            int from = 0, to = 0;
+            if (pageNo > 0 && pageSize > 0) {
+                from = (pageNo - 1) * pageSize;
+                to = pageNo * pageSize;
+            }
+
+            if(to > 0 && from < musicIds.size()){
+                /** 截取当前页的musicId*/
+                List<String> ids = musicIdArr.subList(from, to > musicIds.size() ? musicIds.size() : to);
+                List<MusicVo> currentMusics = this.getMusicsByCache(ids);
+                /** 排序、封装*/
                 List<MusicIndex> finalResult = currentMusics.stream()
-                        .map(MusicIndex::getMusicIndex).collect(Collectors.toList());
-            return finalResult;
+                        .map(MusicIndex::getMusicIndex).sorted((m1, m2)->{
+                            if(m1 != null && m2 != null && m1.getPublish_time() != null && m2.getPublish_time() != null){
+                                return m1.getPublish_time().isAfter(m2.getPublish_time()) ? -1 : 1;
+                            }else{return 0;}
+                        }).collect(Collectors.toList());
+
+                result.setRecords(finalResult);
+            }
         }
-        return Collections.EMPTY_LIST;
+        return result;
     }
 
     @Override
-    public List<FavList> getFavsByKey(String key, Integer sort, Integer c_p) {
-        List<Integer> ids = this.favListMapper.getFavsByKey(key, sort, c_p);
+    public Page getVideosByFavId(Integer favId, Integer pageNo, Integer pageSize) {
+        /** 首先获取该fav_list下所有的musicId*/
+        Page result = new Page(pageNo, pageSize);
+        Set<String> videoIds = this.favListRao.getVideoIds(favId);
+
+        if(videoIds != null && videoIds.size() > 0){
+
+            result.setTotalCount(videoIds.size());
+
+            List<String> videoIdArr = Lists.newArrayList(videoIds);
+            int from = 0, to = 0;
+            if (pageNo > 0 && pageSize > 0) {
+                from = (pageNo - 1) * pageSize;
+                to = pageNo * pageSize;
+            }
+
+            if(to > 0 && from < videoIds.size()){
+                /** 截取当前页的musicId*/
+                List<String> ids = videoIdArr.subList(from, to > videoIds.size() ? videoIds.size() : to);
+                List<VideoVo> currentVideos = this.getVideosByCache(ids);
+                /** 排序、封装*/
+                List<VideoIndex> finalResult = currentVideos.stream()
+                        .map(VideoIndex::getVideoIndex).sorted((m1, m2)->{
+                            if(m1 != null && m2 != null && m1.getMtime() != null && m2.getMtime() != null){
+                                return m1.getMtime().isAfter(m2.getMtime()) ? -1 : 1;
+                            }else{return 0;}
+                        }).collect(Collectors.toList());
+
+                result.setRecords(finalResult);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<FavList> getFavsByKey(String key, Integer sort, Integer cp) {
+        List<Integer> ids = this.favListMapper.getFavsByKey(key, sort, cp);
         if(ids != null && ids.size() > 0){
             List<FavList> result = this.getFavsByCache(ids);
             result = this.sortList(sort, result);
@@ -289,4 +332,53 @@ public class FavListServiceImpl implements FavListService {
                 }).collect(Collectors.toList());
     }
 
+    private List<MusicVo> getMusicsByCache(List<String> ids){
+        /** 需要回源的musicIds*/
+        List<Integer> needDb = new ArrayList<>();
+        List<MusicVo> currentMusics = new ArrayList<>();
+        ids.forEach(id->{
+            Integer idInt = Integer.parseInt(id);
+            MusicVo musicVo = this.musicMao.getBaseOneWithoutDb(idInt);
+            if(musicVo != null){
+                currentMusics.add(musicVo);
+            }else{
+                needDb.add(idInt);
+            }
+        });
+
+        if(needDb.size() > 0){
+            List<MusicVo> fill = this.musicMao.setBaseMusics(needDb);
+            if(fill != null && fill.size() > 0){
+                /** 回源成功，将回源后的结果并入结果集*/
+                currentMusics.addAll(fill);
+            }
+        }
+
+        return currentMusics;
+    }
+
+    private List<VideoVo> getVideosByCache(List<String> ids){
+        /** 需要回源的musicIds*/
+        List<Integer> needDb = new ArrayList<>();
+        List<VideoVo> currentVideos = new ArrayList<>();
+        ids.forEach(id->{
+            Integer idInt = Integer.parseInt(id);
+            VideoVo videoVo = this.videoMao.getBaseOneWithoutDb(idInt);
+            if(videoVo != null){
+                currentVideos.add(videoVo);
+            }else{
+                needDb.add(idInt);
+            }
+        });
+
+        if(needDb.size() > 0){
+            List<VideoVo> fill = this.videoMao.setBaseVideos(needDb);
+            if(fill != null && fill.size() > 0){
+                /** 回源成功，将回源后的结果并入结果集*/
+                currentVideos.addAll(fill);
+            }
+        }
+
+        return currentVideos;
+    }
 }

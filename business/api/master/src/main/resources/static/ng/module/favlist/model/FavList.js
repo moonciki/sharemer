@@ -3,14 +3,12 @@ define(function (require, exports, module) {
     var FavList = function () {
         this.params = {
             pageNo: 1,
-            pageSize: 20
+            pageSize: 10
         };
 
         this.id = null;
         this.lastPage = null;
         this.favlist_id = null;
-        this.favlistInfo = null;
-        this.current_type = 0;
     };
 
     FavList.prototype = {
@@ -54,11 +52,34 @@ define(function (require, exports, module) {
         },
 
         get_fav_musics:function () {
-            var param = {fav_id:this.favlist_id};
+
+            var model = this;
+
+            this.params.fav_id = this.favlist_id;
             return HttpUtil.request({
                 url: STATEMENT.root + 'pc_api/get_fav_musics',
                 method: 'GET',
-                data: param
+                data: model.params
+            }).done(function (resp) {
+                if (resp.code == 0) {
+                    model.lastPage = resp.result;
+                }
+            });
+        },
+
+        get_fav_videos:function () {
+
+            var model = this;
+
+            this.params.fav_id = this.favlist_id;
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/get_fav_videos',
+                method: 'GET',
+                data: model.params
+            }).done(function (resp) {
+                if (resp.code == 0) {
+                    model.lastPage = resp.result;
+                }
             });
         }
     };

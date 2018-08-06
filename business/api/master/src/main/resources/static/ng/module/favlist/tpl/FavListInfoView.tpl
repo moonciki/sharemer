@@ -30,7 +30,7 @@
                     <th style="width: 10rem">ID</th>
                     <th style="width: 10rem">封面</th>
                     <th style="width: 20rem">标题</th>
-                    <th style="width: 15rem">作者</th>
+                    <th style="width: 15rem">来源</th>
                     <th style="width: 15rem">分享人</th>
                     <th style="width: 25rem">操作</th>
                 </tr>
@@ -38,6 +38,10 @@
                 <tbody></tbody>
             </table>
 
+        </div>
+
+        <div class="page_area">
+            <div id="pageNav" class="page_main"></div>
         </div>
 
         <div class="fl_main_info_area_reply">

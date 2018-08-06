@@ -31,7 +31,7 @@ public class FavListController {
     private UserRao userRao;
 
     @RequestMapping(value = "get_fav_by_tag", method = RequestMethod.GET)
-    public WrappedResult list(@RequestParam(value = "tag_id",required = true) Integer tag_id,
+    public WrappedResult list(@RequestParam(value = "tag_id") Integer tag_id,
                               @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
                               @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize) throws Exception{
         Page<FavList> result = this.favListService.getFavsByTag(tag_id, pageNo, pageSize);
@@ -121,13 +121,22 @@ public class FavListController {
     }
 
     @RequestMapping(value = "get_fav_info", method = RequestMethod.GET)
-    public WrappedResult info(@RequestParam(value = "fav_id", required = true) Integer fav_id){
+    public WrappedResult info(@RequestParam(value = "fav_id") Integer fav_id){
         return WrappedResult.success(this.favListService.getFavListInfo(fav_id));
     }
 
     @RequestMapping(value = "get_fav_musics", method = RequestMethod.GET)
-    public WrappedResult musics(@RequestParam(value = "fav_id", required = true) Integer fav_id){
-        return WrappedResult.success(this.favListService.getMusicsByFavId(fav_id));
+    public WrappedResult musics(@RequestParam(value = "fav_id") Integer fav_id,
+                                @RequestParam(value = "pageNo", required = false, defaultValue = "1") Integer pageNo,
+                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize){
+        return WrappedResult.success(this.favListService.getMusicsByFavId(fav_id, pageNo, pageSize));
+    }
+
+    @RequestMapping(value = "get_fav_videos", method = RequestMethod.GET)
+    public WrappedResult videos(@RequestParam(value = "fav_id") Integer fav_id,
+                                @RequestParam(value = "pageNo", required = false, defaultValue = "1") Integer pageNo,
+                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize){
+        return WrappedResult.success(this.favListService.getVideosByFavId(fav_id, pageNo, pageSize));
     }
 
 

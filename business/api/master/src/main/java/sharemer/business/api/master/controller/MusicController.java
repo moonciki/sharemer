@@ -37,7 +37,7 @@ public class MusicController {
     private MusicRao musicRao;
 
     @RequestMapping(value = "get_music_by_tag", method = RequestMethod.GET)
-    public WrappedResult list(@RequestParam(value = "tag_id",required = true) Integer tag_id,
+    public WrappedResult list(@RequestParam(value = "tag_id") Integer tag_id,
                               @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
                               @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize) throws Exception{
         Page<MusicIndex> result = this.musicService.getMusicsByTag(tag_id, pageNo, pageSize);
