@@ -54,7 +54,6 @@ define(function (require, exports, module) {
         get_fav_musics:function () {
 
             var model = this;
-
             this.params.fav_id = this.favlist_id;
             return HttpUtil.request({
                 url: STATEMENT.root + 'pc_api/get_fav_musics',

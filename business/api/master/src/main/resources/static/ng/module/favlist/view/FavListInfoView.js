@@ -44,8 +44,8 @@ define(function(require, exports, module) {
             'click .j_fl_m_play':'fmPlay',
             'click .j_fl_m_stop':'fmStop',
 
-            'click .music_list':'musicList',
-            'click .video_list': 'videoList'
+            'click .music_list':'initMusicList',
+            'click .video_list': 'initVideoList'
         },
 
         request: function(id) {
@@ -71,6 +71,8 @@ define(function(require, exports, module) {
                             for(var i = 0; i < info.tags.length; i++){
                                 tagHtml+="<span class=\"fl_tag\" data-tag-id='"+info.tags[i].id+"'>"+info.tags[i].tag_name+"</span>"
                             }
+                        }else{
+                            tagHtml+="暂无任何标签"
                         }
                         var infoHtml = "<div class='fl_tag_info fl_tag_user'></div><span class='fl_tag_text'>创建人：</span><a href='#user/info/"+info.user.id+"' target='_blank'>"+info.user.name+"</a>";
                         infoHtml+="<div class='fl_tag_info fl_tag_time'></div><span class='fl_tag_text'>创建时间：</span>"+info.fav.ctime.replace("T", " ");
@@ -96,6 +98,10 @@ define(function(require, exports, module) {
             }else{
                 this.videoList(pageNo);
             }
+        },
+
+        initMusicList: function(){
+            this.musicList(1);
         },
 
         musicList:function(pageNo){
@@ -126,6 +132,10 @@ define(function(require, exports, module) {
                     view.pagination.render(page.pageNo, page.pageCount, page.totalCount);
                 }
             });
+        },
+
+        initVideoList: function(){
+            this.videoList(1);
         },
 
         videoList:function(pageNo){
@@ -176,7 +186,7 @@ define(function(require, exports, module) {
             $tr.find('.j_fl_m_title').html("<a href='/#video/info/"+video.id+"' target='_blank'>"+video.title+"</a>");
             $tr.find('.j_fl_m_songer').html("<img src='"+video.logo_url+"' height='25px'/>&nbsp;&nbsp;<span style='color: "+video.net_color+"'>"+video.net_name+"</span>");
             $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+video.r_id+"' target='_blank'>"+video.r_name+"</a>")
-            $tr.find('.j_fl_m_cz').attr("data-song-id", music.song_id).attr("data-cover", music.cover).html(this.playHtml());
+            $tr.find('.j_fl_m_cz').attr("data-song-id", video.v_id).attr("data-cover", video.cover).html(this.playHtml());
             return $tr;
         },
 

@@ -11,15 +11,15 @@
         <div class="fl_main_data_body">
             <div class="fl_main_data_body_menu">
                 <div class="fl_main_data_body_menu_unit music_list">
-                    <span class="glyphicon glyphicon-music"></span>
+                    <span class="glyphicon glyphicon-stop"></span>
                     &nbsp;&nbsp;音频(<span class="music_num"></span>)
                 </div>
                 <div class="fl_main_data_body_menu_unit video_list">
-                    <span class="glyphicon glyphicon-film"></span>
+                    <span class="glyphicon glyphicon-stop"></span>
                     &nbsp;&nbsp;视频(<span class="video_num"></span>)
                 </div>
                 <div class="fl_main_data_body_menu_unit gaojian_list">
-                    <span class="glyphicon glyphicon-open"></span>
+                    <span class="glyphicon glyphicon-stop"></span>
                     &nbsp;&nbsp;稿件(<span class="gaojian_num"></span>)
                 </div>
             </div>
