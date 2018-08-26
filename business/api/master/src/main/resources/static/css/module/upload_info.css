@@ -1,0 +1,54 @@
+.upload_main_page{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    padding-top: 30px;
+}
+.upload_main{
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.upload_body{
+    width: 750px;
+    height: 320px;
+    background: url("/image/upload_bg.jpg");
+    margin: 0 auto;
+    background-size: 100%;
+    padding-top: 120px;
+    padding-left: 210px;
+}
+
+.upload_btn{
+    width: 350px;
+    height: 70px;
+    border-radius: 100px;
+    background-color: #00a1d6;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.upload_btn:hover{
+    background-color: #00b1e7;
+}
+
+.upload_btn_01{
+    width: 100px;
+    height: 70px;
+    float: left;
+    font-size: 45px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-right: 1px #FFF solid;
+}
+
+.upload_btn_02{
+    width: 250px;
+    height: 70px;
+    padding-top: 10px;
+    padding-left: 50px;
+    font-size: 18px;
+    float: left;
+}

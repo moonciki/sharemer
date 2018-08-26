@@ -97,7 +97,7 @@
                 </ul>
             </div>
         </div>
-        <div class="tg menu_unit">
+        <div class="tg menu_unit" onclick="window.location.href='/#upload'">
             <span class="father_tag"><span class="glyphicon glyphicon-open tu"/>投稿</span>
         </div>
         <div class="search menu_unit">

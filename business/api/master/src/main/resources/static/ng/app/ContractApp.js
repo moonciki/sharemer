@@ -141,6 +141,20 @@ define(function(require, exports, module) {
             });
         },
 
+        upload: function () {
+            var app = this;
+
+            require.async('module/upload/UploadPage', function (UploadPage) {
+                if (!(app.lastPage instanceof UploadPage)) {
+                    app.reset();
+                    app.lastPage = new UploadPage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go();
+            });
+        },
+
         renderUserInfo: function (id) {
             var app = this;
 

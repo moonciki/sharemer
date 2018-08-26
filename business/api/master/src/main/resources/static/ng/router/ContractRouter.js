@@ -20,6 +20,7 @@ define(function(require, exports, module) {
             "favlist/tag/(:id)":"favTag",
             "favlist/info/(:id)":"favInfo",
 
+            "upload":"upload",
             "search/(:key)(?*queryString)":"search",
 
             "*path": "home"
@@ -81,6 +82,10 @@ define(function(require, exports, module) {
                 var options = BackboneUtil.queryStringToObject(queryString);
             }
             this.app.search(key, options);
+        },
+
+        upload: function (){
+            this.app.upload();
         },
 
         userInfo: function (id) {
