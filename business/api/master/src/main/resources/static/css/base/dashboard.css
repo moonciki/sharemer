@@ -492,6 +492,14 @@ label.required {
     cursor: pointer;
 }
 
+.tag_text{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #d1d1d1;
+    background:rgba(0, 0, 0, 0);
+}
+
 .page_unit:hover {
     background-color: #39C5BB;
     color: #FFF;

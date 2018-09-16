@@ -26,6 +26,7 @@ dependencies {
     implementation libs["jsoup"]
     implementation libs['junit']
     implementation libs['guava']
+    implementation libs['qiniu']
 }
 
 bootJar {
