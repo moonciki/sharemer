@@ -8,13 +8,13 @@ define(function (require, exports, module) {
 
         constructor: Upload,
 
-        /*get_medias_by_key: function (param) {
+        get_up_token: function () {
             return HttpUtil.request({
-                url: STATEMENT.root + 'media/query',
-                method: 'GET',
-                data: param
+                async: false,
+                url: STATEMENT.root + 'pc_api/get_up_token',
+                method: 'GET'
             });
-        }*/
+        }
     };
 
     module.exports = Upload;

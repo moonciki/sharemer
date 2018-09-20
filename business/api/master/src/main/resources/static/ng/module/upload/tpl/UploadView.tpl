@@ -1,5 +1,5 @@
 <div class="upload_main_page">
-    <div class="upload_main" id="upload_tag" style="display: none">
+    <div class="upload_main" id="upload_tag">
         <div class="upload_body">
             <form method="post" enctype="multipart/form-data" id="form" action="upload">
                 <div class="upload_btn">
@@ -15,7 +15,7 @@
             </form>
         </div>
     </div>
-    <div class="upload_main" id="info_tag">
+    <div class="upload_main" id="info_tag" style="display: none">
         <div class="upload_info_body">
             <div class="upload_info_body_top" style="text-align: center">
                 <div class="upload_info_body_top_tip"></div>
@@ -23,15 +23,16 @@
             </div>
             <div class="upload_info_body_main">
                 <div class="upload_info_body_top" style="margin-bottom: 20px">
-                    <img src="/image/loading.gif" height="18px">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px">上传中...</span>
+                    <img id="upload_loading" src="/image/loading.gif" height="18px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="upload_loading_text" style="font-size: 18px">上传中...</span>
                     <div class="upload_info_body_loading">
-                        <div class="upload_info_body_loading_body"></div>
+
                     </div>
                 </div>
 
                 <!-- 表单-->
                 <form class="form-horizontal j_basic-form">
 
+                    <input type="hidden" class="j_file_url"/>
                     <div class="col-md-11 extra-parent">
 
                         <div class="form-group col-md-12">

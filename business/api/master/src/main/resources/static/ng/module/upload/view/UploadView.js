@@ -8,7 +8,7 @@ define(function(require, exports, module) {
 
     var Upload = require('module/upload/model/Upload');
 
-    var qiniu = require('https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js');
+    require('https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js');
 
     require('lib/plugin/bootstrap-tagsinput/0.4.2/bootstrap-tagsinput-delta');
 
@@ -35,39 +35,65 @@ define(function(require, exports, module) {
             'change .file-btn': 'upload'
         },
 
-        upload: function(){
+        upload: function(event){
+
+            var view = this;
             var file = this.$el.find(".file-btn").get(0).files[0];
+
+            var fileName = file.name;
+
+            var suffix = this.getFileType(fileName);
+            if(suffix === undefined || suffix === "" || suffix === null){
+                alert("不支持的文件格式！");
+                event.change(false);
+                return;
+            }
+
+            if(suffix !== ".mp3" && suffix !== ".wma" && suffix !== ".MP3" && suffix !== ".WMA"){
+                alert("不支持的文件格式，请刷新页面后上传正确的mp3或wma文件！");
+                this.$el.find('.file-btn').unbind();
+                return;
+            }
 
             var config = {
                 useCdnDomain: true,
-                region: "qiniu.region.z2"
+                region: null
             };
 
             var putExtra = {
-                fname: "",
+                fname: fileName,
                 params: {},
-                mimeType: [] || null
+                mimeType: null
             };
-            
+
             var token = "";
-            var observable = qiniu.upload(file, key, token, putExtra, config);
+            var key = "";
+            this.model.get_up_token().done(function(resp) {
+                if (resp.code === 0) {
+                    token = resp.result.token;
+                    key = resp.result.key;
+                }
+            });
+
+            var observable = qiniu.upload(file, key+suffix, token, putExtra, config);
 
             var observer = {
                 next(res){
-                    //接收上传进度信息，res 参数是一个带有 total 字段的 object，包含loaded、total、percent三个属性，提供上传进度信息
-                    //total.percent: number，当前上传进度，范围：0～100
+                    var percent = res.total.percent;
+                    view.$el.find('.upload_info_body_loading').html("<div class=\"upload_info_body_loading_body\" style='width: "+
+                        (782 * percent/100)
+                        +"px'></div>");
                 },
                 error(err){
-                    //参数 err 为一个包含 code、message、isRequestError 三个属性的 object
-                    //err.isRequestError: 用于区分是否 xhr 请求错误；当 xhr 请求出现错误并且后端通过 HTTP 状态码返回了错误信息时，该参数为 true；否则为 undefined
-                    //err.message: string，错误信息，包含错误码，当后端返回提示信息时也会有相应的错误信息
+                    alert("上传出错！请刷新页面重试~");
                 },
                 complete(res){
-                    //接收上传完成后的后端返回信息，res 参数为一个 object， 为上传成功后后端返回的信息，具体返回结构取决于后端sdk的配置，可参考上传策略
+                    view.$el.find("#upload_loading").hide();
+                    view.$el.find(".upload_loading_text").text("上传完成！");
+                    view.$el.find(".j_file_url").val(res.key);
                 }
             };
-            var subscription = observable.subscribe(observer);// 上传开始
-
+            observable.subscribe(observer);// 上传开始
             this.$el.find('#upload_tag').hide();
             this.$el.find('#info_tag').show();
         },
@@ -78,6 +104,13 @@ define(function(require, exports, module) {
 
         remove: function () {
             $('.j_tags').tagsinput('destroy');
+        },
+
+        getFileType: function (file){
+            var filename=file;
+            var index1=filename.lastIndexOf(".");
+            var index2=filename.length;
+            return filename.substring(index1,index2);
         }
     });
 
