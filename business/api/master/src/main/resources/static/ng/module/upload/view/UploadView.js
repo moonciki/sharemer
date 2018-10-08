@@ -32,7 +32,9 @@ define(function(require, exports, module) {
         },
 
         events: {
-            'change .file-btn': 'upload'
+            'change .file-btn': 'upload',
+            'click .yuanchuang': 'yuanchuang',
+            'click .banyun': 'banyun'
         },
 
         upload: function(event){
@@ -80,22 +82,31 @@ define(function(require, exports, module) {
             var observer = {
                 next(res){
                     var percent = res.total.percent;
-                    view.$el.find('.upload_info_body_loading').html("<div class=\"upload_info_body_loading_body\" style='width: "+
-                        (782 * percent/100)
-                        +"px'></div>");
+                    view.$el.find(".upload_loading_text").html("上传完成 <span style='color: #ff617e; font-weight: bold'>"+Math.round(percent)+"%</span>");
+                    view.$el.find(".loading-body").attr("style", "width: "+percent+"%");
                 },
                 error(err){
                     alert("上传出错！请刷新页面重试~");
                 },
                 complete(res){
                     view.$el.find("#upload_loading").hide();
-                    view.$el.find(".upload_loading_text").text("上传完成！");
+                    view.$el.find(".progress-striped").removeClass("active")
                     view.$el.find(".j_file_url").val(res.key);
                 }
             };
             observable.subscribe(observer);// 上传开始
             this.$el.find('#upload_tag').hide();
             this.$el.find('#info_tag').show();
+        },
+
+        yuanchuang: function() {
+            this.$el.find('.j_origin_title').val("").attr("disabled", true);
+            this.$el.find('.j_author').val("").attr("disabled", true);
+        },
+
+        banyun: function() {
+            this.$el.find('.j_origin_title').attr("disabled", false);
+            this.$el.find('.j_author').attr("disabled", false);
         },
 
         request: function() {
