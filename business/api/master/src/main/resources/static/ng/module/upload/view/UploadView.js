@@ -8,6 +8,8 @@ define(function(require, exports, module) {
 
     var Upload = require('module/upload/model/Upload');
 
+    var FileUploader = require('component/FileUploader');
+
     require('https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js');
 
     require('lib/plugin/bootstrap-tagsinput/0.4.2/bootstrap-tagsinput-delta');
@@ -25,10 +27,23 @@ define(function(require, exports, module) {
             view.$el.find('.menu_unit_point').removeClass("menu_unit_point").addClass("menu_unit");
             view.$el.find('.tg').removeClass("menu_unit").addClass("menu_unit_point");
 
+            this.uploader = new FileUploader({
+                el: '.j_upload-cover',
+                imageWidth: 480,
+                imageHeight: 300,
+                uploaded: function(resp) {
+                    var pic = resp;
+                    view.$el.find('.j_picture-cover').attr('src', pic.url);
+                },
+                xiuxiu: {
+                    id: 'xiuxiuepcover'
+                }
+            });
+
             $('.j_tags').tagsinput({
                 tagClass: 'label label-default',
                 containerWidth: '100%'
-        });
+            });
         },
 
         events: {

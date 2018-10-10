@@ -40,7 +40,13 @@
                         <div class="form-group col-md-15">
                             <label class="col-sm-1 control-label">封面</label>
                             <div class="col-sm-11 extra-auto">
-
+                                <div class="thumbnail">
+                                    <img class="j_picture-cover" src="" style="height: 150px;"/>
+                                    <div class="caption orange">
+                                        <h5>480 x 300</h5>
+                                        <div class="j_upload-cover"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
