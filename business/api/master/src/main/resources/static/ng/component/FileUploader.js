@@ -186,7 +186,7 @@ define(function(require, exports, module) {
 			 * 		   			同编辑器的接口(demo)）
 			 */
 			xiuxiu.embedSWF(xiuxiuId, 1, "100%", "500", xiuxiuId);
-			xiuxiu.setUploadURL("http://www.sharemer.com/picture/upload");
+			xiuxiu.setUploadURL("http://www.sharemer.com/pc_api/img/upload");
 			xiuxiu.setUploadType(2);
 			xiuxiu.setUploadDataFieldName("file");
 

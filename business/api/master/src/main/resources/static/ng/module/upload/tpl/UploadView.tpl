@@ -18,7 +18,6 @@
     <div class="upload_main" id="info_tag" >
         <div class="upload_info_body">
             <div class="upload_info_body_top" style="text-align: center">
-                <div class="upload_info_body_top_tip"></div>
                 <span style="font-size: 18px; line-height: 3.5">稿件信息单</span>
             </div>
             <div class="upload_info_body_main">
@@ -40,10 +39,10 @@
                         <div class="form-group col-md-15">
                             <label class="col-sm-1 control-label">封面</label>
                             <div class="col-sm-11 extra-auto">
-                                <div class="thumbnail">
-                                    <img class="j_picture-cover" src="" style="height: 150px;"/>
-                                    <div class="caption orange">
-                                        <h5>480 x 300</h5>
+                                <div class="thumbnail" style="padding-top:20px">
+                                    <img class="j_picture-cover" src="" width="550px"/>
+                                    <div class="caption pink">
+                                        <h5>680 x 500</h5>
                                         <div class="j_upload-cover"></div>
                                     </div>
                                 </div>

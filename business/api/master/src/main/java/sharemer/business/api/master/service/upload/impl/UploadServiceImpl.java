@@ -32,7 +32,7 @@ public class UploadServiceImpl implements UploadService {
 
         String key = UUID.randomUUID().toString().replace("-", "");
         uploadTokenInfo.setKey(key);
-        uploadTokenInfo.setToken(auth.uploadToken(constantProperties.getQiniuBucketName()));
+        uploadTokenInfo.setToken(auth.uploadToken(constantProperties.getQiniuAudioBucket()));
         return uploadTokenInfo;
     }
 

@@ -29,8 +29,8 @@ define(function(require, exports, module) {
 
             this.uploader = new FileUploader({
                 el: '.j_upload-cover',
-                imageWidth: 480,
-                imageHeight: 300,
+                imageWidth: 680,
+                imageHeight: 500,
                 uploaded: function(resp) {
                     var pic = resp;
                     view.$el.find('.j_picture-cover').attr('src', pic.url);

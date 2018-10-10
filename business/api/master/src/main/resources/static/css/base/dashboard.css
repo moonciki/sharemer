@@ -285,6 +285,10 @@ label.required {
     color: rgb(255, 142, 58) !important;
 }
 
+.pink {
+    color: rgb(255, 141, 199) !important;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px

@@ -11,6 +11,12 @@ public class ConstantProperties {
 
     private String qiniuSk;
 
+    private String qiniuAudioBucket;
+
+    private String qiniuImageDomain;
+
+    private String qiniuAudioDomain;
+
     //回源键值，该值用于redis崩溃后恢复数据回源标记用，当需要全体redis回源时只要调整该值即可
     private String redisSourceValue = "0";
 
@@ -55,5 +61,29 @@ public class ConstantProperties {
 
     public void setQiniuSk(String qiniuSk) {
         this.qiniuSk = qiniuSk;
+    }
+
+    public String getQiniuAudioBucket() {
+        return qiniuAudioBucket;
+    }
+
+    public void setQiniuAudioBucket(String qiniuAudioBucket) {
+        this.qiniuAudioBucket = qiniuAudioBucket;
+    }
+
+    public String getQiniuImageDomain() {
+        return qiniuImageDomain;
+    }
+
+    public void setQiniuImageDomain(String qiniuImageDomain) {
+        this.qiniuImageDomain = qiniuImageDomain;
+    }
+
+    public String getQiniuAudioDomain() {
+        return qiniuAudioDomain;
+    }
+
+    public void setQiniuAudioDomain(String qiniuAudioDomain) {
+        this.qiniuAudioDomain = qiniuAudioDomain;
     }
 }

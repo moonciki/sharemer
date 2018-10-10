@@ -13,8 +13,8 @@
 
 .upload_info_body{
     width: 850px;
-    height: 880px;
-    background-color: #f7f7f7;
+    min-height: 1px;
+    height: auto;
     margin: 0 auto;
 }
 .upload_info_body_top{
@@ -39,16 +39,6 @@
     border-radius: 100px;
     float: left;
     background-color: #ff98b6;
-}
-
-.upload_info_body_top_tip{
-    width: 50px;
-    height: 50px;
-    border-right: 25px solid #ebebeb;
-    border-left: 25px solid #FFF;
-    border-top: 25px solid #FFF;
-    border-bottom: 25px solid #ebebeb;
-    float: left;
 }
 
 .upload_info_body_main{
