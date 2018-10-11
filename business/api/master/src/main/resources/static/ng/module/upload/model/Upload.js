@@ -14,6 +14,14 @@ define(function (require, exports, module) {
                 url: STATEMENT.root + 'pc_api/get_up_token',
                 method: 'GET'
             });
+        },
+
+        save_archive: function (param) {
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/save/archive',
+                method: 'POST',
+                data: param
+            });
         }
     };
 

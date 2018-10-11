@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
     seajs.use('./css/module/upload_info.css');
 
@@ -18,7 +18,7 @@ define(function(require, exports, module) {
         m_template: menuTemplate,
         template: Template,
         $mtrTemplate: $($(Template).html().trim()),
-        initialize: function() {
+        initialize: function () {
             this.model = new Upload();
             this.$el.append(this.m_template);
             this.$el.append(this.template);
@@ -31,7 +31,7 @@ define(function(require, exports, module) {
                 el: '.j_upload-cover',
                 imageWidth: 680,
                 imageHeight: 500,
-                uploaded: function(resp) {
+                uploaded: function (resp) {
                     var pic = resp;
                     view.$el.find('.j_picture-cover').attr('src', pic.url);
                 },
@@ -49,10 +49,76 @@ define(function(require, exports, module) {
         events: {
             'change .file-btn': 'upload',
             'click .yuanchuang': 'yuanchuang',
-            'click .banyun': 'banyun'
+            'click .banyun': 'banyun',
+            'click .j_add': 'add'
         },
 
-        upload: function(event){
+        add: function () {
+            var title = this.$el.find('.j_title').val();
+            if(title === null || title.trim() === ''){
+                alert("标题不能为空！");
+                return;
+            }
+            var cover = this.$el.find(".j_picture-cover").attr('src');
+            if(cover === null || cover === ''){
+                alert("封面不能为空！");
+                return;
+            }
+            var publish_type = this.$el.find('input[name="publish-type"]:checked').val();
+            if(publish_type === null || publish_type === undefined){
+                alert("请选择上传性质！");
+                return;
+            }
+            var file = this.$el.find('.j_file_url').val();
+            if(file === null || file === ''){
+                alert("文件还未上传完成，请耐心等待~");
+                return;
+            }
+
+            var origin_title = this.$el.find('.j_origin_title ').val();
+            var origin_author = this.$el.find('.j_origin_author').val();
+
+            if(publish_type != 0){
+                if(origin_title === null || origin_title.trim() === ''
+                || origin_author === null || origin_author.trim() === ''){
+                    alert("当上传性质为非原创时，原作者和原作品名不能为空！");
+                    return;
+                }
+            }
+
+            var style_tag = [];
+            this.$el.find('[name=style-type]').each(function (index, ele) {
+                if (ele.checked) {
+                    style_tag.add(ele.value);
+                }
+            });
+            if(style_tag.length === 0){
+                alert("为了使您的作品更容易被发现，请至少选择一个分类！");
+                return;
+            }
+            var tags = this.$el.find('.j_tags').val();
+            var staff = this.$el.find('.j_staff').val();
+            var csrf = window.SHION.w_token;
+
+            var param = {};
+            param.title = title;
+            param.cover = cover;
+            param.publish_type = publish_type;
+            param.file = file;
+            param.origin_title = origin_title;
+            param.origin_author = origin_author;
+            param.style_tag = style_tag;
+            param.tags = tags;
+            param.staff = staff;
+            param.csrf = csrf;
+            this.model.save_archive(param).done(function (resp) {
+                if (resp.code === 0) {
+                    alert("操作成功！");
+                }
+            });
+        },
+
+        upload: function (event) {
 
             var view = this;
             var file = this.$el.find(".file-btn").get(0).files[0];
@@ -60,13 +126,13 @@ define(function(require, exports, module) {
             var fileName = file.name;
 
             var suffix = this.getFileType(fileName);
-            if(suffix === undefined || suffix === "" || suffix === null){
+            if (suffix === undefined || suffix === "" || suffix === null) {
                 alert("不支持的文件格式！");
                 event.change(false);
                 return;
             }
 
-            if(suffix !== ".mp3" && suffix !== ".wma" && suffix !== ".MP3" && suffix !== ".WMA"){
+            if (suffix !== ".mp3" && suffix !== ".wma" && suffix !== ".MP3" && suffix !== ".WMA") {
                 alert("不支持的文件格式，请刷新页面后上传正确的mp3或wma文件！");
                 this.$el.find('.file-btn').unbind();
                 return;
@@ -85,25 +151,25 @@ define(function(require, exports, module) {
 
             var token = "";
             var key = "";
-            this.model.get_up_token().done(function(resp) {
+            this.model.get_up_token().done(function (resp) {
                 if (resp.code === 0) {
                     token = resp.result.token;
                     key = resp.result.key;
                 }
             });
 
-            var observable = qiniu.upload(file, key+suffix, token, putExtra, config);
+            var observable = qiniu.upload(file, key + suffix, token, putExtra, config);
 
             var observer = {
-                next(res){
+                next(res) {
                     var percent = res.total.percent;
-                    view.$el.find(".upload_loading_text").html("上传完成 <span style='color: #ff617e; font-weight: bold'>"+Math.round(percent)+"%</span>");
-                    view.$el.find(".loading-body").attr("style", "width: "+percent+"%");
+                    view.$el.find(".upload_loading_text").html("上传完成 <span style='color: #ff617e; font-weight: bold'>" + Math.round(percent) + "%</span>");
+                    view.$el.find(".loading-body").attr("style", "width: " + percent + "%");
                 },
-                error(err){
+                error(err) {
                     alert("上传出错！请刷新页面重试~");
                 },
-                complete(res){
+                complete(res) {
                     view.$el.find("#upload_loading").hide();
                     view.$el.find(".progress-striped").removeClass("active")
                     view.$el.find(".j_file_url").val(res.key);
@@ -114,17 +180,17 @@ define(function(require, exports, module) {
             this.$el.find('#info_tag').show();
         },
 
-        yuanchuang: function() {
+        yuanchuang: function () {
             this.$el.find('.j_origin_title').val("").attr("disabled", true);
-            this.$el.find('.j_author').val("").attr("disabled", true);
+            this.$el.find('.j_origin_author').val("").attr("disabled", true);
         },
 
-        banyun: function() {
+        banyun: function () {
             this.$el.find('.j_origin_title').attr("disabled", false);
-            this.$el.find('.j_author').attr("disabled", false);
+            this.$el.find('.j_origin_author').attr("disabled", false);
         },
 
-        request: function() {
+        request: function () {
 
         },
 
@@ -132,11 +198,11 @@ define(function(require, exports, module) {
             $('.j_tags').tagsinput('destroy');
         },
 
-        getFileType: function (file){
-            var filename=file;
-            var index1=filename.lastIndexOf(".");
-            var index2=filename.length;
-            return filename.substring(index1,index2);
+        getFileType: function (file) {
+            var filename = file;
+            var index1 = filename.lastIndexOf(".");
+            var index2 = filename.length;
+            return filename.substring(index1, index2);
         }
     });
 

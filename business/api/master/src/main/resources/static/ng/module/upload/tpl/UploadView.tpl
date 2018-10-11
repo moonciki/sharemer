@@ -1,5 +1,5 @@
 <div class="upload_main_page">
-    <div class="upload_main" id="upload_tag" style="display: none">
+    <div class="upload_main" id="upload_tag">
         <div class="upload_body">
             <form method="post" enctype="multipart/form-data" id="form" action="upload">
                 <div class="upload_btn">
@@ -15,7 +15,7 @@
             </form>
         </div>
     </div>
-    <div class="upload_main" id="info_tag" >
+    <div class="upload_main" id="info_tag" style="display: none">
         <div class="upload_info_body">
             <div class="upload_info_body_top" style="text-align: center">
                 <span style="font-size: 18px; line-height: 3.5">稿件信息单</span>
@@ -75,7 +75,7 @@
                         <div class="form-group col-md-15">
                             <label class="col-sm-1 control-label">作者</label>
                             <div class="col-sm-11 extra-auto">
-                                <input type="text" class="j_author form-control" placeholder="请输入原作者名" maxlength="255">
+                                <input type="text" class="j_origin_author form-control" placeholder="请输入原作者名" maxlength="255">
                             </div>
                         </div>
 
