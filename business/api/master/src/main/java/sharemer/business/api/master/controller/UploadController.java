@@ -73,7 +73,7 @@ public class UploadController {
                 return null;
             }
 
-            String key = UUID.randomUUID().toString().replace("-", "") + suffix;
+            String key = "covers/"+UUID.randomUUID().toString().replace("-", "") + suffix;
 
             try {
                 byte[] uploadBytes = file.getBytes();
