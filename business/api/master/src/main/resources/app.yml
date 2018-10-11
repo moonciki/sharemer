@@ -47,13 +47,4 @@ sharemer:
         M: http://www.missevan.com/sound/player?id=%d
         MTV: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003
 
-  constant:
-      api:
-        redisSourceValue: 3
-        redisSourceRate: 500
-        qiniuBucketName: shion
-        qiniuImageDomain: http://oyjdgrp4g.bkt.clouddn.com
-        qiniuAk: QG_0b-IP3i1Tod_Atgxeu3lnSUW7NSG5a_m2DJMr
-        qiniuSk: Ga7jpq69Gug-3z3diC8Ex9vqGR07SyTp2LX6HrFf
-        qiniuAudioBucket: video
-        qiniuAudioDomain: http://oki0xo3pw.bkt.clouddn.com
+
