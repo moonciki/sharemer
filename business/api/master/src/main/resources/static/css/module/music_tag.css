@@ -100,7 +100,7 @@
     height: 40px;
     font-weight: bold;
     border: solid 1px #39C5BB;
-    background-image: url("http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png");
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .img_back{

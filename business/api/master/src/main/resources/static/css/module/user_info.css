@@ -51,7 +51,7 @@
     position: relative;
     width: 400px;
     height: 100px;
-    background-image: url("http://7xwibn.com1.z0.glb.clouddn.com/static/ss.png");
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
     float: left;
 }
