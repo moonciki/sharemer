@@ -129,6 +129,17 @@ public class Constant {
 
     public static String FILTER_VIDEO_TAG = "音乐";
 
+    public static class TagMedia{
+        /** 音乐*/
+        public static final int MUSIC_TYPE = 0;
+        /** 视频*/
+        public static final int PV_TYPE = 1;
+        /** 稿件*/
+        public static final int GAOJIAN_TYPE = 2;
+        /** 收藏单*/
+        public static final int FAV_LIST_TYPE = 3;
+    }
+
     public static class Video{
 
         public static final int TYPE_BILIBILI = 0;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.manager.master.dao.ImagesMapper">
+
+    <insert id="insert" parameterType="sharemer.business.manager.master.po.Images" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_images
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.origin_url != null">origin_url,</if>
+            <if test="pojo.qiniu_url != null">qiniu_url,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.origin_url != null">#{pojo.origin_url},</if>
+            <if test="pojo.qiniu_url != null">#{pojo.qiniu_url},</if>
+        </trim>
+    </insert>
+
+    <select id="getOneByOriginUrl" resultType="sharemer.business.manager.master.po.Images">
+        SELECT *
+        FROM
+        t_images
+        WHERE origin_url = #{origin_url} LIMIT 1
+    </select>
+
+</mapper>

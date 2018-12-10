@@ -13,5 +13,7 @@ public interface FavListMapper {
 
     void insert(@Param("pojo") FavList favList);
 
+    void update(@Param("pojo") FavList favList);
+
     FavList getBaseOne(@Param("id") Integer id);
 }

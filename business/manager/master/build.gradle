@@ -25,6 +25,7 @@ dependencies {
     implementation libs["codec"]
     implementation libs["jsoup"]
     implementation libs['junit']
+    implementation libs['qiniu']
 }
 
 bootJar {

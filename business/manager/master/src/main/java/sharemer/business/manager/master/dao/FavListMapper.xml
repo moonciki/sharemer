@@ -24,6 +24,15 @@
         </trim>
     </insert>
 
+    <update id="update" parameterType="sharemer.business.manager.master.po.FavList">
+        UPDATE t_fav_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">`title` = #{pojo.title},</if>
+            <if test="pojo.cover != null">wy_id = #{pojo.wy_id},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+
     <select id="getBaseOne" resultType="sharemer.business.manager.master.po.FavList">
         SELECT *
         FROM
