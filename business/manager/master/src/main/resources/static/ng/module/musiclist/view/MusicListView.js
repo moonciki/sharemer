@@ -91,6 +91,7 @@ define(function(require, exports, module) {
             $tr.find('.j_id').text(musiclist.id);
             $tr.find('.j_title').html("<a href='http://music.163.com/#/playlist?id="
                 +musiclist.wy_id+"' target='_blank'>"+musiclist.title+"</a>");
+            $tr.find('.j_cover').html("<img src='"+musiclist.cover+"?imageView2/1/w/50/h/50'/>");
             $tr.find('.j_wy_id').text(musiclist.wy_id);
             $tr.find('.j_wy_type').text(musiclist.wy_type);
             $tr.find('.j_ctime').text(musiclist.ctime);

@@ -106,7 +106,7 @@ define(function(require, exports, module) {
                     html += "<div class='v_main_data_area_unit'>";
                 }
 
-                html+="<div class='v_main_data_area_unit_cover'><div class=\"v_data_01\" style=\"background-size: 100%;background-image: url('"+videos[i].cover+"'), url('/image/default_v.jpg')\">" +
+                html+="<div class='v_main_data_area_unit_cover'><div class=\"v_data_01\" style=\"background-size: 100% 100%;background-image: url('"+(videos[i].cover+"?imageView2/1/w/186/h/116")+"'), url('/image/default_v.jpg')\">" +
                     "<div class='common_play v_img_back_play' data-title='"+videos[i].title+"' data-type='1' data-url='"+videos[i].video_url+"'></div></div>" +
                     "<div class='v_main_data_area_unit_txt'><span class='label v_net_tag' style=\"background-color: "+videos[i].net_color+"\" title=\"来源\">"+videos[i].net_name+"</span>&nbsp;&nbsp;<a href=\"/#video/info/"+videos[i].id+"\" target='_blank' title='"+videos[i].title+"'>";
 

@@ -119,7 +119,7 @@ define(function(require, exports, module) {
             view.find('.uname').html("<span class='tag_base tag_share'></span>&nbsp;&nbsp;<b>分享提供者：</b><a href=\"#user/info/"+music.r_id+"\" target='_blank'>"+music.r_name+"</a>")
             view.find('.source_url').html("<a href=\""+music.source_url+"\" target='_blank'>可以点我去源站听哦(｡･ω･｡)</a>")
             view.find('.data_info_msg').text(music.other_msg);
-            view.find('.img_data_info').attr("style", "background-image:url('"+music.cover+"'),url('/image/default_cover.jpg')");
+            view.find('.img_data_info').attr("style", "background-image:url('"+(music.cover+"?imageView2/1/w/327/h/327")+"'),url('/image/default_cover.jpg')");
             view.find('.player_data_info').html("<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=330 height=86 src=\"//music.163.com/outchain/player?type=2&id="+music.song_id+"&auto=0&height=66\"></iframe>");
 
             if(music.tags != null && music.tags.length > 0){
@@ -135,7 +135,7 @@ define(function(require, exports, module) {
                 var html = "";
                 for(var i = 0; i < video.length; i++){
                     html+="<div class=\"data_main_video_area_unit\">" +
-                    "<div class=\"data_main_video_area_unit_01\" title='点击播放' style=\"background-size: 100% 100%;background-image: url('"+video[i].cover+"'), url('/image/default_v.jpg')\"><div class='common_play data_video_play_on' data-type='1' data-url='"+video[i].video_url+"' data-title='"+video[i].title+"'></div></div>"+
+                    "<div class=\"data_main_video_area_unit_01\" title='点击播放' style=\"background-size: 100% 100%;background-image: url('"+(video[i].cover+"?imageView2/1/w/227/h/150")+"'), url('/image/default_v.jpg')\"><div class='common_play data_video_play_on' data-type='1' data-url='"+video[i].video_url+"' data-title='"+video[i].title+"'></div></div>"+
                             "<div class='data_main_video_area_unit_02'><a href='/#video/info/"+video[i].id+"' target='_blank'>"+video[i].title+"</a><br/><br/>"+
                             "<span class='tag_base' style=\"background-size: 100%, 100%; background-image: url('"+video[i].logo_url+"')\"></span>&nbsp;&nbsp;<b>来源：</b> "+video[i].net_name+
                         "</div></div>"

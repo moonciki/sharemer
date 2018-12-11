@@ -45,7 +45,7 @@ public class MusicListServiceImpl implements MusicListService {
     }
 
     @Override
-    public MusicList getOneByWyId(Integer wy_id) {
+    public MusicList getOneByWyId(Long wy_id) {
         return this.musicListMapper.getOneByWyId(wy_id);
     }
 

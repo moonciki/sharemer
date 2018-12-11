@@ -9,6 +9,7 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="pojo.id != null">id,</if>
             <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.cover != null">cover,</if>
             <if test="pojo.wy_id != null">wy_id,</if>
             <if test="pojo.wy_type != null">wy_type,</if>
             <if test="pojo.is_done != null">is_done,</if>
@@ -16,6 +17,7 @@
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="pojo.id != null">#{pojo.id},</if>
             <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.cover != null">#{pojo.cover},</if>
             <if test="pojo.wy_id != null">#{pojo.wy_id},</if>
             <if test="pojo.wy_type != null">#{pojo.wy_type},</if>
             <if test="pojo.is_done != null">#{pojo.is_done},</if>
@@ -26,6 +28,7 @@
         UPDATE t_music_list
         <trim prefix="set" suffixOverrides=",">
             <if test="pojo.title != null">`title` = #{pojo.title},</if>
+            <if test="pojo.cover != null">cover = #{pojo.cover},</if>
             <if test="pojo.wy_id != null">wy_id = #{pojo.wy_id},</if>
             <if test="pojo.wy_type != null">wy_type = #{pojo.wy_type},</if>
             <if test="pojo.is_done != null">is_done = #{pojo.is_done},</if>
@@ -37,6 +40,7 @@
         UPDATE t_music_list
         <trim prefix="set" suffixOverrides=",">
             <if test="pojo.title != null">`title` = #{pojo.title},</if>
+            <if test="pojo.cover != null">wy_id = #{pojo.cover},</if>
             <if test="pojo.wy_id != null">wy_id = #{pojo.wy_id},</if>
             <if test="pojo.wy_type != null">wy_type = #{pojo.wy_type},</if>
             <if test="pojo.is_done != null">is_done = #{pojo.is_done},</if>

@@ -98,7 +98,7 @@ define(function(require, exports, module) {
             var $tr = this.$trTemplate.clone();
             $tr.find('.j_id').text(video.id);
             $tr.find('.j_title').html(video.title);
-            $tr.find('.j_cover').html("<img src=\""+video.cover+"\" width = \"50px\"/>");
+            $tr.find('.j_cover').html("<img src=\""+video.cover+"?imageView2/1/w/50/h/50\"/>");
             $tr.find('.j_source').html("<img src=\""+video.logo_url+"\" height='20px'/>&nbsp;&nbsp;"+video.net_name)
             $tr.find('.j_vid').text(video.v_id);
             $tr.find('.j_page').text(video.page);

@@ -14,7 +14,7 @@ public interface MusicListMapper {
 
     MusicList one(@Param("id") Integer id);
 
-    MusicList getOneByWyId(@Param("wy_id") Integer wy_id);
+    MusicList getOneByWyId(@Param("wy_id") Long wy_id);
 
     void insert(@Param("pojo") MusicList musicList);
 

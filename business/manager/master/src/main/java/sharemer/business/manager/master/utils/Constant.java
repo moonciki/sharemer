@@ -138,6 +138,8 @@ public class Constant {
         public static final int GAOJIAN_TYPE = 2;
         /** 收藏单*/
         public static final int FAV_LIST_TYPE = 3;
+        /** 网易音单*/
+        public static final int MUSIC_LIST_TYPE = 4;
     }
 
     public static class Video{

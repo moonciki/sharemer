@@ -11,7 +11,7 @@ import sharemer.business.manager.master.vo.remote.mtv.MtvReqData;
  */
 public interface AllRemoteApiService {
 
-    WyObj getMusicsByListId(int id) throws BusinessException;
+    WyObj getMusicsByListId(Long id) throws BusinessException;
 
     String getMvUrlByMvId(int mv_id) throws BusinessException;
 

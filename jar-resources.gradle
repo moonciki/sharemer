@@ -16,11 +16,9 @@ ext{
             'codec'                 : '1.11',
             'xmemcached'            : '2.4.2',
             'kryo'                  : '4.0.2',
-            'webmagic'              : '0.6.1',
             'redis'                 : '2.9.0',
             'jsoup'                 : '1.11.3',
             'qiniu'                 : '7.2.16',
-            'webmagic'              : '0.7.3'
     ]
     libs = [
             'junit'                   : "junit:junit:${versions['junit']}",
@@ -48,11 +46,8 @@ ext{
             'codec'                   : "commons-codec:commons-codec:${versions['codec']}",
             'xmemcached'              : "com.googlecode.xmemcached:xmemcached:${versions['xmemcached']}",
             'kryo'                    : "com.esotericsoftware:kryo:${versions['kryo']}",
-            'webmagic'                : "us.codecraft:webmagic-core:${versions['webmagic']}",
-            'webmagic-extension'      : "us.codecraft:webmagic-extension:${versions['webmagic']}",
             'redis'                   : "redis.clients:jedis:${versions['redis']}",
             'jsoup'                   : "org.jsoup:jsoup:${versions['jsoup']}",
-            'qiniu'                   : "com.qiniu:qiniu-java-sdk:${versions['qiniu']}",
-            'webmagic'                : "us.codecraft:webmagic-core:${versions['webmagic']}"
+            'qiniu'                   : "com.qiniu:qiniu-java-sdk:${versions['qiniu']}"
     ]
 }

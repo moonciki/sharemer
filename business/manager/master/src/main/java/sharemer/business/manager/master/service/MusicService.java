@@ -24,7 +24,7 @@ public interface MusicService {
 
     void videoAdd(Music music) throws BusinessException;
 
-    void deepMusic(Integer list_id) throws BusinessException;
+    void deepMusic(Long list_id) throws BusinessException;
 
     String getMvUrl(Integer mv_id) throws BusinessException;
 

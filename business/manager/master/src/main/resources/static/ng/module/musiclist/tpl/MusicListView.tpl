@@ -28,11 +28,12 @@
 <thead>
 <tr>
     <th style="width: 4rem">ID</th>
-    <th style="width: 30rem">标题</th>
+    <th style="width: 20rem">标题</th>
+    <th style="width: 15rem">封面</th>
     <th style="width: 10rem">网易云ID</th>
     <th style="width: 7rem">网易云TYPE</th>
     <th style="width: 8rem">导入状态</th>
-    <th style="width: 15rem">添加日期</th>
+    <th style="width: 10rem">添加日期</th>
     <th style="width: 4rem">操作</th>
 </tr>
 </thead>
@@ -43,6 +44,7 @@
 <tr>
     <td class="j_id"></td>
     <td class="j_title"></td>
+    <td class="j_cover"></td>
     <td class="j_wy_id"></td>
     <td class="j_wy_type"></td>
     <td class="j_is_done"></td>

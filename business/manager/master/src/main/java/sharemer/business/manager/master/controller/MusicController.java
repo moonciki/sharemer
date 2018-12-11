@@ -27,7 +27,7 @@ public class MusicController {
 
     @RequestMapping(value = "spider", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult addAllMusic(@RequestParam(value = "list_id", required = true) Integer list_id) throws Exception{
+    public WrappedResult addAllMusic(@RequestParam(value = "list_id") Long list_id) throws Exception{
         try{
             long start = System.currentTimeMillis();
             musicService.deepMusic(list_id);

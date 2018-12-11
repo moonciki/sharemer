@@ -76,7 +76,7 @@ public class AllRemoteApiServiceImpl implements AllRemoteApiService {
 
 
     @Override
-    public WyObj getMusicsByListId(int id) {
+    public WyObj getMusicsByListId(Long id) {
         ReqCall<WyObj> call = netEaseRemoteApi.getMusicsByListId(id);
         try {
             Response<WyObj> response = call.execute();

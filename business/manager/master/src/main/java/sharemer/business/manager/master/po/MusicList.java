@@ -11,7 +11,9 @@ public class MusicList {
 
     private String title;
 
-    private Integer wy_id;
+    private String cover;
+
+    private Long wy_id;
 
     private String wy_type;
 
@@ -35,11 +37,11 @@ public class MusicList {
         this.title = title;
     }
 
-    public Integer getWy_id() {
+    public Long getWy_id() {
         return wy_id;
     }
 
-    public void setWy_id(Integer wy_id) {
+    public void setWy_id(Long wy_id) {
         this.wy_id = wy_id;
     }
 
@@ -65,5 +67,13 @@ public class MusicList {
 
     public void setIs_done(Integer is_done) {
         this.is_done = is_done;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 }

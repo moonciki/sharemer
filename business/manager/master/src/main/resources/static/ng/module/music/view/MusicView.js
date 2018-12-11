@@ -98,7 +98,7 @@ define(function(require, exports, module) {
                     for(var i = 0; i < videos.length; i++){
                         html+="<tr><td class=\"j_v_id\">"+videos[i].id+"</td>"+
                             "<td class=\"j_v_title\">"+videos[i].title+"</td>"+
-                            "<td class=\"j_v_cover\"><img src = \""+videos[i].cover+"\" width='50px'/></td>"+
+                            "<td class=\"j_v_cover\"><img src = \""+videos[i].cover+"?imageView2/1/w/50/h/50\"/></td>"+
                             "<input type='hidden' class='j_v_url' value='"+videos[i].video_url+"'/>"+
                             "<td class=\"j_v_source\">";
                         switch(videos[i].type){

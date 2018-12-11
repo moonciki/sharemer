@@ -1,17 +1,23 @@
 package sharemer.business.manager.master.controller;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sharemer.business.manager.master.anno.NeedLogin;
 import sharemer.business.manager.master.dao.Page;
+import sharemer.business.manager.master.pipline.DownLoadPipLine;
 import sharemer.business.manager.master.po.MusicList;
+import sharemer.business.manager.master.remoteapi.AllRemoteApiService;
 import sharemer.business.manager.master.service.MusicListService;
+import sharemer.business.manager.master.utils.Constant;
+import sharemer.business.manager.master.vo.DownLoadVo;
 import sharemer.component.global.resp.WrappedResult;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.processor.PageProcessor;
+import sun.plugin.dom.core.CoreConstants;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -22,17 +28,21 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/music_list")
-public class MusicListController implements PageProcessor {
-
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(100).setTimeOut(1000);
+public class MusicListController {
 
     @Resource
     private MusicListService musicListService;
 
+    @Resource
+    private AllRemoteApiService allRemoteApiService;
+
+    @Resource
+    private DownLoadPipLine downLoadPipLine;
+
     @RequestMapping(value = "page", method = RequestMethod.GET)
     @NeedLogin
     public WrappedResult list(@RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
-                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize) throws Exception{
+                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize) throws Exception {
         Page<MusicList> page = new Page(pageNo, pageSize);
         musicListService.getAllMusicLists(page);
         return WrappedResult.success(page);
@@ -41,61 +51,46 @@ public class MusicListController implements PageProcessor {
     @RequestMapping(value = "spider", method = RequestMethod.GET)
     @NeedLogin
     public WrappedResult list(@RequestParam(value = "type", required = true) String type,
-                              @RequestParam(value = "offset", required = true) Integer offset) throws Exception{
-        List<String> urls = new ArrayList<>();
-        String url = "http://music.163.com/discover/playlist/?order=hot&cat="+type+"&limit=35&offset="+offset;
-        urls.add(url);
-        Spider.create(this).startUrls(urls).thread(1).runAsync();
-        return WrappedResult.success();
-    }
-
-    @Override
-    public void process(us.codecraft.webmagic.Page page) {
-        List<String> list = page.getHtml()
-                .xpath("p[@class='dec']/html()").all();
-
-        // 获取当前页面的主标题
-        List<String> tags = page.getHtml()
-                .xpath("span[@class='f-ff2 d-flag']/text()").all();
-
-        String wy_type = tags.size() > 0 ? tags.get(0) : "";
-        for(String c : list){
-            String title = c.substring(c.indexOf("title=")+7, c.indexOf("\" href="));
-            Integer wy_id = Integer.parseInt(
-                    c.substring(c.indexOf("id=")+3, c.indexOf("\" class")));
-
-            MusicList musicList = this.musicListService.getOneByWyId(wy_id);
-            if(musicList == null){
+                              @RequestParam(value = "offset", required = true) Integer offset) throws Exception {
+        String html = allRemoteApiService.getPlayListByType(type, offset);
+        Document doc = Jsoup.parse(html);
+        Elements divs = doc.getElementsByClass("u-cover");
+        for (Element div : divs) {
+            String wyIdStr = div.getElementsByClass("icon-play").attr("data-res-id");
+            Long wyId = Long.parseLong(wyIdStr);
+            String title = div.getElementsByClass("msk").attr("title");
+            String cover = div.getElementsByClass("j-flag").attr("src");
+            cover = String.format("%s%s", cover.substring(0, cover.indexOf("?")), "?param=200y200");
+            MusicList musicList = this.musicListService.getOneByWyId(wyId);
+            if (musicList == null) {
                 // 说明之前没有添加过这个歌单
                 musicList = new MusicList();
                 musicList.setTitle(title);
-                musicList.setWy_id(wy_id);
-                musicList.setWy_type(wy_type);
+                musicList.setWy_id(wyId);
+                musicList.setCover(cover);
+                musicList.setWy_type(type);
                 this.musicListService.add(musicList);
-            }else{
+                // 下载封面
+                downLoadPipLine.push(new DownLoadVo(musicList.getId(), cover, Constant.TagMedia.MUSIC_LIST_TYPE));
+            } else {
                 // 若之前添加过这个歌单，那么获取到tag后加上这次的tag
                 String[] types = musicList.getWy_type().split(",");
                 boolean isAddType = true;
-                if(types.length > 0){
-                    for(String type : types){
-                        if(type.equals(wy_type)){
+                if (types.length > 0) {
+                    for (String t : types) {
+                        if (t.equals(type)) {
                             isAddType = false;
                             break;
                         }
                     }
                 }
-                if(isAddType){
-                    musicList.setWy_type(musicList.getWy_type()+","+wy_type);
+                if (isAddType) {
+                    musicList.setWy_type(musicList.getWy_type() + "," + type);
                     this.musicListService.update(musicList);
                 }
             }
-
         }
-    }
-
-    @Override
-    public Site getSite() {
-        return site;
+        return WrappedResult.success();
     }
 
 }

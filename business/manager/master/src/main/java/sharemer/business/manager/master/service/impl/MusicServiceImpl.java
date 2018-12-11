@@ -114,7 +114,7 @@ public class MusicServiceImpl implements MusicService {
 
     /** 落地网易云歌单内所有的歌曲信息*/
     @Override
-    public void deepMusic(Integer list_id) throws BusinessException {
+    public void deepMusic(Long list_id) throws BusinessException {
 
         /** 首先落地收藏夹*/
         MusicList ml = this.musicListMapper.getOneByWyId(list_id);

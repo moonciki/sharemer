@@ -18,6 +18,6 @@ public interface MusicListService {
 
     MusicList one(Integer id);
 
-    MusicList getOneByWyId(Integer wy_id);
+    MusicList getOneByWyId(Long wy_id);
 
 }

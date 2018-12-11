@@ -16,14 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import sharemer.business.manager.master.config.properties.ConstantProperties;
-import sharemer.business.manager.master.dao.FavListMapper;
-import sharemer.business.manager.master.dao.ImagesMapper;
-import sharemer.business.manager.master.dao.MusicMapper;
-import sharemer.business.manager.master.dao.VideoMapper;
-import sharemer.business.manager.master.po.FavList;
-import sharemer.business.manager.master.po.Images;
-import sharemer.business.manager.master.po.Music;
-import sharemer.business.manager.master.po.Video;
+import sharemer.business.manager.master.dao.*;
+import sharemer.business.manager.master.po.*;
 import sharemer.business.manager.master.utils.Constant;
 import sharemer.business.manager.master.vo.DownLoadVo;
 
@@ -55,6 +49,9 @@ public class DownLoadPipLine {
 
     @Resource
     private FavListMapper favListMapper;
+
+    @Resource
+    private MusicListMapper musicListMapper;
 
     @Resource
     private ConstantProperties constantProperties;
@@ -119,25 +116,34 @@ public class DownLoadPipLine {
                         imagesMapper.insert(images);
                     }
 
-                    switch (downLoadVo.getMediaType()){
+                    switch (downLoadVo.getMediaType()) {
                         case Constant.TagMedia.MUSIC_TYPE:
                             Music music = new Music();
                             music.setId(downLoadVo.getId());
-                            music.setCover(images.getOrigin_url());
+                            music.setCover(images.getQiniu_url());
                             musicMapper.update(music);
                             break;
                         case Constant.TagMedia.FAV_LIST_TYPE:
                             FavList favList = new FavList();
                             favList.setId(downLoadVo.getId());
-                            favList.setCover(images.getOrigin_url());
+                            favList.setCover(images.getQiniu_url());
                             favListMapper.update(favList);
                             break;
                         case Constant.TagMedia.PV_TYPE:
                             Video video = new Video();
                             video.setId(downLoadVo.getId());
                             video.setCover(images.getQiniu_url());
+                            videoMapper.update(video);
+                            break;
+                        case Constant.TagMedia.MUSIC_LIST_TYPE:
+                            MusicList musicList = new MusicList();
+                            musicList.setId(downLoadVo.getId());
+                            musicList.setCover(images.getQiniu_url());
+                            musicListMapper.update(musicList);
                             break;
                     }
+                    logger.info("download pipline done! media_type = {}, media_id = {}, qiniu_url = {}",
+                            downLoadVo.getMediaType(), downLoadVo.getId(), images.getQiniu_url());
                 } catch (Exception e) {
                     logger.error("download pipline push task error! ", e);
                 }

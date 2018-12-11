@@ -12,7 +12,7 @@ import sharemer.component.http.response.NetEaseResponse;
 public interface NetEaseRemoteApi {
 
     @GET("/api/playlist/detail")
-    ReqCall<WyObj> getMusicsByListId(@Query("id") int id);//根据歌单获取歌单内所有的音乐信息
+    ReqCall<WyObj> getMusicsByListId(@Query("id") long id);//根据歌单获取歌单内所有的音乐信息
 
     @GET("/mv")
     ReqCall<String> getMvUrlByMvId(@Query("id")int id);//根据mvId获取mp4外链

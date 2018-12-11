@@ -107,7 +107,7 @@ define(function(require, exports, module) {
                     html += "<div class='main_data_area_unit'>";
                 }
 
-                html+="<div class='main_data_area_unit_cover'><div class='img_back' style=\"background-image: url("+musics[i].cover+");\"><div class='common_play img_back_play' data-title='"+musics[i].title+"' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+musics[i].song_id+"&auto=1&height=66'></div></div>" +
+                html+="<div class='main_data_area_unit_cover'><div class='img_back' style=\"background-image: url("+(musics[i].cover+"?imageView2/1/w/186/h/186")+");\"><div class='common_play img_back_play' data-title='"+musics[i].title+"' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+musics[i].song_id+"&auto=1&height=66'></div></div>" +
                     "<div class='main_data_area_unit_txt'><a href='/#music/info/"+musics[i].id+"' target='_blank'>"+ musics[i].title +"</a></div></div></div>"
             }
             this.$el.find('.main_data_area').append(html);
