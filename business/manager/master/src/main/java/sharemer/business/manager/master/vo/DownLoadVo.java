@@ -11,6 +11,15 @@ public class DownLoadVo {
 
     private Integer mediaType;
 
+    public DownLoadVo() {
+    }
+
+    public DownLoadVo(Integer id, String origin_url, Integer mediaType) {
+        this.id = id;
+        this.origin_url = origin_url;
+        this.mediaType = mediaType;
+    }
+
     public Integer getId() {
         return id;
     }

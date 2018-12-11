@@ -9,6 +9,7 @@ import org.springframework.util.StringUtils;
 import sharemer.business.manager.master.dao.*;
 import sharemer.business.manager.master.exception.BusinessException;
 import sharemer.business.manager.master.mao.UserMao;
+import sharemer.business.manager.master.pipline.DownLoadPipLine;
 import sharemer.business.manager.master.po.*;
 import sharemer.business.manager.master.remoteapi.AllRemoteApiService;
 import sharemer.business.manager.master.service.MusicService;
@@ -71,6 +72,9 @@ public class MusicServiceImpl implements MusicService {
 
     @Resource
     private SourceProxy sourceProxy;
+
+    @Resource
+    private DownLoadPipLine downLoadPipLine;
 
     @Override
     public List<MusicVo> getAllMusic(String key, Integer type, Page<MusicVo> page) {
@@ -244,6 +248,8 @@ public class MusicServiceImpl implements MusicService {
             music.setSource_url(sourceProxy.getNETEASESOURCE(track.getId()));
             //落地音乐信息
             this.musicMapper.insert(music);
+            // 下载封面
+            downLoadPipLine.push(new DownLoadVo(music.getId(), music.getCover(), Constant.TagMedia.MUSIC_TYPE));
             /** 落地收藏单redis关系*/
             String key = RedisKeys.FavList.getMusicListByFavId();
             sharemerRedisClient.sadd(String.format(key, favId), music.getId()+"");

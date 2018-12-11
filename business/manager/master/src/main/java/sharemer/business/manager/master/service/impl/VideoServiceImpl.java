@@ -11,6 +11,7 @@ import sharemer.business.manager.master.dao.TagMapper;
 import sharemer.business.manager.master.dao.TagMediaMapper;
 import sharemer.business.manager.master.dao.VideoMapper;
 import sharemer.business.manager.master.mao.UserMao;
+import sharemer.business.manager.master.pipline.DownLoadPipLine;
 import sharemer.business.manager.master.po.TagMedia;
 import sharemer.business.manager.master.po.User;
 import sharemer.business.manager.master.po.Video;
@@ -21,6 +22,7 @@ import sharemer.business.manager.master.utils.Constant;
 import sharemer.business.manager.master.utils.PriorityExecutor;
 import sharemer.business.manager.master.utils.SourceProxy;
 import sharemer.business.manager.master.vo.BiliSearch;
+import sharemer.business.manager.master.vo.DownLoadVo;
 import sharemer.business.manager.master.vo.remote.m.MissEvanSound;
 import sharemer.business.manager.master.vo.SearchResult;
 import sharemer.business.manager.master.vo.VideoVo;
@@ -59,6 +61,9 @@ public class VideoServiceImpl implements VideoService {
 
     @Resource
     private SourceProxy sourceProxy;
+
+    @Resource
+    private DownLoadPipLine downLoadPipLine;
 
     @Override
     public List<VideoVo> getAllVideo(String key, Integer type, Page<VideoVo> page) {
@@ -294,6 +299,8 @@ public class VideoServiceImpl implements VideoService {
                 e.printStackTrace();
             }
             videoMapper.insert(video);
+            // 下载封面
+            downLoadPipLine.push(new DownLoadVo(video.getId(), video.getCover(), Constant.TagMedia.PV_TYPE));
         }else{
             video.setId(exist.getId());
             video = exist;
