@@ -9,17 +9,22 @@ import sharemer.business.manager.master.dao.Page;
 import sharemer.business.manager.master.po.MusicList;
 import sharemer.business.manager.master.service.MusicListService;
 import sharemer.component.global.resp.WrappedResult;
+import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.processor.PageProcessor;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 18073 on 2017/5/28.
  */
 @RestController
 @RequestMapping(value = "/music_list")
-public class MusicListController {
+public class MusicListController implements PageProcessor {
 
-    //private Site site = Site.me().setRetryTimes(3).setSleepTime(100).setTimeOut(1000);
+    private Site site = Site.me().setRetryTimes(3).setSleepTime(100).setTimeOut(1000);
 
     @Resource
     private MusicListService musicListService;
@@ -37,19 +42,19 @@ public class MusicListController {
     @NeedLogin
     public WrappedResult list(@RequestParam(value = "type", required = true) String type,
                               @RequestParam(value = "offset", required = true) Integer offset) throws Exception{
-        /*List<String> urls = new ArrayList<>();
+        List<String> urls = new ArrayList<>();
         String url = "http://music.163.com/discover/playlist/?order=hot&cat="+type+"&limit=35&offset="+offset;
         urls.add(url);
-        Spider.create(this).startUrls(urls).thread(1).runAsync();*/
+        Spider.create(this).startUrls(urls).thread(1).runAsync();
         return WrappedResult.success();
     }
 
-    /*@Override
+    @Override
     public void process(us.codecraft.webmagic.Page page) {
         List<String> list = page.getHtml()
                 .xpath("p[@class='dec']/html()").all();
 
-        *//** 获取当前页面的主标题*//*
+        // 获取当前页面的主标题
         List<String> tags = page.getHtml()
                 .xpath("span[@class='f-ff2 d-flag']/text()").all();
 
@@ -61,14 +66,14 @@ public class MusicListController {
 
             MusicList musicList = this.musicListService.getOneByWyId(wy_id);
             if(musicList == null){
-                *//** 说明之前没有添加过这个歌单*//*
+                // 说明之前没有添加过这个歌单
                 musicList = new MusicList();
                 musicList.setTitle(title);
                 musicList.setWy_id(wy_id);
                 musicList.setWy_type(wy_type);
                 this.musicListService.add(musicList);
             }else{
-                *//** 若之前添加过这个歌单，那么获取到tag后加上这次的tag*//*
+                // 若之前添加过这个歌单，那么获取到tag后加上这次的tag
                 String[] types = musicList.getWy_type().split(",");
                 boolean isAddType = true;
                 if(types.length > 0){
@@ -86,11 +91,11 @@ public class MusicListController {
             }
 
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public Site getSite() {
         return site;
-    }*/
+    }
 
 }

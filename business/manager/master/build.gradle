@@ -26,6 +26,7 @@ dependencies {
     implementation libs["jsoup"]
     implementation libs['junit']
     implementation libs['qiniu']
+    implementation libs['webmagic']
 }
 
 bootJar {

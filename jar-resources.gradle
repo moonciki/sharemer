@@ -19,7 +19,8 @@ ext{
             'webmagic'              : '0.6.1',
             'redis'                 : '2.9.0',
             'jsoup'                 : '1.11.3',
-            'qiniu'                 : '7.2.16'
+            'qiniu'                 : '7.2.16',
+            'webmagic'              : '0.7.3'
     ]
     libs = [
             'junit'                   : "junit:junit:${versions['junit']}",
@@ -51,6 +52,7 @@ ext{
             'webmagic-extension'      : "us.codecraft:webmagic-extension:${versions['webmagic']}",
             'redis'                   : "redis.clients:jedis:${versions['redis']}",
             'jsoup'                   : "org.jsoup:jsoup:${versions['jsoup']}",
-            'qiniu'                   : "com.qiniu:qiniu-java-sdk:${versions['qiniu']}"
+            'qiniu'                   : "com.qiniu:qiniu-java-sdk:${versions['qiniu']}",
+            'webmagic'                : "us.codecraft:webmagic-core:${versions['webmagic']}"
     ]
 }
