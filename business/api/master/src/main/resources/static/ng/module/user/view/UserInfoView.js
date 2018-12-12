@@ -225,7 +225,7 @@ define(function(require, exports, module) {
                 $div.addClass("u_media_unit_jx");
             }
 
-            $div.find('.u_info_mus_unit_1').html("<div class='common_play u_timeline_music_cover' style=\"background-image: url('"+mus.cover+"')\"><div class='u_timeline_music_back_play' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+mus.song_id+"&auto=1&height=66' data-title='"+mus.title+"'></div></div>");
+            $div.find('.u_info_mus_unit_1').html("<div class='common_play u_timeline_music_cover' style=\"background-image: url('"+(mus.cover+"?imageView2/1/w/166/h/166")+"')\"><div class='u_timeline_music_back_play' data-type='0' data-url='//music.163.com/outchain/player?type=2&id="+mus.song_id+"&auto=1&height=66' data-title='"+mus.title+"'></div></div>");
             $div.find('.u_info_mus_unit_2').text(mus.title);
 
             return $div;
@@ -238,7 +238,7 @@ define(function(require, exports, module) {
                 $div.addClass("u_media_unit_jx");
             }
 
-            $div.find('.u_info_video_unit_1').html("<div class='common_play u_timeline_video_cover' style=\"background-image: url('"+vs.cover+"'), url('/image/default_v.jpg')\"><div class='u_timeline_video_back_play' data-type='1' data-url='"+vs.video_url+"' data-title='"+vs.title+"'></div></div>");
+            $div.find('.u_info_video_unit_1').html("<div class='common_play u_timeline_video_cover' style=\"background-image: url('"+vs.cover+"?imageView2/1/w/116/h/110'), url('/image/default_v.jpg')\"><div class='u_timeline_video_back_play' data-type='1' data-url='"+vs.video_url+"' data-title='"+vs.title+"'></div></div>");
             if(vs.title.length > 35){
                 $div.find('.u_info_video_unit_2').text(vs.title.substring(0, 35));
             }else{

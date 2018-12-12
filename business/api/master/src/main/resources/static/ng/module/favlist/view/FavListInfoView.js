@@ -171,7 +171,7 @@ define(function(require, exports, module) {
         _renderOne: function(music) {
             var $tr = this.$mtrTemplate.clone();
             $tr.find('.j_fl_m_id').text(music.id);
-            $tr.find('.j_fl_m_cover').html("<img src='"+music.cover+"' width='50px'/>")
+            $tr.find('.j_fl_m_cover').html("<img src='"+(music.cover+"?imageView2/1/w/50/h/50")+"' width='50px'/>")
             $tr.find('.j_fl_m_title').html("<a href='/#music/info/"+music.id+"' target='_blank'>"+music.title+"</a>");
             $tr.find('.j_fl_m_songer').text(music.songer);
             $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+music.uid+"' target='_blank'>"+music.uname+"</a>")
@@ -182,7 +182,7 @@ define(function(require, exports, module) {
         _renderVideoOne: function(video) {
             var $tr = this.$mtrTemplate.clone();
             $tr.find('.j_fl_m_id').text(video.id);
-            $tr.find('.j_fl_m_cover').html("<img src='"+video.cover+"' width='50px'/>")
+            $tr.find('.j_fl_m_cover').html("<img src='"+(video.cover+"?imageView2/1/w/80/h/50")+"' width='50px'/>")
             $tr.find('.j_fl_m_title').html("<a href='/#video/info/"+video.id+"' target='_blank'>"+video.title+"</a>");
             $tr.find('.j_fl_m_songer').html("<img src='"+video.logo_url+"' height='25px'/>&nbsp;&nbsp;<span style='color: "+video.net_color+"'>"+video.net_name+"</span>");
             $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+video.r_id+"' target='_blank'>"+video.r_name+"</a>")

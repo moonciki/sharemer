@@ -3,6 +3,23 @@
         <div class="home menu_unit">
             <span class="father_tag" onclick="window.location.href='/#home'"><span class="glyphicon glyphicon-home tu"/>首页</span>
         </div>
+        <div class="sq menu_unit">
+            <span class="father_tag"><span class="glyphicon glyphicon-globe tu"></span>世界</span>
+            <div class="dropdown-content">
+                <ul>
+                    <li><span class="child_tag">日系音乐</span></li>
+                    <li><span class="child_tag">欧美音乐</span></li>
+                    <li><span class="child_tag">纯音</span></li>
+                    <li><span class="child_tag">电音</span></li>
+                    <li><span class="child_tag">音MAD·鬼畜</span></li>
+                    <li><span class="child_tag">翻唱</span></li>
+                    <li><span class="child_tag">VOCALOID</span></li>
+                    <li><span class="child_tag">OP/ED/OST</span></li>
+                    <li><span class="child_tag">古风</span></li>
+                    <li><span class="child_tag">励志</span></li>
+                </ul>
+            </div>
+        </div>
         <div class="gj menu_unit">
             <span class="father_tag"><span class="glyphicon glyphicon-send tu"/>站内投稿</span>
             <div class="dropdown-content">
@@ -77,23 +94,6 @@
                 <li><span class="child_tag" onclick="window.location.href='/#favlist/tag/2536'">世界音乐</span></li>
                 <li><span class="child_tag" onclick="window.location.href='/#favlist/tag/2537'">翻唱</span></li>
                 <li><span class="child_tag" onclick="window.location.href='/#favlist/tag/2538'">下午茶</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="sq menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-comment tu"/>动态社区</span>
-            <div class="dropdown-content">
-                <ul>
-                <li><span class="child_tag">日系音乐</span></li>
-                <li><span class="child_tag">欧美音乐</span></li>
-                <li><span class="child_tag">纯音</span></li>
-                <li><span class="child_tag">电音</span></li>
-                <li><span class="child_tag">音MAD·鬼畜</span></li>
-                <li><span class="child_tag">翻唱</span></li>
-                <li><span class="child_tag">VOCALOID</span></li>
-                <li><span class="child_tag">OP/ED/OST</span></li>
-                <li><span class="child_tag">古风</span></li>
-                <li><span class="child_tag">励志</span></li>
                 </ul>
             </div>
         </div>
