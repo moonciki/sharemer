@@ -70,7 +70,7 @@ public class MusicController {
     @NeedLogin
     public WrappedResult list(@RequestParam(value = "id") Integer id) throws BusinessException {
         Music music = musicService.one(id);
-        musicService.videoAdd(music);
+        musicService.videoAdd(null, music);
         return WrappedResult.success();
     }
 }

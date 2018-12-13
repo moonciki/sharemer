@@ -12,9 +12,8 @@ public class Constant {
     public static Map<Integer, String> videoLogos = new HashMap<>();
     public static Map<Integer, String> videoNetName = new HashMap<>();
 
-    public static Map<Integer, String> favListDefaultCover = new HashMap<>();
+    public static int TOTAL_TABLE_NUM = 10;
 
-    public static final String QINIU_CDN_DOMAIN = "http://oyjdgrp4g.bkt.clouddn.com";
     static {
         videoLogos.put(0, "http://static.hdslb.com/images/favicon.ico");
         videoLogos.put(1, "http://cdn.aixifan.com/ico/favicon.ico");
@@ -49,78 +48,6 @@ public class Constant {
         videoNetName.put(13, "搜狐视频");
         videoNetName.put(14, "新浪视频");
         videoNetName.put(15, "PPTV");
-
-
-        favListDefaultCover.put(1, QINIU_CDN_DOMAIN+"/static/images/r_f1.jpg");
-        favListDefaultCover.put(2, QINIU_CDN_DOMAIN+"/static/images/r_f2.jpg");
-        favListDefaultCover.put(3, QINIU_CDN_DOMAIN+"/static/images/r_f3.jpg");
-        favListDefaultCover.put(4, QINIU_CDN_DOMAIN+"/static/images/r_f4.jpg");
-        favListDefaultCover.put(5, QINIU_CDN_DOMAIN+"/static/images/r_f5.jpg");
-        favListDefaultCover.put(6, QINIU_CDN_DOMAIN+"/static/images/r_f6.jpg");
-        favListDefaultCover.put(7, QINIU_CDN_DOMAIN+"/static/images/r_f7.jpg");
-        favListDefaultCover.put(8, QINIU_CDN_DOMAIN+"/static/images/r_f8.jpg");
-        favListDefaultCover.put(9, QINIU_CDN_DOMAIN+"/static/images/r_f9.jpg");
-        favListDefaultCover.put(10, QINIU_CDN_DOMAIN+"/static/images/r_f10.jpg");
-        favListDefaultCover.put(11, QINIU_CDN_DOMAIN+"/static/images/r_f11.jpg");
-        favListDefaultCover.put(12, QINIU_CDN_DOMAIN+"/static/images/r_f12.jpg");
-        favListDefaultCover.put(13, QINIU_CDN_DOMAIN+"/static/images/r_f13.jpg");
-        favListDefaultCover.put(14, QINIU_CDN_DOMAIN+"/static/images/r_f14.jpg");
-        favListDefaultCover.put(15, QINIU_CDN_DOMAIN+"/static/images/r_f15.jpg");
-        favListDefaultCover.put(16, QINIU_CDN_DOMAIN+"/static/images/r_f16.jpg");
-        favListDefaultCover.put(17, QINIU_CDN_DOMAIN+"/static/images/r_f17.jpg");
-        favListDefaultCover.put(18, QINIU_CDN_DOMAIN+"/static/images/r_f18.jpg");
-        favListDefaultCover.put(19, QINIU_CDN_DOMAIN+"/static/images/r_f19.jpg");
-        favListDefaultCover.put(20, QINIU_CDN_DOMAIN+"/static/images/r_f20.jpg");
-        favListDefaultCover.put(21, QINIU_CDN_DOMAIN+"/static/images/r_f21.jpg");
-        favListDefaultCover.put(22, QINIU_CDN_DOMAIN+"/static/images/r_f22.jpg");
-        favListDefaultCover.put(23, QINIU_CDN_DOMAIN+"/static/images/r_f23.jpg");
-        favListDefaultCover.put(24, QINIU_CDN_DOMAIN+"/static/images/r_f24.jpg");
-        favListDefaultCover.put(25, QINIU_CDN_DOMAIN+"/static/images/r_f25.jpg");
-        favListDefaultCover.put(26, QINIU_CDN_DOMAIN+"/static/images/r_f26.jpg");
-        favListDefaultCover.put(27, QINIU_CDN_DOMAIN+"/static/images/r_f27.jpg");
-        favListDefaultCover.put(28, QINIU_CDN_DOMAIN+"/static/images/r_f28.jpg");
-        favListDefaultCover.put(29, QINIU_CDN_DOMAIN+"/static/images/r_f29.jpg");
-        favListDefaultCover.put(30, QINIU_CDN_DOMAIN+"/static/images/r_f30.jpg");
-        favListDefaultCover.put(31, QINIU_CDN_DOMAIN+"/static/images/r_f31.jpg");
-        favListDefaultCover.put(32, QINIU_CDN_DOMAIN+"/static/images/r_f32.jpg");
-        favListDefaultCover.put(33, QINIU_CDN_DOMAIN+"/static/images/r_f33.jpg");
-        favListDefaultCover.put(34, QINIU_CDN_DOMAIN+"/static/images/r_f34.jpg");
-        favListDefaultCover.put(35, QINIU_CDN_DOMAIN+"/static/images/r_f35.jpg");
-        favListDefaultCover.put(36, QINIU_CDN_DOMAIN+"/static/images/r_f36.jpg");
-        favListDefaultCover.put(37, QINIU_CDN_DOMAIN+"/static/images/r_f37.jpg");
-        favListDefaultCover.put(38, QINIU_CDN_DOMAIN+"/static/images/r_f38.jpg");
-        favListDefaultCover.put(39, QINIU_CDN_DOMAIN+"/static/images/r_f39.jpg");
-        favListDefaultCover.put(40, QINIU_CDN_DOMAIN+"/static/images/r_f40.jpg");
-        favListDefaultCover.put(41, QINIU_CDN_DOMAIN+"/static/images/r_f41.jpg");
-        favListDefaultCover.put(42, QINIU_CDN_DOMAIN+"/static/images/r_f42.jpg");
-        favListDefaultCover.put(43, QINIU_CDN_DOMAIN+"/static/images/r_f43.jpg");
-        favListDefaultCover.put(44, QINIU_CDN_DOMAIN+"/static/images/r_f44.jpg");
-        favListDefaultCover.put(45, QINIU_CDN_DOMAIN+"/static/images/r_f45.jpg");
-        favListDefaultCover.put(46, QINIU_CDN_DOMAIN+"/static/images/r_f46.jpg");
-        favListDefaultCover.put(47, QINIU_CDN_DOMAIN+"/static/images/r_f47.jpg");
-        favListDefaultCover.put(48, QINIU_CDN_DOMAIN+"/static/images/r_f48.jpg");
-        favListDefaultCover.put(49, QINIU_CDN_DOMAIN+"/static/images/r_f49.jpg");
-        favListDefaultCover.put(50, QINIU_CDN_DOMAIN+"/static/images/r_f50.jpg");
-        favListDefaultCover.put(51, QINIU_CDN_DOMAIN+"/static/images/r_f51.jpg");
-        favListDefaultCover.put(52, QINIU_CDN_DOMAIN+"/static/images/r_f52.jpg");
-        favListDefaultCover.put(53, QINIU_CDN_DOMAIN+"/static/images/r_f53.jpg");
-        favListDefaultCover.put(54, QINIU_CDN_DOMAIN+"/static/images/r_f54.jpg");
-        favListDefaultCover.put(55, QINIU_CDN_DOMAIN+"/static/images/r_f55.jpg");
-        favListDefaultCover.put(56, QINIU_CDN_DOMAIN+"/static/images/r_f56.jpg");
-        favListDefaultCover.put(57, QINIU_CDN_DOMAIN+"/static/images/r_f57.jpg");
-        favListDefaultCover.put(58, QINIU_CDN_DOMAIN+"/static/images/r_f58.jpg");
-        favListDefaultCover.put(59, QINIU_CDN_DOMAIN+"/static/images/r_f59.jpg");
-        favListDefaultCover.put(60, QINIU_CDN_DOMAIN+"/static/images/r_f60.jpg");
-        favListDefaultCover.put(61, QINIU_CDN_DOMAIN+"/static/images/r_f61.jpg");
-        favListDefaultCover.put(62, QINIU_CDN_DOMAIN+"/static/images/r_f62.jpg");
-        favListDefaultCover.put(63, QINIU_CDN_DOMAIN+"/static/images/r_f63.jpg");
-        favListDefaultCover.put(64, QINIU_CDN_DOMAIN+"/static/images/r_f64.jpg");
-        favListDefaultCover.put(65, QINIU_CDN_DOMAIN+"/static/images/r_f65.jpg");
-        favListDefaultCover.put(66, QINIU_CDN_DOMAIN+"/static/images/r_f66.jpg");
-        favListDefaultCover.put(67, QINIU_CDN_DOMAIN+"/static/images/r_f67.jpg");
-        favListDefaultCover.put(68, QINIU_CDN_DOMAIN+"/static/images/r_f68.jpg");
-        favListDefaultCover.put(69, QINIU_CDN_DOMAIN+"/static/images/r_f69.jpg");
-        favListDefaultCover.put(70, QINIU_CDN_DOMAIN+"/static/images/r_f70.jpg");
     }
 
     public static String LOGIN_TOKEN = "haha-token";

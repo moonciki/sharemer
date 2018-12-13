@@ -22,7 +22,7 @@ public interface MusicService {
 
     Music getOneBySongId(Integer song_id);
 
-    void videoAdd(Music music) throws BusinessException;
+    void videoAdd(Integer favId, Music music) throws BusinessException;
 
     void deepMusic(Long list_id) throws BusinessException;
 
