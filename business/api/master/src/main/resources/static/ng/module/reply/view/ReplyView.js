@@ -214,7 +214,7 @@ define(function(require, exports, module) {
 
         getReplyStyle: function (reply_id, uname) {
             return "<div class=\"fbnr info_area_reply_c\">" +
-                "<div class='info_area_reply_c_c1'><textarea class=\"v_reply_content_"+reply_id+" form-control\" style=\"border:solid 1px #39C5BB\" rows=\"4\" placeholder=\"请输入内容\">"+uname+"</textarea></div>"+
+                "<div class='info_area_reply_c_c1'><textarea class=\"v_reply_content_"+reply_id+" form-control\" style=\"border:solid 1px #41c0d0\" rows=\"4\" placeholder=\"请输入内容\">"+uname+"</textarea></div>"+
                 "<div class='save_r_r info_area_reply_c_c2'>发表<br/>内容</div>"+
                 "</div>";
         },

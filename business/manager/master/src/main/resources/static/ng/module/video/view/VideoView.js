@@ -107,7 +107,7 @@ define(function(require, exports, module) {
             $tr.find('.j_robot').text(video.r_name);
             if(video.tags != null && video.tags.length > 0){
                 for(var i = 0; i < video.tags.length; i++){
-                    $tr.find('.j_tags').append("<span style=\"background-color: #ff80a6\" class=\"label label-info\">"
+                    $tr.find('.j_tags').append("<span style=\"background-color: #ff99c4\" class=\"label label-info\">"
                         +video.tags[i].tag_name+"</span>")
                 }
             }

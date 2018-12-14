@@ -29,12 +29,12 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #ff80a6;
+    color: #ff99c4;
 }
 
 a:focus {
     text-decoration: none;
-    color: #ff80a6;
+    color: #ff99c4;
 }
 
 a:after {
@@ -387,7 +387,7 @@ label.required {
     width: 100%;
     height: 200px;
     margin-top: 50px;
-    border-top: 1px #39C5BB solid;
+    border-top: 1px #41c0d0 solid;
     background-color: #f8f8f8;
 }
 
@@ -450,7 +450,7 @@ label.required {
 }
 
 .btn-sc {
-    background-color: #39C5BB;
+    background-color: #41c0d0;
     color: #FFF;
 }
 
@@ -490,8 +490,8 @@ label.required {
     float: left;
     margin-left: 5px;
     margin-right: 5px;
-    color: #39C5BB;
-    border: 1px solid #39C5BB;
+    color: #41c0d0;
+    border: 1px solid #41c0d0;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -505,11 +505,11 @@ label.required {
 }
 
 .page_unit:hover {
-    background-color: #39C5BB;
+    background-color: #41c0d0;
     color: #FFF;
 }
 
 .page_pointer {
-    background-color: #39C5BB;
+    background-color: #41c0d0;
     color: #FFF;
 }

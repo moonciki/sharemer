@@ -28,7 +28,7 @@
 }
 
 .s_text{
-    border: 1px solid #39C5BB;
+    border: 1px solid #41c0d0;
     height: 45px;
     float: left;
     width: 400px;
@@ -38,7 +38,7 @@
 .s_btn{
     height: 45px;
     float: left;
-    background-color: #39C5BB;
+    background-color: #41c0d0;
     font-size: 18px;
     color: #FFF;
     padding: 10px;
@@ -48,7 +48,7 @@
 }
 
 .s_btn:hover{
-    background-color: #3edcd2;
+    background-color: #63c6d0;
 }
 
 .s_txt{
@@ -114,13 +114,13 @@
     font-size: 14px;
     padding-top: 4px;
     cursor: pointer;
-    border: 1px solid #ff72b5;
-    color: #ff72b5;
+    border: 1px solid #ff99c4;
+    color: #ff99c4;
 }
 
 .s_main_more_btn:hover{
     margin: 0 auto;
-    background-color: #ff72b5;
+    background-color: #ff99c4;
     color: #FFF;
 }
 

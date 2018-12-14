@@ -1,7 +1,7 @@
 <div class="modal fade" id="all_common_play" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
-            <div class="modal-header" style="border-radius:4px; background-color:#39C5BB">
+            <div class="modal-header" style="border-radius:4px; background-color:#41c0d0">
             <button type="button" class="close" data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
             </button>

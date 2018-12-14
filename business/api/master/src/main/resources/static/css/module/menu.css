@@ -20,7 +20,7 @@
     text-align: center;
     cursor: pointer;
     padding-top: 12px;
-    border-bottom: 4px solid #39C5BB;
+    border-bottom: 4px solid #41c0d0;
 }
 .menu_unit{
     width: 110px;
@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 .menu_unit:hover{
-    border-bottom: 4px solid #39C5BB;
+    border-bottom: 4px solid #41c0d0;
 }
 .menu_unit:hover .dropdown-content{
     display: block;
@@ -41,7 +41,7 @@
 }
 .tu{
     margin-right: 10px;
-    color: #89c5c0;
+    color: #41c0d0;
 }
 .dropdown-content {
     margin-top: 13px;
@@ -50,18 +50,18 @@
     font-size: 12px;
     min-width: 160px;
     background-color: #FFF;
-    color: #39C5BB;
+    color: #41c0d0;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 18px 8px 8px 8px;
     text-align: left;
     z-index: 2001;
 }
 .child_tag:hover{
-    color: #ff80a6;
+    color: #ff99c4;
 }
 .father_tag:hover{
-    color:#ff80a6;
+    color:#ff99c4;
 }
 .father_tag:hover .tu{
-    color:#ff80a6;
+    color:#ff99c4;
 }

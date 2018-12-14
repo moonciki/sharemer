@@ -171,15 +171,15 @@
     height: 20px;
     padding: 0 8px;
     line-height: 20px;
-    color: #ff72b5;
-    border: 1px solid #ff72b5;
+    color: #ff99c4;
+    border: 1px solid #ff99c4;
     border-radius: 100px;
     cursor: pointer;
 }
 
 .tag_style:hover{
     color: #FFF;
-    background-color: #ff72b5;
+    background-color: #ff99c4;
 }
 
 .data_main_video{

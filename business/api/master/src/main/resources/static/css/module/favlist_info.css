@@ -63,8 +63,8 @@
     height: 20px;
     padding: 0 8px;
     line-height: 20px;
-    color: #ff72b5;
-    border: 1px solid #ff72b5;
+    color: #ff99c4;
+    border: 1px solid #ff99c4;
     border-radius: 100px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -72,7 +72,7 @@
 
 .fl_tag:hover{
     color: #FFF;
-    background: #ff72b5;
+    background: #ff99c4;
 }
 
 .fl_tag_info{
@@ -127,7 +127,7 @@
 }
 
 .fl_main_data_body_menu_unit:hover{
-    color: #f25d8e;
+    color: #41c0d0;
 }
 
 .fl_main_data_body_menu_unit_pointer{
@@ -136,8 +136,8 @@
     text-align: center;
     height: 35px;
     float: left;
-    border-bottom: solid #f25d8e 4px;
-    color: #f25d8e;
+    border-bottom: solid #41c0d0 4px;
+    color: #41c0d0;
 }
 
 .fl_player_btn_group {
@@ -154,14 +154,14 @@
 
 .fl_play_btn {
     float: left;
-    border: solid #ff7c93 1px;
-    color: #ff7c93;
+    border: solid #ff99c4 1px;
+    color: #ff99c4;
     border-radius: 100px;
     cursor: pointer;
 }
 
 .fl_play_btn:hover{
-    background-color: #ff7c93;
+    background-color: #ff99c4;
     color: #FFF;
 }
 
@@ -176,13 +176,13 @@
 
 .fl_share_btn {
     float: left;
-    border: solid #47a6ff 1px;
-    color: #47a6ff;
+    border: solid #41c0d0 1px;
+    color: #41c0d0;
     border-radius: 100px;
     cursor: pointer;
 }
 
 .fl_share_btn:hover{
-    background-color: #47a6ff;
+    background-color: #41c0d0;
     color: #FFF;
 }

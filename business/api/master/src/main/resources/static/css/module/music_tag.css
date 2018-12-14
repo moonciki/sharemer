@@ -8,7 +8,7 @@
 }
 
 .child_menu_pointer{
-    color: #ff80a6;
+    color: #ff99c4;
     font-weight: bold;
     font-size: 12px;
     margin-left: 30px;
@@ -27,7 +27,7 @@
     margin: 0 auto;
     font-size: 14px;
     color: #494949;
-    border: 1px solid #39C5BB;
+    border: 1px solid #41c0d0;
     border-radius: 4px;
     padding-top: 13px;
     box-shadow:inset 0px 0px 16px #e5e5e5;
@@ -88,7 +88,7 @@
     font-size: 18px;
     height: 95px;
     float: left;
-    color: #39C5BB;
+    color: #41c0d0;
 }
 
 .tag_name_text{
@@ -99,7 +99,7 @@
     border-radius: 100px;
     height: 40px;
     font-weight: bold;
-    border: solid 1px #39C5BB;
+    border: solid 1px #41c0d0;
     background-color: rgba(255, 255, 255, 0.8);
 }
 

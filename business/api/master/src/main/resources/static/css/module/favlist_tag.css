@@ -8,7 +8,7 @@
 }
 
 .f_child_menu:hover{
-    color: #ff80a6;
+    color: #ff99c4;
 }
 
 .f_child_menu_pointer{
@@ -31,7 +31,7 @@
     margin: 0 auto;
     font-size: 14px;
     color: #494949;
-    border: 1px solid #39C5BB;
+    border: 1px solid #41c0d0;
     border-radius: 4px;
     padding-top: 13px;
     box-shadow:inset 0px 0px 16px #e5e5e5;
@@ -66,7 +66,7 @@
     font-size: 18px;
     height: 95px;
     float: left;
-    color: #39C5BB;
+    color: #41c0d0;
 }
 
 .f_tag_name_text{
@@ -77,6 +77,6 @@
     border-radius: 100px;
     font-weight: bold;
     height: 40px;
-    border: solid 1px #39C5BB;
+    border: solid 1px #41c0d0;
     background-color: rgba(255, 255, 255, 0.8);
 }
