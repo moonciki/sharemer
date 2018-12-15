@@ -22,23 +22,23 @@
 
 .v_fav_btn{
     float: left;
-    border: solid #3dcfc5 1px;
-    color: #3dcfc5;
+    border: solid #41c0d0 1px;
+    color: #41c0d0;
     cursor: pointer;
     border-radius: 100px;
 }
 
 .v_fav_btn:hover{
     color: #fff;
-    background-color: #3dcfc5;
+    background-color: #41c0d0;
 }
 
 .v_y_fav_btn{
     float: left;
-    border: solid #3dcfc5 1px;
+    border: solid #41c0d0 1px;
     border-radius: 100px;
     color: #fff;
-    background-color: #3dcfc5;
+    background-color: #41c0d0;
 }
 
 

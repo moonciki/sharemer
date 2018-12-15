@@ -12,9 +12,11 @@ import java.util.List;
 @Mapper
 public interface TagMediaMapper {
 
-    void insertMediaTag(@Param("num") Integer num, @Param("pojo") TagMedia tagMedia);
+    void insertsMediaTag(@Param("num") Integer num, @Param("media_tags") List<TagMedia> media_tags);
 
-    void insertTagMedia(@Param("num") Integer num, @Param("pojo") TagMedia tagMedia);
+    void insertsTagMedia(@Param("num") Integer num, @Param("media_tags") List<TagMedia> media_tags);
+
+    void insertTagMedia(@Param("num") Integer num, @Param("media_tag") TagMedia media_tag);
 
     TagMedia getOneFromMediaTagByMediaIdAndTagId(@Param("num") Integer num,
                                                  @Param("media_id") Integer media_id,

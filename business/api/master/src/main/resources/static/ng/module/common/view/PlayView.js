@@ -19,7 +19,7 @@ define(function(require, exports, module) {
             var url = $div.attr("data-url");
             var title = $div.attr("data-title");
             this.main_el.find('#all_common_play').modal('show');
-            this.main_el.find('.common-modal-title').text(title+"------->放送中...");
+            this.main_el.find('.common-modal-title').text(title);
             if(type == 0){
                 this.main_el.find('.common-modal-body').html("<iframe style=\"width:840px;height:86px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
             }

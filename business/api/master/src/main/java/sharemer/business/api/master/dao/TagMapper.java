@@ -1,11 +1,13 @@
 package sharemer.business.api.master.dao;
 
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.utils.Page;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 18073 on 2017/5/31.
@@ -29,4 +31,7 @@ public interface TagMapper {
                                             @Param("type") Integer type);
 
     List<Tag> getBaseTagVo(@Param("ids") List<Integer> ids);
+
+    @MapKey("tag_name")
+    Map<String, Tag> getTagsByNames(@Param("names") List<String> names);
 }

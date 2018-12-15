@@ -13,22 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import sharemer.business.api.master.anno.NeedLogin;
-import sharemer.business.api.master.anno.NeedUser;
-import sharemer.business.api.master.anno.TriggerLimit;
 import sharemer.business.api.master.po.Picture;
-import sharemer.business.api.master.po.User;
-import sharemer.business.api.master.rao.user.UserRao;
-import sharemer.business.api.master.ro.ArchiveParam;
 import sharemer.business.api.master.service.upload.UploadService;
-import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.ConstantProperties;
 import sharemer.component.global.resp.WrappedResult;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
@@ -46,9 +37,6 @@ public class UploadController {
 
     @Resource
     private ConstantProperties constantProperties;
-
-    @Resource
-    private UserRao userRao;
 
     @RequestMapping(value = "get_up_token", method = RequestMethod.GET)
     public WrappedResult getUpToken() {
@@ -105,32 +93,5 @@ public class UploadController {
 
             return null;
         };
-    }
-
-    @RequestMapping(value = "/save/archive", method = RequestMethod.POST)
-    @NeedUser
-    @TriggerLimit(t_k = 1)
-    public WrappedResult saveArchive(@RequestBody ArchiveParam archiveParam,
-                                     HttpServletRequest request) {
-
-        User user = (User) request.getAttribute(Constant.LOGIN_USER);
-        if (user != null) {
-            if (archiveParam.getCsrf() == null || !archiveParam.getCsrf().equals(this.userRao.getCsrfToken())) {
-                return WrappedResult.fail("写入令牌失效！");
-            }
-            System.out.println(archiveParam.getTitle());
-            System.out.println(archiveParam.getCover());
-            System.out.println(archiveParam.getPublish_type());
-            System.out.println(archiveParam.getFile());
-            System.out.println(archiveParam.getOrigin_title());
-            System.out.println(archiveParam.getOrigin_author());
-            System.out.println(archiveParam.getStyle_tag());
-            System.out.println(archiveParam.getTags());
-            System.out.println(archiveParam.getStaff());
-        } else {
-            return WrappedResult.fail("账号未登录！");
-        }
-
-        return WrappedResult.success();
     }
 }

@@ -126,6 +126,8 @@ public class Constant {
         public static final Integer GAOJIAN_TYPE = 2;
         /** 收藏单*/
         public static final Integer FAV_LIST_TYPE = 3;
+        /** 分表个数*/
+        public static final Integer TABLE_TOTAL = 10;
     }
 
     public static class User{

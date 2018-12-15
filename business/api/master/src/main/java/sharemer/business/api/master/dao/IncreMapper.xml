@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.IncreMapper">
+
+    <update id="update" parameterType="sharemer.business.api.master.po.Incre">
+        UPDATE t_incre
+        SET incre = #{incre}
+        WHERE type = 0 AND incre &lt; #{incre}
+    </update>
+
+    <select id="getIncre" resultType="java.lang.Long">
+        SELECT incre FROM t_incre WHERE type = 0
+    </select>
+
+</mapper>

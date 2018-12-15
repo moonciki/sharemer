@@ -121,4 +121,8 @@
             </div>
         </div>
     </div>
+
+    <div class="upload_main" id="success_tag" style="display: none">
+       <center><h4>稿件投递成功！前去<a href="">我的稿件</a>里查看审核状态吧~</h4></center>
+    </div>
 </div>

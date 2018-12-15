@@ -3,6 +3,7 @@ package sharemer.business.api.master.rao.reply.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import sharemer.business.api.master.pipline.ReplyIdIncrePipLine;
 import sharemer.business.api.master.rao.reply.ReplyRao;
 import sharemer.business.api.master.utils.*;
 import sharemer.business.api.master.vo.ReplyVo;
@@ -31,9 +32,14 @@ public class ReplyRaoImpl implements ReplyRao {
     @Resource
     private ConstantProperties constantProperties;
 
+    @Resource
+    private ReplyIdIncrePipLine replyIdIncrePipLine;
+
     @Override
     public Long getRealId() {
-        return sharemerRedisClient.incr(RedisKeys.Reply.getRealId());
+        Long num = sharemerRedisClient.incr(RedisKeys.Reply.getRealId());
+        replyIdIncrePipLine.push(num);
+        return num;
     }
 
     @Override

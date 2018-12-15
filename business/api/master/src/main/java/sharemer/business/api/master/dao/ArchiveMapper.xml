@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.ArchiveMapper">
+    <insert id="insert" parameterType="sharemer.business.api.master.po.Archive" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_archive
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.title != null">`title`,</if>
+            <if test="pojo.cover != null">cover,</if>
+            <if test="pojo.publish_type != null">publish_type,</if>
+            <if test="pojo.origin_title != null">origin_title,</if>
+            <if test="pojo.origin_author != null">origin_author,</if>
+            <if test="pojo.file != null">file,</if>
+            <if test="pojo.status != null">status,</if>
+            <if test="pojo.user_id != null">user_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.title != null">#{pojo.title},</if>
+            <if test="pojo.cover != null">#{pojo.cover},</if>
+            <if test="pojo.publish_type != null">#{pojo.publish_type},</if>
+            <if test="pojo.origin_title != null">#{pojo.origin_title},</if>
+            <if test="pojo.origin_author != null">#{pojo.origin_author},</if>
+            <if test="pojo.file != null">#{pojo.file},</if>
+            <if test="pojo.status != null">#{pojo.status},</if>
+            <if test="pojo.user_id != null">#{pojo.user_id},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="sharemer.business.api.master.po.Music">
+        UPDATE t_archive
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pojo.title != null">title = #{pojo.title},</if>
+            <if test="pojo.cover != null">cover = #{pojo.cover},</if>
+            <if test="pojo.publish_type != null">publish_type = #{pojo.publish_type},</if>
+            <if test="pojo.origin_title != null">origin_title = #{pojo.origin_title},</if>
+            <if test="pojo.origin_author != null">origin_author = #{pojo.origin_author},</if>
+            <if test="pojo.file != null">file = #{pojo.file},</if>
+            <if test="pojo.status != null">status = #{pojo.status},</if>
+            <if test="pojo.user_id != null">status = #{pojo.user_id},</if>
+        </trim>
+        WHERE id = #{pojo.id,jdbcType=INTEGER}
+    </update>
+</mapper>

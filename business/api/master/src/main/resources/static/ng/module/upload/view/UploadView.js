@@ -111,9 +111,12 @@ define(function (require, exports, module) {
             param.tags = tags;
             param.staff = staff;
             param.csrf = csrf;
+
+            var view = this.$el;
             this.model.save_archive(param).done(function (resp) {
                 if (resp.code === 0) {
-                    alert("操作成功！");
+                    view.find('#info_tag').hide();
+                    view.find('#success_tag').show();
                 }
             });
         },

@@ -3,36 +3,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sharemer.business.api.master.dao.TagMediaMapper">
 
-    <insert id="insertMediaTag" parameterType="sharemer.business.api.master.po.TagMedia">
-        INSERT INTO r_media_tag_${num}
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.id != null">id,</if>
-            <if test="pojo.tag_id != null">tag_id,</if>
-            <if test="pojo.media_id != null">media_id,</if>
-            <if test="pojo.type != null">`type`,</if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="pojo.id != null">#{pojo.id},</if>
-            <if test="pojo.tag_id != null">#{pojo.tag_id},</if>
-            <if test="pojo.media_id != null">#{pojo.media_id},</if>
-            <if test="pojo.type != null">#{pojo.type},</if>
-        </trim>
+    <insert id="insertsMediaTag">
+        INSERT INTO r_media_tag_${num} (tag_id, media_id, `type`)
+        VALUES
+        <foreach item="mt" index="index" collection="media_tags" separator=",">
+            (#{mt.tag_id}, #{mt.media_id}, #{mt.type})
+        </foreach>
     </insert>
 
-    <insert id="insertTagMedia" parameterType="sharemer.business.api.master.po.TagMedia">
-        INSERT INTO r_tag_media_${num}
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.id != null">id,</if>
-            <if test="pojo.tag_id != null">tag_id,</if>
-            <if test="pojo.media_id != null">media_id,</if>
-            <if test="pojo.type != null">`type`,</if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="pojo.id != null">#{pojo.id},</if>
-            <if test="pojo.tag_id != null">#{pojo.tag_id},</if>
-            <if test="pojo.media_id != null">#{pojo.media_id},</if>
-            <if test="pojo.type != null">#{pojo.type},</if>
-        </trim>
+    <insert id="insertsTagMedia">
+        INSERT INTO r_tag_media_${num} (tag_id, media_id, `type`)
+        VALUES
+        <foreach item="mt" index="index" collection="media_tags" separator=",">
+            (#{mt.tag_id}, #{mt.media_id}, #{mt.type})
+        </foreach>
+    </insert>
+
+    <insert id="insertTagMedia">
+        INSERT INTO r_tag_media_${num} (tag_id, media_id, `type`)
+        VALUES (#{media_tag.tag_id}, #{media_tag.media_id}, #{media_tag.type})
     </insert>
 
     <select id="getOneFromMediaTagByMediaIdAndTagId" resultType="sharemer.business.api.master.po.TagMedia">

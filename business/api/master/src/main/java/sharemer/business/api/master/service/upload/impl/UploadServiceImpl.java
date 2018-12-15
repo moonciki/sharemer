@@ -30,7 +30,7 @@ public class UploadServiceImpl implements UploadService {
     public UploadTokenInfo generateUploadToken() {
         UploadTokenInfo uploadTokenInfo = new UploadTokenInfo();
 
-        String key = UUID.randomUUID().toString().replace("-", "");
+        String key = String.format("medias/%s", UUID.randomUUID().toString().replace("-", ""));
         uploadTokenInfo.setKey(key);
         uploadTokenInfo.setToken(auth.uploadToken(constantProperties.getQiniuAudioBucket()));
         return uploadTokenInfo;

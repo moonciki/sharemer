@@ -63,4 +63,13 @@
         AND is_delete = 0;
     </select>
 
+    <select id="getTagsByNames" resultType="sharemer.business.api.master.po.Tag">
+        SELECT id, tag_name
+        FROM t_tag
+        WHERE tag_name IN
+        <foreach collection="names" item="name" open="(" close=")" separator=",">
+            #{name}
+        </foreach>
+    </select>
+
 </mapper>
