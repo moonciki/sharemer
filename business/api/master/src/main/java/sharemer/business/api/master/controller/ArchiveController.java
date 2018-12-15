@@ -1,9 +1,6 @@
 package sharemer.business.api.master.controller;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.anno.TriggerLimit;
 import sharemer.business.api.master.po.User;
@@ -11,10 +8,12 @@ import sharemer.business.api.master.rao.user.UserRao;
 import sharemer.business.api.master.ro.ArchiveParam;
 import sharemer.business.api.master.service.archive.ArchiveService;
 import sharemer.business.api.master.utils.Constant;
+import sharemer.business.api.master.vo.ArchiveVo;
 import sharemer.component.global.resp.WrappedResult;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Create by 18073 on 2018/12/15.
@@ -47,6 +46,21 @@ public class ArchiveController {
         }
 
         return WrappedResult.success();
+    }
+
+    @RequestMapping(value = "get_archive_by_uid", method = RequestMethod.GET)
+    public WrappedResult getMusicByUid(@RequestParam(value = "uid") Integer uid,
+                                       @RequestParam(value = "sort") Integer sort,
+                                       @RequestParam(value = "c_p") Integer c_p) {
+        if (c_p <= 0) {
+            c_p = 1;
+        }
+        if (sort != 0 && sort != 1) {
+            sort = 1;
+        }
+        c_p = (c_p - 1) * 20;
+        List<ArchiveVo> result = this.archiveService.getArchivesByUid(uid, sort, c_p);
+        return WrappedResult.success(result);
     }
 
 }

@@ -15,6 +15,7 @@
             <if test="pojo.file != null">file,</if>
             <if test="pojo.status != null">status,</if>
             <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.desc != null">`desc`,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="pojo.id != null">#{pojo.id},</if>
@@ -26,6 +27,7 @@
             <if test="pojo.file != null">#{pojo.file},</if>
             <if test="pojo.status != null">#{pojo.status},</if>
             <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.desc != null">#{pojo.desc},</if>
         </trim>
     </insert>
 
@@ -40,7 +42,30 @@
             <if test="pojo.file != null">file = #{pojo.file},</if>
             <if test="pojo.status != null">status = #{pojo.status},</if>
             <if test="pojo.user_id != null">status = #{pojo.user_id},</if>
+            <if test="pojo.desc != null">status = #{pojo.desc},</if>
         </trim>
         WHERE id = #{pojo.id,jdbcType=INTEGER}
     </update>
+
+    <select id="getArchivesByUid" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_archive WHERE status != 3 AND user_id = #{uid}
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 20
+    </select>
+
+    <select id="getBaseArchiveVo" resultType="sharemer.business.api.master.vo.ArchiveVo">
+        SELECT *
+        FROM t_archive
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        AND `status` != 3
+    </select>
 </mapper>

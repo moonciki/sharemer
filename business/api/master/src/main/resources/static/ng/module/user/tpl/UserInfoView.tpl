@@ -31,8 +31,8 @@
                     <div class="u_info_bottom_menu_unit">
                         <div class="u_info_tag u_info_tag_reply"/>社区分享
                     </div>
-                    <div class="u_info_bottom_menu_unit">
-                        <div class="u_info_tag u_info_tag_tg"/>站内投稿
+                    <div class="u_info_bottom_menu_unit info_archive">
+                        <div class="u_info_tag u_info_tag_archive"/>站内投稿
                     </div>
                     <div class="u_info_bottom_menu_unit info_music">
                         <div class="u_info_tag u_info_tag_music"/>音乐分享

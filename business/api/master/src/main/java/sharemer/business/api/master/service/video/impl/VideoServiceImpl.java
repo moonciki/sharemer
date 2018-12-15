@@ -151,11 +151,11 @@ public class VideoServiceImpl implements VideoService {
     private List<VideoVo> getVideosByCache(List<Integer> ids){
         /** 需要回源的musicIds*/
         List<Integer> needDb = new ArrayList<>();
-        List<VideoVo> currentMusics = new ArrayList<>();
+        List<VideoVo> currentVideos = new ArrayList<>();
         ids.forEach(id->{
             VideoVo videoVo = this.videoMao.getBaseOneWithoutDb(id);
             if(videoVo != null){
-                currentMusics.add(videoVo);
+                currentVideos.add(videoVo);
             }else{
                 needDb.add(id);
             }
@@ -165,11 +165,11 @@ public class VideoServiceImpl implements VideoService {
             List<VideoVo> fill = this.videoMao.setBaseVideos(needDb);
             if(fill != null && fill.size() > 0){
                 /** 回源成功，将回源后的结果并入结果集*/
-                currentMusics.addAll(fill);
+                currentVideos.addAll(fill);
             }
         }
 
-        return currentMusics;
+        return currentVideos;
     }
 
 }

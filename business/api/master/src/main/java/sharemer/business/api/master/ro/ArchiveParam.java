@@ -42,6 +42,7 @@ public class ArchiveParam {
         archive.setOrigin_title(origin_title);
         archive.setPublish_type(publish_type);
         archive.setUser_id(user_id);
+        archive.setDesc(staff);
         return archive;
     }
 

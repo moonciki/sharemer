@@ -43,6 +43,14 @@ define(function (require, exports, module) {
                 method: 'GET',
                 data: param
             });
+        },
+
+        get_archive_by_uid: function (param) {
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/get_archive_by_uid',
+                method: 'GET',
+                data: param
+            });
         }
     };
 

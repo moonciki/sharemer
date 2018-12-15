@@ -1,5 +1,7 @@
 package sharemer.business.api.master.po;
 
+import java.time.LocalDateTime;
+
 /**
  * Create by 18073 on 2018/12/15.
  */
@@ -22,6 +24,12 @@ public class Archive {
     private Integer status;
 
     private Integer user_id;
+
+    private String desc;
+
+    private LocalDateTime ctime;
+
+    private LocalDateTime mtime;
 
     public Integer getId() {
         return id;
@@ -93,5 +101,29 @@ public class Archive {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+    public LocalDateTime getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(LocalDateTime ctime) {
+        this.ctime = ctime;
+    }
+
+    public LocalDateTime getMtime() {
+        return mtime;
+    }
+
+    public void setMtime(LocalDateTime mtime) {
+        this.mtime = mtime;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }
