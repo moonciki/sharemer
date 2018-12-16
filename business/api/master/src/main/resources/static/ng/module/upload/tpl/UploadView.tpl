@@ -42,7 +42,7 @@
                                 <div class="thumbnail" style="padding-top:20px">
                                     <img class="j_picture-cover" src="" width="550px"/>
                                     <div class="caption pink">
-                                        <h5>680 x 500</h5>
+                                        <h5>700 x 400</h5>
                                         <div class="j_upload-cover"></div>
                                     </div>
                                 </div>

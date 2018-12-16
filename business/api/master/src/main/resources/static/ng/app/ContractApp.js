@@ -197,6 +197,20 @@ define(function(require, exports, module) {
             });
         },
 
+        renderArchiveInfo: function (id) {
+            var app = this;
+
+            require.async('module/archive/ArchiveInfoPage', function (ArchiveInfoPage) {
+                if (!(app.lastPage instanceof ArchiveInfoPage)) {
+                    app.reset();
+                    app.lastPage = new ArchiveInfoPage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
         reset: function() {
             if (this.lastPage) {
                 this.lastPage.remove();

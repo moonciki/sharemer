@@ -16,6 +16,7 @@ define(function(require, exports, module) {
             "video/info/(:id)":"videoInfo",
 
             "archive/tag/(:id)":"archiveTag",
+            "archive/info/(:id)":"archiveInfo",
 
             "user/info/(:id)":"userInfo",
 
@@ -100,6 +101,10 @@ define(function(require, exports, module) {
 
         videoInfo:function (id) {
             this.app.renderVideoInfo(id);
+        },
+
+        archiveInfo:function (id) {
+            this.app.renderArchiveInfo(id);
         },
 
         defaultRoute: function(args) {

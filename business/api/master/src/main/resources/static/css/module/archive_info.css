@@ -1,0 +1,30 @@
+.a_info_main{
+    width: 100%;
+    min-height: 500px;
+    color: #505050;
+    height: auto;
+}
+
+.a_info_main_page{
+    padding-top: 20px;
+    width: 1050px;
+    min-height: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.player_init{
+    width: 700px;
+    min-height: 400px;
+    height: auto;
+    float: left;
+}
+
+.danmaku_init{
+    padding-left: 20px;
+    width: 348px;
+    border: 1px solid #dfdfdf;
+    height: 441px;
+    overflow-y: auto;
+    float: left;
+}
