@@ -67,6 +67,23 @@ public class TagMaoImpl implements TagMao {
     }
 
     @Override
+    public List<Integer> getArchiveIdsByTagId(Integer tagId) {
+        try{
+            return shareMerMemcacheClient.get(MemcachedKeys.getArchiveIdsByTagId(tagId), ()->{
+                List<Integer> ids = this.tagMediaMapper.getArchiveIdsByTagId(tagId%10, tagId);
+                if(ids != null && ids.size() > 0){
+                    return ids;
+                }else{
+                    return Collections.EMPTY_LIST;
+                }
+            });
+        }catch (Exception e){
+            logger.error("tag get_archive_ids_by_tag_id error! tag_id={}", tagId);
+        }
+        return null;
+    }
+
+    @Override
     public List<Integer> getFavIdsByTagId(Integer tagId) {
         try{
             return shareMerMemcacheClient.get(MemcachedKeys.getFavIdsByTagId(tagId), ()->{

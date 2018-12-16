@@ -27,5 +27,7 @@ public interface TagMediaMapper {
 
     List<Integer> getVideoIdsByTagId(@Param("num") Integer num, @Param("tag_id") Integer tag_id);
 
+    List<Integer> getArchiveIdsByTagId(@Param("num") Integer num, @Param("tag_id") Integer tag_id);
+
     List<Integer> getFavIdsByTagId(@Param("num") Integer num, @Param("tag_id") Integer tag_id);
 }

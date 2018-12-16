@@ -10,15 +10,18 @@ import sharemer.business.api.master.dao.ArchiveMapper;
 import sharemer.business.api.master.dao.TagMapper;
 import sharemer.business.api.master.dao.TagMediaMapper;
 import sharemer.business.api.master.mao.archive.ArchiveMao;
+import sharemer.business.api.master.mao.tag.TagMao;
 import sharemer.business.api.master.po.Archive;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.po.TagMedia;
 import sharemer.business.api.master.ro.ArchiveParam;
 import sharemer.business.api.master.service.archive.ArchiveService;
 import sharemer.business.api.master.utils.Constant;
+import sharemer.business.api.master.utils.Page;
 import sharemer.business.api.master.vo.ArchiveVo;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +46,62 @@ public class ArchiveServiceImpl implements ArchiveService {
 
     @Resource
     private ArchiveMao archiveMao;
+
+    @Resource
+    private TagMao tagMao;
+
+    @Override
+    public Page<ArchiveVo> getArchivesByTag(Integer tagId, Integer page, Integer pageSize) {
+        Page<ArchiveVo> result = new Page(page, pageSize);
+        /** 首先获取该tag下所有的musicId*/
+        List<Integer> archiveIds = this.tagMao.getArchiveIdsByTagId(tagId);
+        if (archiveIds != null && archiveIds.size() > 0) {
+            result.setTotalCount(archiveIds.size());
+
+            int from = 0, to = 0;
+            if (page > 0 && pageSize > 0) {
+                from = (page - 1) * pageSize;
+                to = page * pageSize;
+            }
+
+            if (to > 0 && from < archiveIds.size()) {
+                /** 截取当前页的musicId*/
+                List<Integer> ids = archiveIds.subList(from, to > archiveIds.size() ? archiveIds.size() : to);
+                /** 需要回源的musicIds*/
+                List<Integer> needDb = Lists.newArrayList();
+                List<ArchiveVo> currentArchives = Lists.newArrayList();
+                ids.forEach(id -> {
+                    ArchiveVo videoVo = this.archiveMao.getBaseOneWithoutDb(id);
+                    if (videoVo != null) {
+                        currentArchives.add(videoVo);
+                    } else {
+                        needDb.add(id);
+                    }
+                });
+
+                if (needDb.size() > 0) {
+                    List<ArchiveVo> fill = this.archiveMao.setBaseArchives(needDb);
+                    if (fill != null && fill.size() > 0) {
+                        /** 回源成功，将回源后的结果并入结果集*/
+                        currentArchives.addAll(fill);
+                    }
+                }
+
+                /** 排序、封装*/
+                List<ArchiveVo> finalResult = currentArchives.stream().sorted((m1, m2) -> {
+                    if (m1 != null && m2 != null && m1.getMtime() != null && m2.getMtime() != null) {
+                        return m1.getMtime().isAfter(m2.getMtime()) ? -1 : 1;
+                    } else {
+                        return 0;
+                    }
+                }).collect(Collectors.toList());
+
+                result.setRecords(finalResult);
+            }
+        }
+
+        return result;
+    }
 
     @Override
     public void addArchive(ArchiveParam archiveParam) {
@@ -98,17 +157,19 @@ public class ArchiveServiceImpl implements ArchiveService {
         return null;
     }
 
-    private List<ArchiveVo> sortList(int sort, List<ArchiveVo> result){
+    private List<ArchiveVo> sortList(int sort, List<ArchiveVo> result) {
         final int sorted = sort;
         return result.stream()
-                .sorted((m1, m2)->{
-                    if(m1 != null && m2 != null && m1.getCtime() != null && m2.getCtime() != null){
-                        if(sorted == 1){
+                .sorted((m1, m2) -> {
+                    if (m1 != null && m2 != null && m1.getCtime() != null && m2.getCtime() != null) {
+                        if (sorted == 1) {
                             return m1.getCtime().isAfter(m2.getCtime()) ? -1 : 1;
-                        }else{
+                        } else {
                             return m1.getCtime().isAfter(m2.getCtime()) ? 1 : -1;
                         }
-                    }else{return 0;}
+                    } else {
+                        return 0;
+                    }
                 }).collect(Collectors.toList());
     }
 

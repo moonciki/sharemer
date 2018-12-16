@@ -56,7 +56,7 @@ public class VideoController {
 
     @RequestMapping(value = "get_video_info", method = RequestMethod.GET)
     @NeedUser
-    public WrappedResult info(@RequestParam(value = "video_id", required = true) Integer video_id, HttpServletRequest request){
+    public WrappedResult info(@RequestParam(value = "video_id") Integer video_id, HttpServletRequest request){
         User user = (User) request.getAttribute(Constant.LOGIN_USER);
         VideoVo result = this.videoService.getVideoInfoById(video_id);
         if(result != null && user != null){

@@ -3,11 +3,13 @@ package sharemer.business.api.master.controller;
 import org.springframework.web.bind.annotation.*;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.anno.TriggerLimit;
+import sharemer.business.api.master.dto.VideoIndex;
 import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.rao.user.UserRao;
 import sharemer.business.api.master.ro.ArchiveParam;
 import sharemer.business.api.master.service.archive.ArchiveService;
 import sharemer.business.api.master.utils.Constant;
+import sharemer.business.api.master.utils.Page;
 import sharemer.business.api.master.vo.ArchiveVo;
 import sharemer.component.global.resp.WrappedResult;
 
@@ -27,6 +29,14 @@ public class ArchiveController {
 
     @Resource
     private ArchiveService archiveService;
+
+    @RequestMapping(value = "get_archive_by_tag", method = RequestMethod.GET)
+    public WrappedResult list(@RequestParam(value = "tag_id") Integer tag_id,
+                              @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
+                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize) throws Exception {
+        Page<ArchiveVo> result = this.archiveService.getArchivesByTag(tag_id, pageNo, pageSize);
+        return WrappedResult.success(result);
+    }
 
     @RequestMapping(value = "/save/archive", method = RequestMethod.POST)
     @NeedUser

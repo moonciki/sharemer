@@ -43,7 +43,7 @@ public class MusicController {
 
     @RequestMapping(value = "getMv")
     @NeedLogin
-    public ModelAndView getMv(@RequestParam(value = "mv_id", required = true) Integer mv_id) throws Exception{
+    public ModelAndView getMv(@RequestParam(value = "mv_id") Integer mv_id) throws Exception{
         try{
             String mp4 = musicService.getMvUrl(mv_id);
             ModelAndView view = new ModelAndView("redirect:"+mp4);

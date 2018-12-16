@@ -50,8 +50,8 @@ public class MusicListController {
 
     @RequestMapping(value = "spider", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult list(@RequestParam(value = "type", required = true) String type,
-                              @RequestParam(value = "offset", required = true) Integer offset) throws Exception {
+    public WrappedResult list(@RequestParam(value = "type") String type,
+                              @RequestParam(value = "offset") Integer offset) throws Exception {
         String html = allRemoteApiService.getPlayListByType(type, offset);
         Document doc = Jsoup.parse(html);
         Elements divs = doc.getElementsByClass("u-cover");

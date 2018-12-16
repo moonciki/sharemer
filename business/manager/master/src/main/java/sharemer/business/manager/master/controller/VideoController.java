@@ -30,7 +30,7 @@ public class VideoController {
 
     @RequestMapping(value = "getVideoByMusicId", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult one(@RequestParam(value = "music_id", required = true)Integer music_id) throws Exception{
+    public WrappedResult one(@RequestParam(value = "music_id")Integer music_id) throws Exception{
         List<Video> result = musicVideoMapper.getVideosByMusicId(music_id%10, music_id);
         return WrappedResult.success(result);
     }
@@ -38,8 +38,8 @@ public class VideoController {
     /** 落地B站资源*/
     @RequestMapping(value = "deepBVideo", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult deepBVideo(@RequestParam(value = "start", required = true)Integer start,
-                                    @RequestParam(value = "end", required = true)Integer end) throws Exception{
+    public WrappedResult deepBVideo(@RequestParam(value = "start")Integer start,
+                                    @RequestParam(value = "end")Integer end) throws Exception{
         videoService.deepBVideo(start, end);
         return WrappedResult.success();
     }
@@ -47,8 +47,8 @@ public class VideoController {
     /** 落地A站资源*/
     @RequestMapping(value = "deepAVideo", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult deepAVideo(@RequestParam(value = "start", required = true)Integer start,
-                                    @RequestParam(value = "end", required = true)Integer end) throws Exception{
+    public WrappedResult deepAVideo(@RequestParam(value = "start")Integer start,
+                                    @RequestParam(value = "end")Integer end) throws Exception{
         videoService.deepAVideo(start, end);
         return WrappedResult.success();
     }
@@ -56,8 +56,8 @@ public class VideoController {
     /** 落地M站资源*/
     @RequestMapping(value = "deepMVideo", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult deepMVideo(@RequestParam(value = "start", required = true)Integer start,
-                                    @RequestParam(value = "end", required = true)Integer end) throws Exception{
+    public WrappedResult deepMVideo(@RequestParam(value = "start")Integer start,
+                                    @RequestParam(value = "end")Integer end) throws Exception{
         videoService.deepMVideo(start, end);
         return WrappedResult.success();
     }
@@ -65,8 +65,8 @@ public class VideoController {
     /** 落地C站资源*/
     @RequestMapping(value = "deepCVideo", method = RequestMethod.GET)
     @NeedLogin
-    public WrappedResult deepCVideo(@RequestParam(value = "start", required = true)Integer start,
-                                    @RequestParam(value = "end", required = true)Integer end) throws Exception{
+    public WrappedResult deepCVideo(@RequestParam(value = "start")Integer start,
+                                    @RequestParam(value = "end")Integer end) throws Exception{
         videoService.deepCVideo(start, end);
         return WrappedResult.success();
     }

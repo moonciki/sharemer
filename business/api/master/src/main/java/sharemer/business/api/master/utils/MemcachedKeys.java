@@ -45,6 +45,13 @@ public class MemcachedKeys {
     }
 
     /**
+     * 稿件区二级页tag下videoIds
+     */
+    public static String getArchiveIdsByTagId(Integer tagId) {
+        return String.format("a:i:t:%d", tagId);
+    }
+
+    /**
      * 收藏单区二级页tag下favIds
      */
     public static String getFavIdsByTagId(Integer tagId) {

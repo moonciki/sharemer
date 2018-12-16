@@ -46,7 +46,7 @@ public class MusicController {
 
     @RequestMapping(value = "get_music_info", method = RequestMethod.GET)
     @NeedUser
-    public WrappedResult info(@RequestParam(value = "music_id", required = true) Integer music_id,
+    public WrappedResult info(@RequestParam(value = "music_id") Integer music_id,
                               HttpServletRequest request){
         User user = (User) request.getAttribute(Constant.LOGIN_USER);
         return WrappedResult.success(this.musicService.getMusicInfoById(music_id, user));
@@ -68,7 +68,7 @@ public class MusicController {
     }
 
     @RequestMapping(value = "get_current_tag", method = RequestMethod.GET)
-    public WrappedResult getCurrentTag(@RequestParam(value = "tag_id", required = true) Integer tag_id){
+    public WrappedResult getCurrentTag(@RequestParam(value = "tag_id") Integer tag_id){
         Tag tag = this.tagService.getBaseOne(tag_id);
         return WrappedResult.success(tag);
     }

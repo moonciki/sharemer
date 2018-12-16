@@ -99,6 +99,20 @@ define(function(require, exports, module) {
             });
         },
 
+        renderArchiveTag: function (id) {
+            var app = this;
+
+            require.async('module/archive/ArchiveTagPage', function (ArchiveTagPage) {
+                if (!(app.lastPage instanceof ArchiveTagPage)) {
+                    app.reset();
+                    app.lastPage = new ArchiveTagPage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
         renderMusicInfo: function (id) {
             var app = this;
 

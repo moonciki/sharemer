@@ -13,6 +13,8 @@ public interface TagMao {
 
     List<Integer> getVideoIdsByTagId(Integer tagId);
 
+    List<Integer> getArchiveIdsByTagId(Integer tagId);
+
     List<Integer> getFavIdsByTagId(Integer tagId);
 
     List<Integer> getTagsByMediaId(Integer mediaId, Integer type);

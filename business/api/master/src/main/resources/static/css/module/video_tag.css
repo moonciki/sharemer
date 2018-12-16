@@ -167,3 +167,15 @@
     font-size: 11px;
     color: #aaaaaa;
 }
+
+.v_before_tag {
+    margin-right: 5px;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #519dff;
+    border-radius: 100px;
+    color: #519dff;
+    width: auto;
+    min-width: 10px;
+    height: auto;
+    min-height: 10px;
+}

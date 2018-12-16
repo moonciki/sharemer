@@ -32,31 +32,41 @@
         WHERE media_id = #{media_id} AND tag_id = #{tag_id} AND `type` = #{type} LIMIT 1
     </select>
 
-    <!-- 音乐区二级页根据tagid找到所有下面的musicid-->
+    <!-- 音乐区二级页根据tagid找到所有下面的music_id-->
     <select id="getMusicIdsByTagId" resultType="java.lang.Integer">
         SELECT rtm.media_id
         FROM r_tag_media_${num} rtm
-        LEFT JOIN t_music tm ON tm.id = rtm.media_id AND tm.status = 0
+        JOIN t_music tm ON tm.id = rtm.media_id AND tm.status = 0
         WHERE rtm.tag_id = #{tag_id}
         AND rtm.`type` = 0
         ORDER BY tm.publish_time DESC
     </select>
 
-    <!-- PV区二级页根据tagid找到所有下面的musicid-->
+    <!-- PV区二级页根据tagid找到所有下面的video_id-->
     <select id="getVideoIdsByTagId" resultType="java.lang.Integer">
         SELECT rtm.media_id
         FROM r_tag_media_${num} rtm
-        LEFT JOIN t_video tv ON tv.id = rtm.media_id AND tv.status = 0
+        JOIN t_video tv ON tv.id = rtm.media_id AND tv.status = 0
         WHERE rtm.tag_id = #{tag_id}
         AND rtm.`type` = 1
         ORDER BY tv.mtime DESC
+    </select>
+
+    <!-- 投稿区二级页根据tagid找到所有下面的archive_id-->
+    <select id="getArchiveIdsByTagId" resultType="java.lang.Integer">
+        SELECT rtm.media_id
+        FROM r_tag_media_${num} rtm
+        JOIN t_archive ta ON ta.id = rtm.media_id AND ta.status = 1
+        WHERE rtm.tag_id = #{tag_id}
+        AND rtm.`type` = 2
+        ORDER BY ta.mtime DESC
     </select>
 
     <!-- FV区二级页根据tagid找到所有下面的favid-->
     <select id="getFavIdsByTagId" resultType="java.lang.Integer">
         SELECT rtm.media_id
         FROM r_tag_media_${num} rtm
-        LEFT JOIN t_fav_list tf ON tf.id = rtm.media_id AND tf.status = 0
+        JOIN t_fav_list tf ON tf.id = rtm.media_id AND tf.status = 0
         WHERE rtm.tag_id = #{tag_id}
         AND rtm.`type` = 3
         ORDER BY tf.ctime DESC

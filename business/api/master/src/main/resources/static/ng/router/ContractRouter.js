@@ -15,6 +15,8 @@ define(function(require, exports, module) {
             "video/tag/(:id)":"videoTag",
             "video/info/(:id)":"videoInfo",
 
+            "archive/tag/(:id)":"archiveTag",
+
             "user/info/(:id)":"userInfo",
 
             "favlist/tag/(:id)":"favTag",
@@ -67,6 +69,10 @@ define(function(require, exports, module) {
 
         videoTag: function (id) {
             this.app.renderVideoTag(id);
+        },
+
+        archiveTag: function (id) {
+            this.app.renderArchiveTag(id);
         },
 
         musicInfo: function (id) {

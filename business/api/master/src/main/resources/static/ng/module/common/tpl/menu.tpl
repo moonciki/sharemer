@@ -24,14 +24,15 @@
             <span class="father_tag"><span class="glyphicon glyphicon-send tu"/>站内投稿</span>
             <div class="dropdown-content">
                 <ul>
-                <li><span class="child_tag">日系音乐</span></li>
-                <li><span class="child_tag">欧美音乐</span></li>
-                <li><span class="child_tag">纯音</span></li>
-                <li><span class="child_tag">电音</span></li>
-                <li><span class="child_tag">音MAD·鬼畜</span></li>
-                <li><span class="child_tag">翻唱</span></li>
-                <li><span class="child_tag">VOCALOID</span></li>
-                <li><span class="child_tag">古风·国风</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2510'">电子</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2508'">钢琴</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2535'">轻音乐</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2532'">影视原声</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2507'">ACG</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2533'">游戏</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2522'">治愈</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2509'">日语</span></li>
+                    <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2529'">欧美</span></li>
                 </ul>
             </div>
         </div>
