@@ -11,6 +11,7 @@ define(function(require, exports, module) {
             "video/list(?*queryString)": "video",
             "video_add/add(?*queryString)": "add",
             "user/list(?*queryString)": "userList",
+            "archive/list(?*queryString)": "archive",
 
             "*path": "defaultRoute"
         },
@@ -51,6 +52,13 @@ define(function(require, exports, module) {
                 var options = BackboneUtil.queryStringToObject(queryString);
             }
             this.app.renderVideo(options);
+        },
+
+        archive: function (queryString) {
+            if(queryString){
+                var options = BackboneUtil.queryStringToObject(queryString);
+            }
+            this.app.renderArchive(options);
         },
 
         add: function (queryString) {

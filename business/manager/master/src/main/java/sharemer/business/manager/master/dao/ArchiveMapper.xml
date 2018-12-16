@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sharemer.business.api.master.dao.ArchiveMapper">
-    <insert id="insert" parameterType="sharemer.business.api.master.po.Archive" useGeneratedKeys="true"
+<mapper namespace="sharemer.business.manager.master.dao.ArchiveMapper">
+    <insert id="insert" parameterType="sharemer.business.manager.master.po.Archive" useGeneratedKeys="true"
             keyProperty="pojo.id">
         INSERT INTO t_archive
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -31,7 +31,7 @@
         </trim>
     </insert>
 
-    <update id="update" parameterType="sharemer.business.api.master.po.Archive">
+    <update id="update" parameterType="sharemer.business.manager.master.po.Archive">
         UPDATE t_archive
         <trim prefix="set" suffixOverrides=",">
             <if test="pojo.title != null">title = #{pojo.title},</if>
@@ -47,25 +47,27 @@
         WHERE id = #{pojo.id,jdbcType=INTEGER}
     </update>
 
-    <select id="getArchivesByUid" resultType="java.lang.Integer">
-        SELECT id
-        FROM t_archive WHERE status != 3 AND user_id = #{uid}
-        <if test="sort == 0">
-            ORDER BY ctime ASC
+    <select id="getAllCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM t_archive
+        <if test="key != null and type == 0">
+            WHERE title LIKE "%"#{key}"%"
         </if>
-        <if test="sort == 1">
-            ORDER BY ctime DESC
+        <if test="key != null and type == 1">
+            WHERE id = #{key}
         </if>
-        LIMIT #{page}, 20
     </select>
 
-    <select id="getBaseArchiveVo" resultType="sharemer.business.api.master.vo.ArchiveVo">
+    <select id="getAll" resultType="sharemer.business.manager.master.vo.ArchiveVo">
         SELECT *
         FROM t_archive
-        WHERE id IN
-        <foreach collection="ids" item="id" open="(" close=")" separator=",">
-            #{id}
-        </foreach>
-        AND `status` != 3
+        <if test="key != null and type == 0">
+            WHERE title LIKE "%"#{key}"%"
+        </if>
+        <if test="key != null and type == 1">
+            WHERE v_id = #{key}
+        </if>
+        ORDER BY id DESC
+        LIMIT #{start}, #{size}
     </select>
 </mapper>

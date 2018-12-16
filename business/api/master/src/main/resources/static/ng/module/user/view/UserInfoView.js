@@ -322,11 +322,11 @@ define(function (require, exports, module) {
             }
             $div.find('.u_info_archive_unit_info').html(infoHtml);
             if(as.status == 0){
-                $div.find(".u_info_archive_unit_status").attr("style", "background-color:gray").text("锁定");
+                $div.find(".u_info_archive_unit_status").attr("style", "background-color:#808080a1").text("锁定");
             }else if(as.status == 1){
-                $div.find(".u_info_archive_unit_status").attr("style", "background-color:green").text("正常");
+                $div.find(".u_info_archive_unit_status").attr("style", "background-color:#03ca63bf").text("正常");
             }else if(as.status == 2){
-                $div.find(".u_info_archive_unit_status").attr("style", "background-color:red").text("未通过");
+                $div.find(".u_info_archive_unit_status").attr("style", "background-color:#f7aaaa").text("未通过");
             }
             return $div;
         },

@@ -73,6 +73,20 @@ define(function(require, exports, module) {
             });
         },
 
+        renderArchive: function (options) {
+            var app = this;
+
+            require.async('module/archive/ArchivePage', function (ArchivePage) {
+                if (!(app.lastPage instanceof ArchivePage)) {
+                    app.reset();
+                    app.lastPage = new ArchivePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(options);
+            });
+        },
+
         addVideo: function (options) {
             var app = this;
 

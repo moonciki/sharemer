@@ -24,7 +24,7 @@
 			<i class="glyphicon glyphicon-headphones"></i> 稿件管理<span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
 		</a>
 		<ul id="contribute" class="nav nav-list collapse secondmenu">
-
+			<li><a href="#archive/list"><i class="glyphicon glyphicon-tag"></i> 稿件列表</a></li>
 		</ul>
 	</li>
 
