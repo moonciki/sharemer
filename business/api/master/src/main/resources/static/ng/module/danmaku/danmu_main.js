@@ -168,7 +168,7 @@
             var position = $(e.data.that.id + " input[name=danmu_position]:checked").val();
             var size = $(e.data.that.id + " input[name=danmu_size]:checked").val();
             var time = $(e.data.that.id + " .danmu-div").data("nowTime") + 3;
-            var mvId = $("#mv_id").val();
+            var archiveId = $("#archive_id").val();
             //var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
             var danmu = {};
             danmu.text=text;
@@ -176,10 +176,24 @@
             danmu.size=size;
             danmu.position=position;
             danmu.time=time;
-            danmu.mvId = mvId;
+            danmu.archive_id = archiveId;
+            danmu.csrf = window.SHION.w_token;
             if (e.data.that.options.urlToPostDanmu){
                 $.post(e.data.that.options.urlToPostDanmu, danmu);
             }
+            var danmu_num = $(".danmaku_num").text();
+            $(".danmaku_num").text(parseInt(danmu_num)+1);
+            var danmu_text;
+            if(danmu.text.length >= 11){
+                danmu_text = danmu.text.substring(0, 11)+"...";
+            }else{
+                danmu_text = danmu.text;
+            }
+            var appendHtm = "<div class=\"danmaku_list_tr\">"
+            + "<div class=\"danmaku_list_tb1\">"+danmu.time+"</div>"
+            + "<div class=\"danmaku_list_tb2\">"+danmu_text+"</div>"
+            + "<div class=\"danmaku_list_tb3\">刚刚</div>";
+            $(".danmaku_content").append(appendHtm);
             var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + ',"isnew":""}';
             var newObj = eval('(' + textObj + ')');
             $(e.data.that.id + " .danmu-div").danmu("addDanmu", newObj);

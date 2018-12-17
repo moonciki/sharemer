@@ -2,13 +2,13 @@ define(function (require, exports, module) {
 
     seajs.use('./css/module/menu.css');
 
-    var ArchiveView = require('module/archive/view/ArchiveTagView');
+    var ArchiveTagView = require('module/archive/view/ArchiveTagView');
 
     var ArchiveTagPage = Backbone.View.extend({
         initialize: function () {
             this.$el.html('<div id="listView"></div>');
 
-            this.listView = new ArchiveView({
+            this.listView = new ArchiveTagView({
                 el: '#listView'
             });
         },

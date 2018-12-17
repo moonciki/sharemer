@@ -43,6 +43,16 @@ define(function (require, exports, module) {
                 }
             });
         },
+
+        get_danmakus: function (aid) {
+            var param = {};
+            param.aid = aid;
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/danmaku/gets',
+                method: 'GET',
+                data: param
+            });
+        }
     };
 
     module.exports = Archive;

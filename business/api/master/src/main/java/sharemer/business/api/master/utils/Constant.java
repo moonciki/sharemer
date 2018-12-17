@@ -117,6 +117,11 @@ public class Constant {
         return esid;
     }
 
+    public static class Danmaku{
+        /** 分表个数*/
+        public static final Integer TABLE_TOTAL = 10;
+    }
+
     public static class TagMedia{
         /** 音乐*/
         public static final Integer MUSIC_TYPE = 0;

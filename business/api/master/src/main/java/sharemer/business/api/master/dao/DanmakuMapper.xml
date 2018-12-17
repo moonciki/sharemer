@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sharemer.business.api.master.dao.DanmakuMapper">
+    <insert id="insert" parameterType="sharemer.business.api.master.po.Danmaku" useGeneratedKeys="true"
+            keyProperty="pojo.id">
+        INSERT INTO t_danmaku_${num}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">id,</if>
+            <if test="pojo.text != null">`text`,</if>
+            <if test="pojo.color != null">color,</if>
+            <if test="pojo.size != null">`size`,</if>
+            <if test="pojo.time != null">`time`,</if>
+            <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.archive_id != null">archive_id,</if>
+            <if test="pojo.position != null">`position`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null">#{pojo.id},</if>
+            <if test="pojo.text != null">#{pojo.text},</if>
+            <if test="pojo.color != null">#{pojo.color},</if>
+            <if test="pojo.size != null">#{pojo.size},</if>
+            <if test="pojo.time != null">#{pojo.time},</if>
+            <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.archive_id != null">#{pojo.archive_id},</if>
+            <if test="pojo.position != null">#{pojo.position},</if>
+        </trim>
+    </insert>
+    
+    <select id="getDanmakusByAid" resultType="sharemer.business.api.master.po.Danmaku">
+        SELECT * FROM t_danmaku_${num} WHERE archive_id = #{archive_id} AND `status` = 0 ORDER BY `time` ASC LIMIT 1000
+    </select>
+</mapper>

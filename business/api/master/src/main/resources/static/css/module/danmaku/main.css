@@ -123,7 +123,6 @@
 .danmu-player {
     position: relative;
     background-color: black;
-    box-shadow: rgb(85, 85, 85) 0px 0px 3px;
     font-family: "Microsoft YaHei" !important;
     -moz-user-select:none;
     -webkit-user-select:none;
@@ -163,6 +162,8 @@
     bottom: 0;
     width: 100%;
     background-color: white;
+    border-left: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
 }
 
 .danmu-player .danmu-video{
@@ -224,7 +225,6 @@
     border: solid 2px #ff345c;
     z-index: 1004;
     overflow: visible;
-    box-shadow: 0 0 25px #ff64a0;
 
 }
 

@@ -39,13 +39,47 @@ define(function(require, exports, module) {
                 window.location.href="/#archive";
                 return;
             }
+            this.$el.find('#archive_id').val(id);
             this.model.archive_id = id;
 
             this.$el.find('#danmup').DanmuPlayer({
                 src:"https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/304_ca4780ca5c749d7670a3cae64df77d52.mp4",
-                height: "400px", //区域的高度
+                height: "401px", //区域的高度
                 width: "700px", //区域的宽度
-                urlToPostDanmu:"/damaku/save"
+                urlToPostDanmu:"/pc_api/r/danmaku/save"
+            });
+
+            var user = window.SHION.currentUser;
+            if(user == null || user == undefined){
+                this.$el.find(".send-btn").attr("disabled", "disabled");
+                this.$el.find(".danmu-input").attr("disabled", "disabled");
+                this.$el.find(".danmu-input").attr("placeholder", "请先登录/注册");
+            }
+
+            var view = this.$el;
+            <!--弹幕加载-->
+            this.model.get_danmakus(id).done(function (resp) {
+                if(resp.code == 0){
+                    if(resp.result != null && resp.result.length > 0){
+                        view.find('#danmup .danmu-cover').danmu("addDanmu",resp.result);
+                        var appendHtm = "";
+                        for(var i=0; i<resp.result.length; i++){
+                            var danmu_text;
+                            if(resp.result[i].text.length >= 11){
+                                danmu_text = resp.result[i].text.substring(0, 11)+"...";
+                            }else{
+                                danmu_text = resp.result[i].text;
+                            }
+                            appendHtm += "<div class=\"danmaku_list_tr\">"
+                                + "<div class=\"danmaku_list_tb1\">"+resp.result[i].time+"</div>"
+                                + "<div class=\"danmaku_list_tb2\">"+danmu_text+"</div>"
+                                + "<div class=\"danmaku_list_tb3\">"+resp.result[i].ctime.replace("T", ' ')+"</div></div>";
+                        }
+
+                        view.find('.danmaku_num').text(resp.result.length);
+                        view.find('.danmaku_content').html(appendHtm);
+                    }
+                }
             });
         }
     });
