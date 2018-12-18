@@ -22,4 +22,6 @@ public interface ArchiveMapper {
 
     List<ArchiveVo> getBaseArchiveVo(@Param("ids") List<Integer> ids);
 
+    ArchiveVo getArchivePlayInfo(@Param("archive_id") Integer archive_id);
+
 }

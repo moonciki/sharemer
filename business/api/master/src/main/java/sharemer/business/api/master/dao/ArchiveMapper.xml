@@ -15,6 +15,7 @@
             <if test="pojo.file != null">file,</if>
             <if test="pojo.status != null">status,</if>
             <if test="pojo.user_id != null">user_id,</if>
+            <if test="pojo.source_type != null">source_type,</if>
             <if test="pojo.desc != null">`desc`,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -27,6 +28,7 @@
             <if test="pojo.file != null">#{pojo.file},</if>
             <if test="pojo.status != null">#{pojo.status},</if>
             <if test="pojo.user_id != null">#{pojo.user_id},</if>
+            <if test="pojo.source_type != null">#{pojo.source_type},</if>
             <if test="pojo.desc != null">#{pojo.desc},</if>
         </trim>
     </insert>
@@ -42,6 +44,7 @@
             <if test="pojo.file != null">file = #{pojo.file},</if>
             <if test="pojo.status != null">status = #{pojo.status},</if>
             <if test="pojo.user_id != null">status = #{pojo.user_id},</if>
+            <if test="pojo.source_type != null">source_type = #{pojo.source_type},</if>
             <if test="pojo.desc != null">status = #{pojo.desc},</if>
         </trim>
         WHERE id = #{pojo.id,jdbcType=INTEGER}
@@ -60,12 +63,30 @@
     </select>
 
     <select id="getBaseArchiveVo" resultType="sharemer.business.api.master.vo.ArchiveVo">
-        SELECT *
+        SELECT
+        id,
+        title,
+        cover,
+        publish_type,
+        origin_title,
+        origin_author,
+        status,
+        user_id,
+        source_type,
+        ctime,
+        mtime
         FROM t_archive
         WHERE id IN
         <foreach collection="ids" item="id" open="(" close=")" separator=",">
             #{id}
         </foreach>
         AND `status` != 3
+    </select>
+
+    <select id="getArchivePlayInfo" resultType="sharemer.business.api.master.vo.ArchiveVo">
+        SELECT
+        file, `desc`
+        FROM t_archive
+        WHERE id = #{archive_id} AND `status` != 3
     </select>
 </mapper>

@@ -58,14 +58,25 @@ public class ArchiveMaoImpl implements ArchiveMao {
             return shareMerMemcacheClient.get(MemcachedKeys.Archive.getBaseArchive(archiveId), () -> {
                 List<Integer> ids = Lists.newArrayList();
                 ids.add(archiveId);
-                List<ArchiveVo> videos = this.archiveMapper.getBaseArchiveVo(ids);
-                if (videos != null && videos.size() > 0) {
-                    return videos.get(0);
+                List<ArchiveVo> archiveVos = this.archiveMapper.getBaseArchiveVo(ids);
+                if (archiveVos != null && archiveVos.size() > 0) {
+                    return archiveVos.get(0);
                 }
                 return null;
             });
         } catch (Exception e) {
             logger.error("archive get_base_one archive_id = {}", archiveId);
+        }
+        return null;
+    }
+
+    @Override
+    public ArchiveVo getDetailOne(Integer archiveId) {
+        try {
+            return shareMerMemcacheClient.get(MemcachedKeys.Archive.getDetailArchive(archiveId),
+                    () -> this.archiveMapper.getArchivePlayInfo(archiveId));
+        } catch (Exception e) {
+            logger.error("archive get_detail_one archive_id = {}", archiveId);
         }
         return null;
     }

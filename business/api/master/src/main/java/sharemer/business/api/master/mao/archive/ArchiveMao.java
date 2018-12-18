@@ -15,5 +15,7 @@ public interface ArchiveMao {
 
     ArchiveVo getBaseOne(Integer archiveId);
 
+    ArchiveVo getDetailOne(Integer archiveId);
+
     List<ArchiveVo> setBaseArchives(List<Integer> ids);
 }

@@ -19,6 +19,8 @@ public class ArchiveVo extends Archive implements java.io.Serializable {
 
     private User user;
 
+    private Integer is_faved;
+
     public List<Tag> getTags() {
         return tags;
     }
@@ -33,5 +35,13 @@ public class ArchiveVo extends Archive implements java.io.Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getIs_faved() {
+        return is_faved;
+    }
+
+    public void setIs_faved(Integer is_faved) {
+        this.is_faved = is_faved;
     }
 }

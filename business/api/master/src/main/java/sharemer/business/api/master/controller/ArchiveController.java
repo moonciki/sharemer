@@ -73,4 +73,12 @@ public class ArchiveController {
         return WrappedResult.success(result);
     }
 
+    @RequestMapping(value = "get_archive_info", method = RequestMethod.GET)
+    @NeedUser
+    public WrappedResult getMusicByUid(@RequestParam(value = "archive_id") Integer archive_id,
+                                       HttpServletRequest request) {
+        User user = (User) request.getAttribute(Constant.LOGIN_USER);
+        return WrappedResult.success(this.archiveService.getArchiveInfo(archive_id, user));
+    }
+
 }

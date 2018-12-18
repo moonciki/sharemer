@@ -103,6 +103,9 @@ public class MemcachedKeys {
         public static String getBaseArchive(Integer archiveId) {
             return String.format("b:a:%d", archiveId);
         }
+        public static String getDetailArchive(Integer archiveId) {
+            return String.format("d:a:%d", archiveId);
+        }
     }
 
     /**

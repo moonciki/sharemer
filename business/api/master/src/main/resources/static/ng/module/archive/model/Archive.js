@@ -52,6 +52,16 @@ define(function (require, exports, module) {
                 method: 'GET',
                 data: param
             });
+        },
+
+        get_archive_info: function (aid) {
+            var param = {};
+            param.archive_id = aid;
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/get_archive_info',
+                method: 'GET',
+                data: param
+            });
         }
     };
 

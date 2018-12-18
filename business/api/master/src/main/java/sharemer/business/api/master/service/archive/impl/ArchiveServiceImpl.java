@@ -11,17 +11,20 @@ import sharemer.business.api.master.dao.TagMapper;
 import sharemer.business.api.master.dao.TagMediaMapper;
 import sharemer.business.api.master.mao.archive.ArchiveMao;
 import sharemer.business.api.master.mao.tag.TagMao;
+import sharemer.business.api.master.mao.user.UserMao;
 import sharemer.business.api.master.po.Archive;
 import sharemer.business.api.master.po.Tag;
 import sharemer.business.api.master.po.TagMedia;
+import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.ro.ArchiveParam;
 import sharemer.business.api.master.service.archive.ArchiveService;
+import sharemer.business.api.master.service.favlist.FavListService;
+import sharemer.business.api.master.service.tag.TagService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.utils.Page;
 import sharemer.business.api.master.vo.ArchiveVo;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +52,15 @@ public class ArchiveServiceImpl implements ArchiveService {
 
     @Resource
     private TagMao tagMao;
+
+    @Resource
+    private TagService tagService;
+
+    @Resource
+    private FavListService favListService;
+
+    @Resource
+    private UserMao userMao;
 
     @Override
     public Page<ArchiveVo> getArchivesByTag(Integer tagId, Integer page, Integer pageSize) {
@@ -153,6 +165,25 @@ public class ArchiveServiceImpl implements ArchiveService {
             List<ArchiveVo> result = this.getArchivesByCache(ids);
             result = this.sortList(sort, result);
             return result;
+        }
+        return null;
+    }
+
+    @Override
+    public ArchiveVo getArchiveInfo(Integer archiveId, User user) {
+        ArchiveVo archiveVo = archiveMao.getBaseOne(archiveId);
+        if(archiveVo != null){
+            ArchiveVo playInfo = archiveMao.getDetailOne(archiveId);
+            if(playInfo != null){
+                archiveVo.setDesc(playInfo.getDesc());
+                archiveVo.setFile(playInfo.getFile());
+            }
+            archiveVo.setUser(this.userMao.getBaseOne(archiveVo.getUser_id()));
+            List<Tag> tags = this.tagService.getTagsByMediaId(
+                    archiveId, Constant.TagMedia.GAOJIAN_TYPE);
+            archiveVo.setTags(tags);
+            archiveVo.setIs_faved(favListService.isFaved(Constant.TagMedia.PV_TYPE, archiveId, user.getId()) ? 1 : 0);
+            return archiveVo;
         }
         return null;
     }

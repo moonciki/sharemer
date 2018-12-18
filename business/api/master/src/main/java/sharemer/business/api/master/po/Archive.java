@@ -27,6 +27,8 @@ public class Archive {
 
     private String desc;
 
+    private Integer source_type;
+
     private LocalDateTime ctime;
 
     private LocalDateTime mtime;
@@ -125,5 +127,13 @@ public class Archive {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public Integer getSource_type() {
+        return source_type;
+    }
+
+    public void setSource_type(Integer source_type) {
+        this.source_type = source_type;
     }
 }
