@@ -20,7 +20,7 @@
                 </ul>
             </div>
         </div>
-        <div class="gj menu_unit">
+        <div class="archive menu_unit">
             <span class="father_tag"><span class="glyphicon glyphicon-send tu"/>站内投稿</span>
             <div class="dropdown-content">
                 <ul>

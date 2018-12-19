@@ -53,6 +53,19 @@ define(function (require, exports, module) {
                     }
                     view.$el.find('.a_info_main_page_title_1').html(tagHtm + resp.result.title);
                     view.$el.find('.publish_time').html(resp.result.ctime.replace("T", ' '));
+                    if (resp.result.publish_type == 0) {
+                        view.$el.find('.publish_type').html("原创");
+                        view.$el.find('.origin_title').html("<span style='text-decoration:line-through'>UP主原创作品，无此项</span>");
+                        view.$el.find('.origin_author').html("<span style='text-decoration:line-through'>UP主原创作品，无此项</span>");
+                    } else {
+                        if (resp.result.publish_type == 1) {
+                            view.$el.find('.publish_type').html("搬运");
+                        } else {
+                            view.$el.find('.publish_type').html("翻唱/鬼畜/改编");
+                        }
+                        view.$el.find('.origin_title').html(resp.result.origin_title);
+                        view.$el.find('.origin_author').html(resp.result.origin_author);
+                    }
                     view.initDanmuPlayer(resp.result);
                 }
             });
