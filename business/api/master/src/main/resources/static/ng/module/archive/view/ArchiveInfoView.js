@@ -39,7 +39,6 @@ define(function (require, exports, module) {
             this.model.archive_id = id;
             this.$el.find('#danmup').html("");
             this.$el.find('.danmaku_content').html("");
-            this.$el.find('#danmup .danmu-cover').danmu("addDanmu", null);
             this.$el.find('#archive_id').val(id);
 
             var view = this;

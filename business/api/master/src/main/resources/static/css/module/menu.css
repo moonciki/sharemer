@@ -54,7 +54,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 18px 8px 8px 8px;
     text-align: left;
-    z-index: 2001;
+    z-index: 2001 !important;
 }
 .child_tag:hover{
     color: #ff99c4;
