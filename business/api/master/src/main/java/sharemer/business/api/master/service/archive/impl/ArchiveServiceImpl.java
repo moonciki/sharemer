@@ -182,7 +182,9 @@ public class ArchiveServiceImpl implements ArchiveService {
             List<Tag> tags = this.tagService.getTagsByMediaId(
                     archiveId, Constant.TagMedia.GAOJIAN_TYPE);
             archiveVo.setTags(tags);
-            archiveVo.setIs_faved(favListService.isFaved(Constant.TagMedia.PV_TYPE, archiveId, user.getId()) ? 1 : 0);
+            if(user != null){
+                archiveVo.setIs_faved(favListService.isFaved(Constant.TagMedia.PV_TYPE, archiveId, user.getId()) ? 1 : 0);
+            }
             return archiveVo;
         }
         return null;

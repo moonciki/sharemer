@@ -19,7 +19,7 @@ public class ArchiveVo extends Archive implements java.io.Serializable {
 
     private User user;
 
-    private Integer is_faved;
+    private Integer is_faved = 0;
 
     public List<Tag> getTags() {
         return tags;
