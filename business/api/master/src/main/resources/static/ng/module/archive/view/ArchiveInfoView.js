@@ -86,6 +86,16 @@ define(function (require, exports, module) {
                         }
                         view.$el.find('.a_tags').html(tagHtm);
                     }
+
+                    var user = resp.result.user;
+                    if(user != null){
+                        view.$el.find('.a_user_info_avater').html("<img src='"+user.avater+"' class='a_avater_img'/>");
+                        view.$el.find('.a_user_info_href_1').html(user.name);
+                        var btnHtm = "<div class='go_self_space' onclick=\"window.open('/#user/info/"+user.id+"');\"><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;去往空间</div>";
+                        btnHtm += "<div class='go_self_blog'><span class='glyphicon glyphicon-home'></span>&nbsp;&nbsp;去往博客</div>"
+                        view.$el.find('.a_user_info_href_2').html(btnHtm);
+                        view.$el.find('.user_desc').html(user.desc);
+                    }
                     view.initDanmuPlayer(resp.result);
                 }
             });

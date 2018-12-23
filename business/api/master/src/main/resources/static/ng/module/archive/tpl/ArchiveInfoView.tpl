@@ -101,7 +101,15 @@
 
                 </div>
             </div>
-            <div class="a_user_info_area"></div>
+            <div class="a_user_info_area">
+                <div class="a_user_info_avater"></div>
+                <div class="a_user_info_href">
+                    <div class="a_user_info_href_1"></div>
+                    <div class="a_user_info_href_2"></div>
+                </div>
+                <div class="user_desc">
+                </div>
+            </div>
         </div>
     </div>
 </div>

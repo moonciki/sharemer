@@ -496,12 +496,12 @@ label.required {
     cursor: pointer;
 }
 
-.tag_text{
+.tag_text {
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid #d1d1d1;
-    background:rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
 }
 
 .page_unit:hover {
@@ -511,5 +511,41 @@ label.required {
 
 .page_pointer {
     background-color: #41c0d0;
+    color: #FFF;
+}
+
+.go_self_space {
+    width: 80px;
+    height: 25px;
+    padding: 5px 5px 5px 5px;
+    font-size: 12px;
+    color: #41c0d0;
+    border: 1px solid #41c0d0;
+    border-radius: 4px;
+    float: left;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.go_self_space:hover {
+    background-color: #41c0d0;
+    color: #FFF;
+}
+
+
+.go_self_blog {
+    width: 80px;
+    height: 25px;
+    padding: 5px 5px 5px 5px;
+    font-size: 12px;
+    color: #ff99c4;
+    border: 1px solid #ff99c4;
+    border-radius: 4px;
+    float: left;
+    cursor: pointer;
+}
+
+.go_self_blog:hover {
+    background-color: #ff99c4;
     color: #FFF;
 }
