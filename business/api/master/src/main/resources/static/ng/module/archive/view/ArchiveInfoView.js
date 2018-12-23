@@ -8,6 +8,7 @@ define(function (require, exports, module) {
     var menuTemplate = require('module/common/tpl/menu.tpl');
     var Template = require('module/archive/tpl/ArchiveInfoView.tpl');
     var Archive = require('module/archive/model/Archive');
+    var ReplyView = require('module/reply/view/ReplyView');
     require('module/danmaku/sh_circle_loader');
     require('module/danmaku/sco.tooltip');
     require('module/danmaku/colpick');
@@ -27,6 +28,12 @@ define(function (require, exports, module) {
             //替换样式
             view.$el.find('.menu_unit_point').removeClass("menu_unit_point").addClass("menu_unit");
             view.$el.find('.archive').removeClass("menu_unit").addClass("menu_unit_point");
+
+            this.replyView = new ReplyView({
+                oid: this.id,
+                otype: 2,
+                el: this.$el.find('.info_area_reply')
+            });
         },
 
         events: {},
@@ -36,7 +43,11 @@ define(function (require, exports, module) {
                 window.location.href = "/#archive";
                 return;
             }
+            this.replyView.oid = id;
             this.model.archive_id = id;
+            /** 获取评论*/
+            this.replyView.getReplies();
+
             this.$el.find('#danmup').html("");
             this.$el.find('.danmaku_content').html("");
             this.$el.find('#archive_id').val(id);
@@ -64,6 +75,16 @@ define(function (require, exports, module) {
                         }
                         view.$el.find('.origin_title').html(resp.result.origin_title);
                         view.$el.find('.origin_author').html(resp.result.origin_author);
+                    }
+
+                    view.$el.find('.a_desc').html(resp.result.desc);
+
+                    if(resp.result.tags != null && resp.result.tags.length > 0){
+                        var tagHtm = "";
+                        for (var i = 0; i < resp.result.tags.length; i++){
+                            tagHtm += "<span class=\"a_tag_style\" onclick=\"location.href='#archive/tag/"+resp.result.tags[i].id+"';\">"+resp.result.tags[i].tag_name+"</span>"
+                        }
+                        view.$el.find('.a_tags').html(tagHtm);
                     }
                     view.initDanmuPlayer(resp.result);
                 }

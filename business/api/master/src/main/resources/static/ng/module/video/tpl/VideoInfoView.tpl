@@ -25,7 +25,7 @@
             <div class="info_area">
                 <div class="tag_dsj"></div>&nbsp;&nbsp;<span style="color:#464646; font-size:16px">视频源站描述</span>
                 <hr/>
-                <span class="j_desc"></span>
+                <div class="j_desc"></div>
                 <hr/>
                 <div class="tag_bq"></div>&nbsp;&nbsp;<span style="color:#464646; font-size:16px">标签：</span>
                 <span class="v_tags">

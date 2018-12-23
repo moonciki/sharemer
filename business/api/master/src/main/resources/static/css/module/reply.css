@@ -52,8 +52,8 @@
 }
 
 .info_area_reply_page_01:hover{
-    color: #ff7da0;
-    border-bottom: solid #ff7da0 4px;
+    color: #ff99c4;
+    border-bottom: solid #ff99c4 4px;
 }
 
 .info_area_reply_02{
@@ -244,7 +244,7 @@
 }
 
 .pg:hover{
-    color: #ff7da0;
+    color: #ff99c4;
 }
 
 .dz{
@@ -252,11 +252,11 @@
 }
 
 .dz:hover{
-    color: #ff7da0;
+    color: #ff99c4;
 }
 
 .dz_point{
-    color: #ff7da0;
+    color: #ff99c4;
 }
 
 .r_u{
@@ -266,7 +266,7 @@
 }
 
 .r_u:hover{
-    color: #ff7da0;
+    color: #ff99c4;
     text-decoration: none;
 }
 

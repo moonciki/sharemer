@@ -64,5 +64,44 @@
                 投稿类型：<span class="publish_type"></span>
             </div>
         </div>
+
+        <div class="a_info_desc">
+            <div class="a_info_area">
+                <span class="a_tag_desc"></span>&nbsp;&nbsp;
+                <span style="color:#464646; font-size:16px">稿件信息</span>
+                <div class="a_desc" style="margin-top: 10px; margin-bottom: 20px"></div>
+                <span class="a_tag_bq"></span>&nbsp;&nbsp;
+                <span style="color:#464646; font-size:16px">标签：</span>
+                <span class="a_tags">
+                </span>
+                <div class="info_area_reply">
+                    <hr/>
+                    <div class="info_area_reply_01">
+                        <div class="tag_reply"></div>&nbsp;&nbsp;<span style="color:#464646; font-size:16px">评论（<span class="page_total"></span>）</span>
+                    </div>
+                    <div class="info_area_reply_page">
+                        <div class="zx info_area_reply_page_01_point">最新</div>
+                        <div class="zz info_area_reply_page_01">最早</div>
+                        <span class="zrp" style="float:right"></span>
+                    </div>
+                    <div class="info_area_reply_02">
+                        <div class="info_area_reply_02_01">
+                            <textarea class="v_reply_content form-control" style="border:solid 1px #41c0d0" rows="4" placeholder="请输入内容"></textarea>
+                        </div>
+                        <div class="info_area_reply_02_02">
+                            <div class="reply_send_btn">
+                                发表<br/>评论
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="v_main_reply_area">
+
+                    </span>
+
+                </div>
+            </div>
+            <div class="a_user_info_area"></div>
+        </div>
     </div>
 </div>

@@ -188,7 +188,8 @@ define(function(require, exports, module) {
                     view.find('.v_info_player').html("<iframe style=\"width:1050px;height:500px;\" src=\""+video.video_url+"\" frameborder=\"0\"></iframe>");
                     break;
             }
-            view.find('.j_desc').html(video.msg);
+            var reg = new RegExp("\n","g");
+            view.find('.j_desc').html(video.msg.replace(reg, "<br/>"));
 
             view.find('.v_source').html("<img src='"+video.logo_url+"' height='15px'/>&nbsp;&nbsp;"+video.net_name);
             view.find('.v_source_url').html("<img src='"+video.logo_url+"' height='25px' style='border: 2px #ff8ab1 solid;border-radius: 100px'/>&nbsp;&nbsp;<a href='"+video.source_url+"' target='_blank'>这里播不了的话，就点我去源站观看吧(°∀°)ﾉ</a>");

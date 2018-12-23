@@ -72,6 +72,7 @@
     border-radius: 100px;
     cursor: pointer;
 }
+
 .a_share_btn:hover {
     color: #fff;
     background-color: #ff921f;
@@ -84,6 +85,7 @@
     cursor: pointer;
     border-radius: 100px;
 }
+
 .a_fav_btn:hover {
     color: #fff;
     background-color: #41c0d0;
@@ -122,6 +124,68 @@
     min-width: 10px;
     font-size: 16px;
     height: 20px;
+}
+
+.a_info_desc {
+    width: 1050px;
+    min-height: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.a_info_area {
+    margin-top: 25px;
+    width: 710px;
+    min-height: 100px;
+    height: auto;
+    float: left;
+    line-height: 1.8;
+    font-size: 13px;
+    color: #a2a2a2;
+}
+
+.a_user_info_area {
+    width: 320px;
+    margin-left: 20px;
+    min-height: 100px;
+    height: auto;
+    float: left;
+}
+
+.a_tag_desc {
+    background-image: url("/image/t_video.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.a_tag_bq {
+    background-image: url("/image/bq.png");
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.a_tag_style {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 20px;
+    padding: 0 8px;
+    line-height: 20px;
+    color: #ff99c4;
+    border: 1px solid #ff99c4;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.a_tag_style:hover{
+    color: #FFF;
+    background-color: #ff99c4;
 }
 
 .player_init {
