@@ -45,7 +45,8 @@ define(function(require, exports, module) {
             'click .j_fl_m_stop':'fmStop',
 
             'click .music_list':'initMusicList',
-            'click .video_list': 'initVideoList'
+            'click .video_list': 'initVideoList',
+            'click .archive_list': 'initArchiveList'
         },
 
         request: function(id) {
@@ -101,6 +102,8 @@ define(function(require, exports, module) {
         },
 
         initMusicList: function(){
+            this.$el.find('.tr_4').text("音乐人");
+            this.$el.find('.tr_5').text("分享人");
             this.musicList(1);
         },
 
@@ -135,6 +138,8 @@ define(function(require, exports, module) {
         },
 
         initVideoList: function(){
+            this.$el.find('.tr_4').text("来源");
+            this.$el.find('.tr_5').text("分享人");
             this.videoList(1);
         },
 
@@ -168,6 +173,42 @@ define(function(require, exports, module) {
             });
         },
 
+        initArchiveList: function(){
+            this.$el.find('.tr_4').text("类型");
+            this.$el.find('.tr_5').text("UP主");
+            this.archiveList(1);
+        },
+
+        archiveList:function(pageNo){
+
+            this.model.current_type = 2;
+            this.$el.find('.fl_main_data_body_menu_unit_pointer').removeClass("fl_main_data_body_menu_unit_pointer").addClass("fl_main_data_body_menu_unit");
+            this.$el.find('.archive_list').removeClass("fl_main_data_body_menu_unit").addClass("fl_main_data_body_menu_unit_pointer");
+
+            if(pageNo == undefined || pageNo == null){
+                pageNo = 1;
+            }
+            this.model.params.pageNo = pageNo;
+
+            var view = this;
+            this.model.get_fav_archives().done(function (resp) {
+                var page = view.model.lastPage,
+                    archives = page.records;
+                if(resp.code == 0) {
+                    var trs = [];
+                    if(archives.length > 0){
+                        for (var i = 0; i < archives.length; i++) {
+                            trs.push(view._renderArchiveOne(archives[i]));
+                        }
+                        view.$el.find('tbody').html(trs);
+                    }else{
+                        view.$el.find('tbody').html("");
+                    }
+                    view.pagination.render(page.pageNo, page.pageCount, page.totalCount);
+                }
+            });
+        },
+
         _renderOne: function(music) {
             var $tr = this.$mtrTemplate.clone();
             $tr.find('.j_fl_m_id').text(music.id);
@@ -182,7 +223,7 @@ define(function(require, exports, module) {
         _renderVideoOne: function(video) {
             var $tr = this.$mtrTemplate.clone();
             $tr.find('.j_fl_m_id').text(video.id);
-            $tr.find('.j_fl_m_cover').html("<img src='"+(video.cover+"?imageView2/1/w/80/h/50")+"' width='50px'/>")
+            $tr.find('.j_fl_m_cover').html("<img src='"+(video.cover+"?imageView2/1/w/80/h/50")+"' width='80px'/>")
             $tr.find('.j_fl_m_title').html("<a href='/#video/info/"+video.id+"' target='_blank'>"+video.title+"</a>");
             $tr.find('.j_fl_m_songer').html("<img src='"+video.logo_url+"' height='25px'/>&nbsp;&nbsp;<span style='color: "+video.net_color+"'>"+video.net_name+"</span>");
             $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+video.r_id+"' target='_blank'>"+video.r_name+"</a>")
@@ -190,24 +231,37 @@ define(function(require, exports, module) {
             return $tr;
         },
 
+        _renderArchiveOne: function(archive) {
+            var $tr = this.$mtrTemplate.clone();
+            $tr.find('.j_fl_m_id').text(archive.id);
+            $tr.find('.j_fl_m_cover').html("<img src='"+(archive.cover+"?imageView2/1/w/80/h/50")+"' width='80px'/>")
+
+            var typeTag = "";
+
+            if(archive.source_type == 0){
+                typeTag = "<span class='f_before_tag' style='background-color: #41c0d0; color: #FFF;'>音频</span>";
+            }else if(archive.source_type == 1){
+                typeTag = "<span class='f_before_tag' style='background-color: #ff99c4; color: #FFF;'>视频</span>";
+            }
+
+            $tr.find('.j_fl_m_title').html(typeTag + "&nbsp;<a href='/#archive/info/"+archive.id+"' target='_blank'>"+archive.title+"</a>");
+
+            var publishType = "";
+            if(archive.publish_type == 0){
+                publishType = "<span class='f_before_tag' style='border: 1px solid #ff7f93; color: #ff7f93;'>原创</span>";
+            }else if(archive.publish_type == 1){
+                publishType = "<span class='f_before_tag' style='border: 1px solid #8cbdff; color: #8cbdff;'>搬运</span>";
+            }else if(archive.publish_type == 2){
+                publishType = "<span class='f_before_tag' style='border: 1px solid #54c4d0; color: #54c4d0;'>翻唱/鬼畜/改编</span>";
+            }
+
+            $tr.find('.j_fl_m_songer').html(publishType);
+            $tr.find('.j_fl_m_rname').html("<a href='/#user/info/"+archive.user_id+"' target='_blank'>"+archive.user_name+"</a>")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $tr.find('.j_fl_m_cz').attr("data-song-id", archive.id).attr("data-cover", archive.cover).html(this.playHtml());
+            return $tr;
+        },
 
         fmStop: function (event) {
             var $div = $(event.target).parents('.j_fl_m_cz');

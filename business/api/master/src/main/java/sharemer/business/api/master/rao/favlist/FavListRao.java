@@ -26,4 +26,6 @@ public interface FavListRao {
 
     Set<String> getVideoIds(Integer fid);
 
+    Set<String> getArchiveIds(Integer fid);
+
 }

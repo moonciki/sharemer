@@ -80,6 +80,22 @@ define(function (require, exports, module) {
                     model.lastPage = resp.result;
                 }
             });
+        },
+
+        get_fav_archives:function () {
+
+            var model = this;
+
+            this.params.fav_id = this.favlist_id;
+            return HttpUtil.request({
+                url: STATEMENT.root + 'pc_api/get_fav_archives',
+                method: 'GET',
+                data: model.params
+            }).done(function (resp) {
+                if (resp.code == 0) {
+                    model.lastPage = resp.result;
+                }
+            });
         }
     };
 

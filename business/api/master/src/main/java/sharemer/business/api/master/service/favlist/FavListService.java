@@ -29,6 +29,8 @@ public interface FavListService {
 
     Page getVideosByFavId(Integer favId, Integer pageNo, Integer pageSize);
 
+    Page getArchivesByFavId(Integer favId, Integer pageNo, Integer pageSize);
+
     List<FavList> getFavsByKey(String key, Integer sort, Integer cp);
 
 }

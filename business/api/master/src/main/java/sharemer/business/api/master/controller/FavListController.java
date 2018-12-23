@@ -139,6 +139,13 @@ public class FavListController {
         return WrappedResult.success(this.favListService.getVideosByFavId(fav_id, pageNo, pageSize));
     }
 
+    @RequestMapping(value = "get_fav_archives", method = RequestMethod.GET)
+    public WrappedResult archives(@RequestParam(value = "fav_id") Integer fav_id,
+                                @RequestParam(value = "pageNo", required = false, defaultValue = "1") Integer pageNo,
+                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize){
+        return WrappedResult.success(this.favListService.getArchivesByFavId(fav_id, pageNo, pageSize));
+    }
+
 
     private String check(Integer uid, Integer tid, String token){
         if(tid == null ||

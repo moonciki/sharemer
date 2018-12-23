@@ -37,6 +37,9 @@ public class FavListRaoImpl implements FavListRao {
 
     @Resource
     private VideoSource videoSource;
+
+    @Resource
+    private ArchiveSource archiveSource;
     
     @Override
     public void addFavsByUserId(Integer fid, Integer uid) {
@@ -139,6 +142,20 @@ public class FavListRaoImpl implements FavListRao {
             return sharemerRedisClient.smembers(key);
         }catch (Exception e){
             logger.error("get video count error ! fid = {}", fid);
+        }
+        return null;
+    }
+
+    @Override
+    public Set<String> getArchiveIds(Integer fid) {
+        try{
+            String key = String.format(RedisKeys.FavList.getSubListByFavId(), fid);
+            if (!constantProperties.getRedisSourceValue().equals(sharemerRedisClient.get(RedisKeys.getSourceKey(key)))) {//如果回源key不存在，或者存在但不等于当前回源键，则触发redis异步回源
+                PriorityExecutor.execute(() -> archiveSource.sourceArchiveIdsByFavId(fid), 1);
+            }
+            return sharemerRedisClient.smembers(key);
+        }catch (Exception e){
+            logger.error("get archive count error ! fid = {}", fid);
         }
         return null;
     }

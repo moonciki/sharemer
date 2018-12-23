@@ -9,6 +9,7 @@ define(function (require, exports, module) {
     var Template = require('module/archive/tpl/ArchiveInfoView.tpl');
     var Archive = require('module/archive/model/Archive');
     var ReplyView = require('module/reply/view/ReplyView');
+    var FavView = require('module/fav/view/FavView');
     require('module/danmaku/sh_circle_loader');
     require('module/danmaku/sco.tooltip');
     require('module/danmaku/colpick');
@@ -34,6 +35,12 @@ define(function (require, exports, module) {
                 otype: 2,
                 el: this.$el.find('.info_area_reply')
             });
+
+            this.favView = new FavView({
+                oid: this.id,
+                otype: 2,
+                el: this.$el.find('.a_share_area')
+            });
         },
 
         events: {},
@@ -43,8 +50,10 @@ define(function (require, exports, module) {
                 window.location.href = "/#archive";
                 return;
             }
+            this.favView.oid = id;
             this.replyView.oid = id;
             this.model.archive_id = id;
+            this.favView.initNotFav();
             /** 获取评论*/
             this.replyView.getReplies();
 
@@ -62,6 +71,9 @@ define(function (require, exports, module) {
                         tagHtm = "<span class='source_type_tag' style='background-color: #ff99c4'>视频</span>"
                     }
                     view.$el.find('.a_info_main_page_title_1').html(tagHtm + resp.result.title);
+                    if(resp.result.is_faved == 1){
+                        view.favView.initAlreadyFav();
+                    }
                     view.$el.find('.publish_time').html(resp.result.ctime.replace("T", ' '));
                     if (resp.result.publish_type == 0) {
                         view.$el.find('.publish_type').html("原创");

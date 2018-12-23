@@ -49,9 +49,7 @@
                 <span class="glyphicon glyphicon-share-alt"></span> 分享
             </div>
             <span class="a_share_area">
-                <div class="a_player_btn_group a_fav_btn">
-                    <span class="glyphicon glyphicon-star"></span> 收藏
-                </div>
+
             </span>
 
             <div class="a_player_btn_group_source a_player_msg">

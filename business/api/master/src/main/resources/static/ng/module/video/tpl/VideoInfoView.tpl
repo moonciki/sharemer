@@ -9,9 +9,7 @@
             </div>
 
             <span class="v_share_area">
-                <div class="v_player_btn_group v_fav_btn">
-                    <span class="glyphicon glyphicon-star"/> 收藏
-                </div>
+
             </span>
 
             <div class="v_player_btn_group v_player_msg">

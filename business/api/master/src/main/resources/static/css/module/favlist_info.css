@@ -1,11 +1,11 @@
 
-.fl_main_page_info{
+.fl_main_page_info {
     width: 100%;
     min-height: 100px;
     height: auto;
 }
 
-.fl_main_data_area_info{
+.fl_main_data_area_info {
     width: 1050px;
     min-height: 100px;
     height: auto;
@@ -14,27 +14,27 @@
     color: #5e5e5e;
 }
 
-.fl_main_data_head{
+.fl_main_data_head {
     width: 1050px;
     height: 180px;
     border-bottom: 1px #f3f3f3 solid;
     margin-bottom: 20px;
 }
 
-.fl_main_data_head_cover{
+.fl_main_data_head_cover {
     width: 150px;
     height: 180px;
     float: left;
     margin-right: 20px;
 }
 
-.cover_img{
+.cover_img {
     width: 150px;
     height: 150px;
     border-radius: 6px;
 }
 
-.fl_main_data_head_title{
+.fl_main_data_head_title {
     width: 830px;
     height: 30px;
     font-size: 20px;
@@ -42,21 +42,21 @@
     float: left;
 }
 
-.fl_main_data_head_tag{
+.fl_main_data_head_tag {
     padding-top: 20px;
     width: 830px;
     height: 80px;
     float: left;
 }
 
-.fl_main_data_head_info{
+.fl_main_data_head_info {
     padding-top: 10px;
     width: 830px;
     height: 40px;
     float: left;
 }
 
-.fl_tag{
+.fl_tag {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
@@ -70,12 +70,12 @@
     cursor: pointer;
 }
 
-.fl_tag:hover{
+.fl_tag:hover {
     color: #FFF;
     background: #ff99c4;
 }
 
-.fl_tag_info{
+.fl_tag_info {
     background-size: 100% 100%;
     width: 20px;
     height: 20px;
@@ -84,31 +84,31 @@
     margin-right: 8px;
 }
 
-.fl_tag_text{
-    color:#464646;
-    font-size:14px;
+.fl_tag_text {
+    color: #464646;
+    font-size: 14px;
 }
 
-.fl_tag_bq{
+.fl_tag_bq {
     background-image: url("/image/bq.png");
 }
 
-.fl_tag_user{
+.fl_tag_user {
     background-image: url("/image/t_home.png");
 }
 
-.fl_tag_time{
+.fl_tag_time {
     margin-left: 50px;
     background-image: url("/image/v_sj.png");
 }
 
-.fl_main_data_body{
+.fl_main_data_body {
     width: 1050px;
     height: auto;
     min-height: 1px;
 }
 
-.fl_main_data_body_menu{
+.fl_main_data_body_menu {
     width: 1050px;
     height: 35px;
     border-bottom: 1px solid #f3f3f3;
@@ -117,7 +117,7 @@
     float: left;
 }
 
-.fl_main_data_body_menu_unit{
+.fl_main_data_body_menu_unit {
     width: 150px;
     font-size: 15px;
     text-align: center;
@@ -126,11 +126,11 @@
     float: left;
 }
 
-.fl_main_data_body_menu_unit:hover{
+.fl_main_data_body_menu_unit:hover {
     color: #41c0d0;
 }
 
-.fl_main_data_body_menu_unit_pointer{
+.fl_main_data_body_menu_unit_pointer {
     width: 150px;
     font-size: 15px;
     text-align: center;
@@ -160,7 +160,7 @@
     cursor: pointer;
 }
 
-.fl_play_btn:hover{
+.fl_play_btn:hover {
     background-color: #ff99c4;
     color: #FFF;
 }
@@ -182,7 +182,18 @@
     cursor: pointer;
 }
 
-.fl_share_btn:hover{
+.fl_share_btn:hover {
     background-color: #41c0d0;
     color: #FFF;
+}
+
+.f_before_tag {
+    margin-right: 5px;
+    padding: 2px 5px 2px 5px;
+    border-radius: 100px;
+    color: #519dff;
+    width: auto;
+    min-width: 10px;
+    height: auto;
+    min-height: 10px;
 }

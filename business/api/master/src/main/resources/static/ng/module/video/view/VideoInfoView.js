@@ -9,22 +9,20 @@ define(function(require, exports, module) {
 
     var Template = require('module/video/tpl/VideoInfoView.tpl');
 
-    var Template2 = require('module/video/tpl/FavModal.tpl');
-
     var Video = require('module/video/model/Video');
+
+    var FavView = require('module/fav/view/FavView');
 
     var ReplyView = require('module/reply/view/ReplyView');
 
     var VideoInfoView = Backbone.View.extend({
         m_template: menuTemplate,
         template: Template,
-        template2: Template2,
         current_mid : null,
         initialize: function() {
             this.model = new Video();
             this.$el.append(this.m_template);
             this.$el.append(this.template);
-            this.$el.append(this.template2);
             var view = this;
             //替换样式
             view.$el.find('.menu_unit_point').removeClass("menu_unit_point").addClass("menu_unit");
@@ -34,124 +32,26 @@ define(function(require, exports, module) {
                 otype: 1,
                 el: this.$el.find('.info_area_reply')
             });
-        },
 
-        events: {
-            'click .v_fav_btn': 'favClick',
-            'click .v_f_add_list_btn': 'quickAddFavList',
-            'click .v_f_final_sub': 'vFinalSub'
-        },
-
-        vFinalSub: function () {
-            var ids = [];
-            this.$el.find('.fav_list_body input[type=checkbox]:checked').each(function(index, ele) {
-                ids.push(ele.getAttribute('data-fav-id'));
-            });
-            if(ids.length == 0){
-                alert("请至少选择一个~");
-                return false;
-            }
-            var param = {};
-            param.fav_ids = ids;
-
-            var view = this;
-            this.model.save_media_favs(param).done(function (resp) {
-                if(resp.code == 0){
-                    view.$el.find('.v_share_area').html(view.getAlReadyFavHtml());
-                    view.$el.find('#fav_community_list').modal('hide');
-                }
+            this.favView = new FavView({
+                oid: this.id,
+                otype: 1,
+                el: this.$el.find('.v_share_area')
             });
         },
 
-        quickAddFavList: function () {
-            var user = window.SHION.currentUser;
-            var title = this.$el.find(".v_f_fav_title").val();
-            if(title == null || title.trim().length == 0){
-                alert("请务必填写标题~");
-                return false;
-            }
-            var is_private = this.$el.find('.v_f_is_private').prop('checked');
-            var param = {};
-            param.title = title;
-            param.user_id = user.id;
-            if(is_private){
-                param.is_hide = 1;
-            }else{
-                param.is_hide = 0;
-            }
-
-            var view = this;
-            this.model.quick_save_favs(param).done(function (resp) {
-                if(resp.code == 0){
-                    var html = "";
-                    var fav = resp.result;
-                    if(fav != null){
-                        view.$el.find('.no_list_text').hide();
-                        view.$el.find('.v_f_fav_title').val("");
-                        view.$el.find('.v_f_is_private').prop('checked', false);
-                        html+=view.getFavListOneHtml(fav);
-                        view.$el.find('.fav_list_body').append(html);
-                    }
-                }
-            });
-
-        },
-
-        favClick: function () {
-            var user = window.SHION.currentUser;
-            if(user == null || user == undefined){
-                alert("要先登录哦~");
-                return false;
-            }
-            var view = this;
-            var param = {};
-            param.o_type = 1;
-            param.o_id = this.model.video_id;
-            this.model.get_favs_by_uid(param).done(function (resp) {
-                if(resp.code == 0){
-                    view.$el.find('#fav_community_list').modal('show');
-                    view.$el.find('.modal-fc-title').text("请选择收藏夹");
-                    view.$el.find('.fav_list_body').html("");
-                    var favs = resp.result;
-                    if(favs.length == 0){
-                        view.$el.find('.no_list_text').html("您还未创建过收藏夹呢~在下面快速创建一个吧~");
-                    }else{
-                        view.$el.find('.no_list_text').hide();
-                        var html = "";
-                        for(var i = 0; i < favs.length; i++){
-                            html+=view.getFavListOneHtml(favs[i]);
-                        }
-                        view.$el.find('.fav_list_body').append(html);
-                    }
-                }
-            });
-
-        },
-
-        /** 传入一个收藏夹对象，生成对应的单个html代码块*/
-        getFavListOneHtml: function (fav) {
-            var html = "<div class=\"tm_big_unit\">"+
-            "<div class=\"tm_small_unit\"><input class=\"v_f_pointer\" data-fav-id='"+fav.id+"' type=\"checkbox\"/> "+fav.title+"</div>"+
-            "<div class=\"tm_small_unit\">";
-
-            if(fav.is_hide == 1){
-                html+="<span class=\"label label-danger\">私有</span>"
-            }else{
-                html+="<span class=\"label label-primary\">公开</span>"
-            }
-
-            html+="</div></div>";
-            return html;
-        },
+        events: {},
 
         request: function(id) {
             if(id == null || id == undefined || id == ""){
                 window.location.href="/#video";
                 return;
             }
+            this.favView.oid = id;
             this.replyView.oid = id;
             this.model.video_id = id;
             this.getVideoInfo();
+            this.favView.initNotFav();
             /** 获取评论*/
             this.replyView.getReplies();
         },
@@ -227,16 +127,9 @@ define(function(require, exports, module) {
             view.find('.v_tags').html(tag_htm);
 
             if(video.is_faved == 1){
-                view.find('.v_share_area').html(this.getAlReadyFavHtml());
+                this.favView.initAlreadyFav();
             }
 
-        },
-
-        getAlReadyFavHtml: function () {
-            return "<div class=\"v_player_btn_group v_y_fav_btn\"><span class=\"glyphicon glyphicon-star\"/> 已收藏 </div>"
-        },
-        getNotFavHtml: function () {
-            return "<div class=\"v_player_btn_group v_fav_btn\"><span class=\"glyphicon glyphicon-star\"/> 收藏 </div>"
         }
     });
 

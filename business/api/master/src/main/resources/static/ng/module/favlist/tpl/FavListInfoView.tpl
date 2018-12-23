@@ -18,7 +18,7 @@
                     <span class="glyphicon glyphicon-stop"></span>
                     &nbsp;&nbsp;视频(<span class="video_num"></span>)
                 </div>
-                <div class="fl_main_data_body_menu_unit gaojian_list">
+                <div class="fl_main_data_body_menu_unit archive_list">
                     <span class="glyphicon glyphicon-stop"></span>
                     &nbsp;&nbsp;稿件(<span class="gaojian_num"></span>)
                 </div>
@@ -27,12 +27,12 @@
             <table class="table table-striped table-condensed admin">
                 <thead>
                 <tr>
-                    <th style="width: 10rem">ID</th>
-                    <th style="width: 10rem">封面</th>
-                    <th style="width: 20rem">标题</th>
-                    <th style="width: 15rem">来源</th>
-                    <th style="width: 15rem">分享人</th>
-                    <th style="width: 25rem">操作</th>
+                    <th style="width: 10rem" class="tr_1">ID</th>
+                    <th style="width: 10rem" class="tr_2">封面</th>
+                    <th style="width: 20rem" class="tr_3">标题</th>
+                    <th style="width: 15rem" class="tr_4">来源</th>
+                    <th style="width: 15rem" class="tr_5">分享人</th>
+                    <th style="width: 25rem" class="tr_6">操作</th>
                 </tr>
                 </thead>
                 <tbody></tbody>

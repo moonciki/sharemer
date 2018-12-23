@@ -82,4 +82,10 @@
         WHERE list_id=#{favId} AND otype = 1 AND oid > 0
     </select>
 
+    <select id="getArchiveIdsByFavId" resultType="java.lang.String">
+        SELECT oid
+        FROM r_list_media_${num}
+        WHERE list_id=#{favId} AND otype = 2 AND oid > 0
+    </select>
+
 </mapper>

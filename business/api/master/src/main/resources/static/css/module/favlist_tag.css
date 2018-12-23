@@ -1,31 +1,32 @@
-.f_child_menu{
+.f_child_menu {
     color: #373737;
     font-size: 12px;
     margin-left: 30px;
     cursor: pointer;
     float: left;
-    list-style:none;
+    list-style: none;
 }
 
-.f_child_menu:hover{
+.f_child_menu:hover {
     color: #ff99c4;
 }
 
-.f_child_menu_pointer{
+.f_child_menu_pointer {
     color: #ff709f;
     font-weight: bold;
     font-size: 12px;
     margin-left: 30px;
     cursor: pointer;
     float: left;
-    list-style:none;
+    list-style: none;
 }
 
-.f_child_menu_box{
+.f_child_menu_box {
     width: 100%;
     height: 45px;
 }
-.f_menu_main_box_01{
+
+.f_menu_main_box_01 {
     width: 1050px;
     height: 45px;
     margin: 0 auto;
@@ -34,28 +35,30 @@
     border: 1px solid #41c0d0;
     border-radius: 4px;
     padding-top: 13px;
-    box-shadow:inset 0px 0px 16px #e5e5e5;
+    box-shadow: inset 0px 0px 16px #e5e5e5;
 }
-.f_main_page{
+
+.f_main_page {
     width: 100%;
     min-height: 100px;
     height: auto;
 }
-.f_main_data_area{
+
+.f_main_data_area {
     width: 1050px;
     min-height: 100px;
     height: auto;
     margin: 0 auto;
 }
 
-.f_tag_top{
+.f_tag_top {
     width: 1050px;
     min-height: 100px;
     height: auto;
     margin: 0 auto;
 }
 
-.f_main_tag{
+.f_main_tag {
     margin-top: 10px;
     margin-bottom: 20px;
     width: 1050px;
@@ -69,7 +72,7 @@
     color: #41c0d0;
 }
 
-.f_tag_name_text{
+.f_tag_name_text {
     width: 400px;
     margin: 0 auto;
     padding-top: 8px;
