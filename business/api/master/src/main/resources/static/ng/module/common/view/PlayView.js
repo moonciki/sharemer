@@ -21,10 +21,13 @@ define(function(require, exports, module) {
             this.main_el.find('#all_common_play').modal('show');
             this.main_el.find('.common-modal-title').text(title);
             if(type == 0){
-                this.main_el.find('.common-modal-body').html("<iframe style=\"width:840px;height:86px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
+                this.main_el.find('.common-modal-body').html("<iframe style=\"width:1050px;height:86px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
             }
             if(type == 1){
-                this.main_el.find('.common-modal-body').html("<iframe style=\"width:840px;height:440px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
+                this.main_el.find('.common-modal-body').html("<iframe style=\"width:1040px;height:460px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
+            }
+            if(type == 2){
+                this.main_el.find('.common-modal-body').html("<iframe style=\"width:1060px;height:460px;\" src=\""+url+"\" frameborder=\"0\"></iframe>")
             }
         },
         close: function () {

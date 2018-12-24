@@ -1,5 +1,5 @@
 <div class="modal fade" id="all_common_play" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg" style="width: 1105px; margin-top: 10px" role="document">
 	    <div class="modal-content">
             <div class="modal-header" style="border-radius:4px; background-color:#41c0d0">
             <button type="button" class="close" data-dismiss="modal">

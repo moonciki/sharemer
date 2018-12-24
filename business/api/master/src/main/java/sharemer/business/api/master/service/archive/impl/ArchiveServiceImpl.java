@@ -170,19 +170,31 @@ public class ArchiveServiceImpl implements ArchiveService {
     }
 
     @Override
+    public ArchiveVo getArchivePath(Integer archiveId) {
+        ArchiveVo archiveVo = archiveMao.getBaseOne(archiveId);
+        if (archiveVo != null) {
+            ArchiveVo playInfo = archiveMao.getDetailOne(archiveId);
+            if (playInfo != null) {
+                archiveVo.setFile(playInfo.getFile());
+            }
+            return archiveVo;
+        }
+        return null;
+    }
+
+    @Override
     public ArchiveVo getArchiveInfo(Integer archiveId, User user) {
         ArchiveVo archiveVo = archiveMao.getBaseOne(archiveId);
-        if(archiveVo != null){
+        if (archiveVo != null) {
             ArchiveVo playInfo = archiveMao.getDetailOne(archiveId);
-            if(playInfo != null){
+            if (playInfo != null) {
                 archiveVo.setDesc(playInfo.getDesc());
-                archiveVo.setFile(playInfo.getFile());
             }
             archiveVo.setUser(this.userMao.getBaseOne(archiveVo.getUser_id()));
             List<Tag> tags = this.tagService.getTagsByMediaId(
                     archiveId, Constant.TagMedia.GAOJIAN_TYPE);
             archiveVo.setTags(tags);
-            if(user != null){
+            if (user != null) {
                 archiveVo.setIs_faved(favListService.isFaved(Constant.TagMedia.GAOJIAN_TYPE, archiveId, user.getId()) ? 1 : 0);
             }
             return archiveVo;

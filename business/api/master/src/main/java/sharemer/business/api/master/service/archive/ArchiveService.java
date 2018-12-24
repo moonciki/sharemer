@@ -18,6 +18,8 @@ public interface ArchiveService {
 
     List<ArchiveVo> getArchivesByUid(Integer uid, Integer sort, Integer c_p);
 
+    ArchiveVo getArchivePath(Integer archiveId);
+
     ArchiveVo getArchiveInfo(Integer archiveId, User user);
 
 }

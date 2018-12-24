@@ -10,6 +10,8 @@ define(function (require, exports, module) {
 
     var Pagination = require('component/Pagination');
 
+    var PlayView = require('module/common/view/PlayView');
+
     var ArchiveTagView = Backbone.View.extend({
         m_template: menuTemplate,
         template: Template,
@@ -29,9 +31,19 @@ define(function (require, exports, module) {
                     view.getArchivesByTag(newPageNo);
                 }
             });
+
+            this.playView = new PlayView({
+                el: this.$el
+            });
         },
 
-        events: {},
+        events: {
+            'click .common_play': 'commonPlay'
+        },
+
+        commonPlay: function (event) {
+            this.playView.commonPlay(event);
+        },
 
         request: function (id) {
             if (id == null || id == undefined || id == "") {
@@ -108,7 +120,7 @@ define(function (require, exports, module) {
                 }
 
                 html += "<div class='v_main_data_area_unit_cover'><div class=\"v_data_01\" style=\"background-size: 100% 100%;background-image: url('" + (archives[i].cover + "?imageView2/1/w/186/h/116") + "'), url('/image/default_v.jpg')\">" +
-                    "<div class='common_play v_img_back_play'></div></div>" +
+                    "<div class='common_play v_img_back_play' data-title='"+archives[i].title+"' data-type='2' data-url='/player/#archive/player/"+archives[i].id+"'></div></div>" +
                     "<div class='v_main_data_area_unit_txt'><span class='v_before_tag' style='border: 1px solid " + publish_color + "; color: " + publish_color + ";'>" + publish_txt + "</span><a href=\"/#archive/info/" + archives[i].id + "\" target='_blank' title='" + archives[i].title + "'>";
 
                 if (archives[i].title.length > 30) {

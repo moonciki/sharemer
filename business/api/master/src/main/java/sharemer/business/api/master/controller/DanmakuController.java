@@ -3,7 +3,6 @@ package sharemer.business.api.master.controller;
 import org.springframework.web.bind.annotation.*;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.anno.TriggerLimit;
-import sharemer.business.api.master.po.Danmaku;
 import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.rao.user.UserRao;
 import sharemer.business.api.master.service.danmaku.DanmakuService;
@@ -13,7 +12,6 @@ import sharemer.component.global.resp.WrappedResult;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Create by 18073 on 2018/12/17.
@@ -49,12 +47,6 @@ public class DanmakuController {
         } else {
             return WrappedResult.fail("账号未登录！");
         }
-    }
-
-    @RequestMapping(value = "danmaku/gets")
-    public WrappedResult getByAid(@RequestParam(value = "aid") Integer aid) {
-        List<Danmaku> danmakus = danmakuService.getDanmakusByAid(aid);
-        return WrappedResult.success(danmakus);
     }
 
 }

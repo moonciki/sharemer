@@ -12,8 +12,6 @@ import sharemer.component.global.resp.WrappedResult;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,9 +23,19 @@ public class HomeController {
 
 	@RequestMapping("/")
 	@NeedUser
-	public ModelAndView home(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public ModelAndView home(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView("home");
+		User user = (User)request.getAttribute(Constant.LOGIN_USER);
+		String csrfToken = this.userRao.getCsrfToken();
+		view.addObject("SCRIPT", generate(user, csrfToken));
+		view.addObject("token", csrfToken);
+		return view;
+	}
+
+	@RequestMapping("/player")
+	@NeedUser
+	public ModelAndView player(HttpServletRequest request){
+		ModelAndView view = new ModelAndView("player");
 		User user = (User)request.getAttribute(Constant.LOGIN_USER);
 		String csrfToken = this.userRao.getCsrfToken();
 		view.addObject("SCRIPT", generate(user, csrfToken));
@@ -37,8 +45,7 @@ public class HomeController {
 
 	/** CSRF_TOKEN*/
 	@RequestMapping("/pc_api/get_token")
-	public WrappedResult getToken(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public WrappedResult getToken() {
 		return WrappedResult.success(userRao.getCsrfToken());
 	}
 

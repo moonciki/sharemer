@@ -122,7 +122,7 @@
         });
         $(this.id + " .full-screen").scojs_tooltip({
             appendTo: this.id,
-            content: '全屏'
+            content: '宽屏'
         });
         $(this.id + ' .colpicker').colpick({
             flat: true,

@@ -29,7 +29,7 @@ define(function(require, exports, module) {
         },
 
         initNotFav: function () {
-            this.main_el.append(this.getNotFavHtml());
+            this.main_el.html(this.getNotFavHtml());
         },
 
         initAlreadyFav: function () {
