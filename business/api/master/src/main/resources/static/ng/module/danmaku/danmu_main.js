@@ -10,8 +10,6 @@
 
 ;
 (function ($) {
-
-
     var DanmuPlayer = function (element, options) {
         this.$element = $(element);
         this.options = options;
@@ -193,6 +191,7 @@
             + "<div class=\"danmaku_list_tb1\">"+danmu.time+"</div>"
             + "<div class=\"danmaku_list_tb2\">"+danmu_text+"</div>"
             + "<div class=\"danmaku_list_tb3\">刚刚</div>";
+            $(".no_danmaku").hide();
             $(".danmaku_content").append(appendHtm);
             var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + ',"isnew":""}';
             var newObj = eval('(' + textObj + ')');
@@ -205,11 +204,14 @@
         //播放暂停
         this.playPause = function (e) {
             if (e.data.video.paused) {
+                $(".danmaku_record_down").addClass("guangyun");
+                $(".danamku_record").addClass("xuanzhuan");
                 e.data.video.play();
                 $(e.data.that.id + " .danmu-div").danmu('danmuResume');
                 $(e.data.that.id + " .play-btn span").removeClass("glyphicon-play").addClass("glyphicon-pause");
-            }
-            else {
+            } else {
+                $(".danmaku_record_down").removeClass("guangyun");
+                $(".danamku_record").removeClass("xuanzhuan");
                 e.data.video.pause();
                 $(e.data.that.id + " .danmu-div").danmu('danmuPause');
                 $(e.data.that.id + " .play-btn span").removeClass("glyphicon-pause").addClass("glyphicon-play");

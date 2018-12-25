@@ -77,7 +77,8 @@ define(function (require, exports, module) {
                         view.$el.find('.origin_author').html(resp.result.origin_author);
                     }
 
-                    view.$el.find('.a_desc').html(resp.result.desc);
+                    var reg = new RegExp("\n","g");
+                    view.$el.find('.a_desc').html(resp.result.desc.replace(reg, "<br/>"));
 
                     if(resp.result.tags != null && resp.result.tags.length > 0){
                         var tagHtm = "";
