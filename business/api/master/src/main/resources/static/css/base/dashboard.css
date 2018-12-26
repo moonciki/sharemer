@@ -399,27 +399,32 @@ label.required {
 }
 
 .main_foot_01 {
-    padding-top: 20px;
+    padding-top: 30px;
     width: 1050px;
-    height: 110px;
+    min-height: 110px;
+    height: auto;
     margin: 0 auto;
 }
 
 .main_foot_01_01 {
-    padding-top: 20px;
+    padding-left: 40px;
     width: 349px;
-    height: 110px;
+    min-height: 110px;
+    height: auto;
     float: left;
 }
 
 .main_foot_01_01_line {
-    border-right: solid #c3c3c3 1px;
+    border-right: solid #ececec 1px;
 }
 
 .main_foot_02 {
     width: 1050px;
     height: 88px;
     margin: 0 auto;
+    color: #979797;
+    text-align: center;
+    line-height: 1.8;
 }
 
 .search_area {
