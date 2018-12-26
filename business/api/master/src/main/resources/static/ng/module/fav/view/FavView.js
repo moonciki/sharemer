@@ -14,12 +14,11 @@ define(function(require, exports, module) {
         otype:null,
         main_el:null,
         initialize: function(options) {
-            this.$el.append(this.template);
             this.model = new Fav();
             this.oid = options.oid;
             this.otype = options.otype;
-            this.main_el = options.el;
-            var view = this;
+            options.el.append(this.template+"<span class='fav_btn_area'></span>");
+            this.main_el = options.el.find('.fav_btn_area');
         },
 
         events: {

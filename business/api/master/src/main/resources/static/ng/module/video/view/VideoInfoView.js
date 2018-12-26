@@ -1,9 +1,6 @@
 define(function(require, exports, module) {
 
     seajs.use('./css/module/video_info.css');
-    seajs.use('./css/module/reply.css');
-    seajs.use('./css/module/t_model.css');
-    seajs.use('./css/module/share.css');
 
     var menuTemplate = require('module/common/tpl/menu.tpl');
 
