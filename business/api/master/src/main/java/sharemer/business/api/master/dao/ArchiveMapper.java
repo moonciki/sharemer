@@ -24,4 +24,7 @@ public interface ArchiveMapper {
 
     ArchiveVo getArchivePlayInfo(@Param("archive_id") Integer archive_id);
 
+    List<Integer> getArchivesByKey(@Param("key") String key, @Param("sort") Integer sort,
+                                 @Param("page") Integer page);
+
 }

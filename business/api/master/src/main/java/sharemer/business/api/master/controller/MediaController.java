@@ -1,5 +1,6 @@
 package sharemer.business.api.master.controller;
 
+import sharemer.business.api.master.service.archive.ArchiveService;
 import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.service.music.MusicService;
@@ -29,6 +30,9 @@ public class MediaController {
     @Resource
     private FavListService favListService;
 
+    @Resource
+    private ArchiveService archiveService;
+
     @RequestMapping(value = "query", method = RequestMethod.GET)
     public WrappedResult getMusicByUid(@RequestParam(value = "key") String key,
                                        @RequestParam(value = "sort") Integer sort,
@@ -49,7 +53,7 @@ public class MediaController {
             case Constant.Media.V_TYPE:
                 return WrappedResult.success(this.videoService.getVideosByKey(key, sort, c_p));
             case Constant.Media.G_TYPE:
-                return null;
+                return WrappedResult.success(this.archiveService.getArchivesByKey(key, sort, c_p));
             case Constant.Media.F_TYPE:
                 return WrappedResult.success(this.favListService.getFavsByKey(key, sort, c_p));
 

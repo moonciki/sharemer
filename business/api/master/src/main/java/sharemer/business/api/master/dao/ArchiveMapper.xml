@@ -89,4 +89,16 @@
         FROM t_archive
         WHERE id = #{archive_id} AND `status` != 3
     </select>
+
+    <select id="getArchivesByKey" resultType="java.lang.Integer">
+        SELECT id
+        FROM t_archive WHERE status = 1 AND title LIKE "%"#{key}"%"
+        <if test="sort == 0">
+            ORDER BY ctime ASC
+        </if>
+        <if test="sort == 1">
+            ORDER BY ctime DESC
+        </if>
+        LIMIT #{page}, 10
+    </select>
 </mapper>

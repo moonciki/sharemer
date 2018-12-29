@@ -202,6 +202,17 @@ public class ArchiveServiceImpl implements ArchiveService {
         return null;
     }
 
+    @Override
+    public List<ArchiveVo> getArchivesByKey(String key, Integer sort, Integer c_p) {
+        List<Integer> ids = this.archiveMapper.getArchivesByKey(key, sort, c_p);
+        if(ids != null && ids.size() > 0){
+            List<ArchiveVo> result = this.getArchivesByCache(ids);
+            result = this.sortList(sort, result);
+            return result;
+        }
+        return null;
+    }
+
     private List<ArchiveVo> sortList(int sort, List<ArchiveVo> result) {
         final int sorted = sort;
         return result.stream()

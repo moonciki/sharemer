@@ -67,7 +67,7 @@
 .s_main_data_menu_area{
     width: 1050px;
     height: 40px;
-    border-bottom: 1px solid #a8a8a8;
+    border-bottom: 1px solid #41c0d0;
 }
 
 .s_main_data_menu_area_units{
@@ -88,13 +88,13 @@
 }
 
 .s_main_data_menu_area_unit_pointer{
-    color: #ff556d;
-    border-bottom: 4px solid #ff556d;
+    color: #41c0d0;
+    border-bottom: 4px solid #41c0d0;
 }
 
 .s_main_data_menu_area_unit:hover{
-    color: #ff556d;
-    border-bottom: 4px solid #ff556d;
+    color: #41c0d0;
+    border-bottom: 4px solid #41c0d0;
 }
 
 .s_main_more{

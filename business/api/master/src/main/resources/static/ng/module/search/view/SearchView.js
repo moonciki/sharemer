@@ -118,9 +118,25 @@ define(function(require, exports, module) {
                 var length = medias.length;
                 this.$el.find('.s_no_data').hide();
                 this.$el.find('.s_main_more').show();
+                var link = "";
+                switch (this.model.type){
+                    case 0:
+                        link = "/#music/info/";
+                        break;
+                    case 1:
+                        link = "/#video/info/";
+                        break;
+                    case 2:
+                        link = "/#archive/info/";
+                        break;
+                    case 4:
+                        link = "/#favlist/info/";
+                        break;
+                }
                 for (var i = 0; i < length; i++) {
+
                     html += "<div class='s_content_unit'><div class='s_content_unit_1' style=\"background-image: url('"+(medias[i].cover+"?imageView2/1/w/160/h/160")+"'), url('/image/s_default.jpg')\">" +
-                        "</div><div class='s_content_unit_2'><a href='' title='"+medias[i].title+"'>"+(medias[i].title.length > 29 ? medias[i].title.substring(0, 29).replace(this.model.key, "<span style='color: red'>"+this.model.key+"</span>") : medias[i].title.replace(this.model.key, "<span style='color: red'>"+this.model.key+"</span>"))+"</a></div>" +
+                        "</div><div class='s_content_unit_2'><a href='"+(link+medias[i].id)+"' target='_blank' title='"+medias[i].title+"'>"+(medias[i].title.length > 29 ? medias[i].title.substring(0, 29).replace(this.model.key, "<span style='color: red'>"+this.model.key+"</span>") : medias[i].title.replace(this.model.key, "<span style='color: red'>"+this.model.key+"</span>"))+"</a></div>" +
                         "<div class='s_content_unit_3'><span class='glyphicon glyphicon-time'></span>&nbsp;&nbsp;分享于"+medias[i].ctime.substring(0,10)+"</div></div>";
                 }
                 this.$el.find('.s_main_data_content').append(html);

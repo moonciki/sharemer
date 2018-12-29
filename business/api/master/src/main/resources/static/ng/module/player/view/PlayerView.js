@@ -58,7 +58,7 @@ define(function (require, exports, module) {
             if (player.source_type == 0) {
                 this.$el.find('.danmu-div').append("<div class='danmaku_record_down'></div><div class='danamku_record' style=\"background-image: url('" + player.cover + "?imageView2/1/w/250/h/250')\"><div class='danmaku_record_cover'></div></div>")
                 this.$el.find(".danmu-video")
-                    .css("background-image", "url(" + player.cover + "?imageView2/1/w/700/h/400)").css("filter", "blur(10px)");
+                    .css("background-image", "url(" + player.cover + "?imageView2/1/w/700/h/400)").css("filter", "blur(8px)");
             }
 
             var user = window.SHION.currentUser;

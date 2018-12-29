@@ -22,4 +22,6 @@ public interface ArchiveService {
 
     ArchiveVo getArchiveInfo(Integer archiveId, User user);
 
+    List<ArchiveVo> getArchivesByKey(String key, Integer sort, Integer c_p);
+
 }
