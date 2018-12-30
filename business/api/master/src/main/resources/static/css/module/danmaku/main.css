@@ -503,6 +503,7 @@
     border-radius: 100%;
     position: absolute;
     background-size: 100%;
+    box-shadow: 0 0 30px #ffffff;
     background-image: url("/image/splice.png");
 }
 

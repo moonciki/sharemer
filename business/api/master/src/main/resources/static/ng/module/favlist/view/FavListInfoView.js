@@ -239,7 +239,7 @@ define(function(require, exports, module) {
             var typeTag = "";
 
             if(archive.source_type == 0){
-                typeTag = "<span class='f_before_tag' style='background-color: #41c0d0; color: #FFF;'>音频</span>";
+                typeTag = "<span class='f_before_tag' style='background-color: #00b5e5; color: #FFF;'>音频</span>";
             }else if(archive.source_type == 1){
                 typeTag = "<span class='f_before_tag' style='background-color: #ff99c4; color: #FFF;'>视频</span>";
             }

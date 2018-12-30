@@ -28,7 +28,7 @@
 }
 
 .s_text{
-    border: 1px solid #41c0d0;
+    border: 1px solid #00b5e5;
     height: 45px;
     float: left;
     width: 400px;
@@ -38,7 +38,7 @@
 .s_btn{
     height: 45px;
     float: left;
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     font-size: 18px;
     color: #FFF;
     padding: 10px;
@@ -48,7 +48,7 @@
 }
 
 .s_btn:hover{
-    background-color: #63c6d0;
+    background-color: #2fc4e5;
 }
 
 .s_txt{
@@ -67,7 +67,7 @@
 .s_main_data_menu_area{
     width: 1050px;
     height: 40px;
-    border-bottom: 1px solid #41c0d0;
+    border-bottom: 1px solid #00b5e5;
 }
 
 .s_main_data_menu_area_units{
@@ -88,13 +88,13 @@
 }
 
 .s_main_data_menu_area_unit_pointer{
-    color: #41c0d0;
-    border-bottom: 4px solid #41c0d0;
+    color: #00b5e5;
+    border-bottom: 4px solid #00b5e5;
 }
 
 .s_main_data_menu_area_unit:hover{
-    color: #41c0d0;
-    border-bottom: 4px solid #41c0d0;
+    color: #00b5e5;
+    border-bottom: 4px solid #00b5e5;
 }
 
 .s_main_more{

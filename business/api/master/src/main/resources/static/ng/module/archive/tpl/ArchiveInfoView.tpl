@@ -65,7 +65,7 @@
                     </div>
                     <div class="info_area_reply_02">
                         <div class="info_area_reply_02_01">
-                            <textarea class="v_reply_content form-control" style="border:solid 1px #41c0d0" rows="4" placeholder="请输入内容"></textarea>
+                            <textarea class="v_reply_content form-control" style="border:solid 1px #00b5e5" rows="4" placeholder="请输入内容"></textarea>
                         </div>
                         <div class="info_area_reply_02_02">
                             <div class="reply_send_btn">

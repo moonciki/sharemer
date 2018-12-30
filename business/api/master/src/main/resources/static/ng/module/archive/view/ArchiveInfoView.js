@@ -54,7 +54,7 @@ define(function (require, exports, module) {
                 if (resp.code == 0) {
                     var tagHtm = "";
                     if (resp.result.source_type == 0) {
-                        tagHtm = "<span class='source_type_tag' style='background-color: #41c0d0'>音频</span>"
+                        tagHtm = "<span class='source_type_tag' style='background-color: #00b5e5'>音频</span>"
                     } else {
                         tagHtm = "<span class='source_type_tag' style='background-color: #ff99c4'>视频</span>"
                     }

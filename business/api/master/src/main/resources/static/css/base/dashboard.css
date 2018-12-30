@@ -387,7 +387,7 @@ label.required {
     width: 100%;
     height: 200px;
     margin-top: 50px;
-    border-top: 1px #41c0d0 solid;
+    border-top: 1px #00b5e5 solid;
     background-color: #f8f8f8;
 }
 
@@ -455,7 +455,7 @@ label.required {
 }
 
 .btn-sc {
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     color: #FFF;
 }
 
@@ -495,8 +495,8 @@ label.required {
     float: left;
     margin-left: 5px;
     margin-right: 5px;
-    color: #41c0d0;
-    border: 1px solid #41c0d0;
+    color: #00b5e5;
+    border: 1px solid #00b5e5;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -510,12 +510,12 @@ label.required {
 }
 
 .page_unit:hover {
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     color: #FFF;
 }
 
 .page_pointer {
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     color: #FFF;
 }
 
@@ -524,8 +524,8 @@ label.required {
     height: 25px;
     padding: 5px 5px 5px 5px;
     font-size: 12px;
-    color: #41c0d0;
-    border: 1px solid #41c0d0;
+    color: #00b5e5;
+    border: 1px solid #00b5e5;
     border-radius: 4px;
     float: left;
     cursor: pointer;
@@ -533,7 +533,7 @@ label.required {
 }
 
 .go_self_space:hover {
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     color: #FFF;
 }
 

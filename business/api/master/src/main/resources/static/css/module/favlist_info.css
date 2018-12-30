@@ -127,7 +127,7 @@
 }
 
 .fl_main_data_body_menu_unit:hover {
-    color: #41c0d0;
+    color: #00b5e5;
 }
 
 .fl_main_data_body_menu_unit_pointer {
@@ -136,8 +136,8 @@
     text-align: center;
     height: 35px;
     float: left;
-    border-bottom: solid #41c0d0 4px;
-    color: #41c0d0;
+    border-bottom: solid #00b5e5 4px;
+    color: #00b5e5;
 }
 
 .fl_player_btn_group {
@@ -176,14 +176,14 @@
 
 .fl_share_btn {
     float: left;
-    border: solid #41c0d0 1px;
-    color: #41c0d0;
+    border: solid #00b5e5 1px;
+    color: #00b5e5;
     border-radius: 100px;
     cursor: pointer;
 }
 
 .fl_share_btn:hover {
-    background-color: #41c0d0;
+    background-color: #00b5e5;
     color: #FFF;
 }
 

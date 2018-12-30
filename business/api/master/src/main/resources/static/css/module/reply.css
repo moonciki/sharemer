@@ -32,8 +32,8 @@
 .info_area_reply_page_01_point{
     width: 100px;
     height: 39px;
-    color: #41c0d0;
-    border-bottom: solid #41c0d0 4px;
+    color: #00b5e5;
+    border-bottom: solid #00b5e5 4px;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
@@ -174,8 +174,8 @@
 .info_area_reply_c_c2{
     width: 74px;
     margin-left: 10px;
-    border: solid #41c0d0 1px;
-    background-color: #41c0d0;
+    border: solid #00b5e5 1px;
+    background-color: #00b5e5;
     height: 74px;
     color: #FFF;
     cursor: pointer;
@@ -188,7 +188,7 @@
 }
 
 .info_area_reply_c_c2:hover{
-    background-color: #41c0d0;
+    background-color: #00b5e5;
 }
 
 .info_area_reply_c_01{
@@ -224,8 +224,8 @@
 .reply_send_btn{
     width: 74px;
     height: 74px;
-    border: solid 1px #41c0d0;
-    background-color: #41c0d0;
+    border: solid 1px #00b5e5;
+    background-color: #00b5e5;
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
@@ -235,7 +235,7 @@
 }
 
 .reply_send_btn:hover{
-    background-color: #63c6d0;
+    background-color: #2fc4e5;
 }
 
 .pg{

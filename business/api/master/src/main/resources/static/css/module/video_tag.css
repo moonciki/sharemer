@@ -31,10 +31,9 @@
     margin: 0 auto;
     font-size: 14px;
     color: #494949;
-    border: 1px solid #41c0d0;
+    border: 1px solid #00b5e5;
     border-radius: 4px;
     padding-top: 13px;
-    box-shadow:inset 0px 0px 16px #e5e5e5;
 }
 .v_main_page{
     width: 100%;
@@ -96,7 +95,7 @@
     font-size: 18px;
     height: 95px;
     float: left;
-    color: #41c0d0;
+    color: #00b5e5;
 }
 
 .v_tag_name_text{
@@ -107,7 +106,7 @@
     border-radius: 100px;
     font-weight: bold;
     height: 40px;
-    border: solid 1px #41c0d0;
+    border: solid 1px #00b5e5;
     background-color: rgba(255, 255, 255, 0.8);
 }
 
