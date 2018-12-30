@@ -1,0 +1,7 @@
+.blog_header_top {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    background-image: url("/image/blog_top_img.jpg");
+    background-size: 100% 100%;
+}
