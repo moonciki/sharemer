@@ -1,7 +1,128 @@
-.blog_header_top {
+.blog_body {
     width: 100%;
+    height: 1080px;
+    float: left;
+    padding: 10px 10px 10px 10px;
+    background-image: url("/image/blog_body.jpg");
+    background-size: 100%;
+}
+
+.blog_main {
+    width: 1200px;
+    min-height: 10px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.blog_header_top {
+    margin-top: 10px;
+    border-radius: 4px;
+    width: 1200px;
     height: 200px;
-    position: absolute;
     background-image: url("/image/blog_top_img.jpg");
     background-size: 100% 100%;
+}
+
+.blog_header_menu {
+    margin-top: 10px;
+    border-radius: 4px;
+    width: 1200px;
+    height: 50px;
+    border: solid 1px #c7c7c7;
+    background: rgba(255, 255, 255, 0.9);
+    background-size: 100% 100%;
+}
+
+.blog_header_menu_box {
+    background-size: 100% 100%;
+    padding: 15px 30px;
+    height: 50px;
+    width: 150px;
+    float: left;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.blog_header_menu_box:hover {
+    border-bottom: 4px solid #ff80aa;
+    color: #ff80aa;
+}
+
+.tubiao {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    float: left;
+    display: inline;
+}
+
+.blog_body_main {
+    margin-top: 10px;
+    width: 1200px;
+    min-height: 50px;
+    height: auto;
+    float: left;
+}
+
+.blog_body_main_left {
+    width: 840px;
+    min-height: 50px;
+    height: auto;
+    margin-right: 10px;
+    float: left;
+}
+
+.blog_body_main_left_box {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #c7c7c7;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.blog_body_main_left_box_title{
+    width: 100%;
+    height: 35px;
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+}
+
+.blog_body_main_left_box_context{
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    float: left;
+}
+
+.blog_body_main_right {
+    width: 350px;
+    min-height: 50px;
+    height: auto;
+    float: left;
+}
+
+.blog_body_main_right_box {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #c7c7c7;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.type_tag {
+    margin-right: 10px;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #ff80aa;
+    border-radius: 100px;
+    color: #ff80aa;
+    width: auto;
+    font-weight: normal;
+    min-width: 10px;
+    height: auto;
+    font-size: 15px;
+    min-height: 10px;
 }
