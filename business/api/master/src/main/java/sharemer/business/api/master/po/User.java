@@ -19,6 +19,8 @@ public class User implements java.io.Serializable {
 
     private String name;
 
+    private String blog_title;
+
     private String avater;
 
     private Integer sex;
@@ -144,5 +146,13 @@ public class User implements java.io.Serializable {
 
     public void setLevel_color(String level_color) {
         this.level_color = level_color;
+    }
+
+    public String getBlog_title() {
+        return blog_title;
+    }
+
+    public void setBlog_title(String blog_title) {
+        this.blog_title = blog_title;
     }
 }

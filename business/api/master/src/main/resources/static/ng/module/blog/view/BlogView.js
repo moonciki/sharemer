@@ -26,7 +26,7 @@ define(function (require, exports, module) {
 
         router: function (event) {
             var role = event.currentTarget.getAttribute("data-role");
-            this.commonView.router(role, this.model.id);
+            this.commonView.router(role);
         },
 
         request: function (id) {
