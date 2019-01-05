@@ -2,15 +2,15 @@ define(function(require, exports, module) {
 
     var PlayerRouter = Backbone.Router.extend({
         routes: {
-            "home/(:id)":"home"
+            "blog/(:id)":"blog"
         },
 
         setApp: function(app) {
             this.app = app;
         },
 
-        home:function(id) {
-            this.app.renderHome(id);
+        blog:function(id) {
+            this.app.renderBlog(id);
         },
 
         defaultRoute: function(args) {

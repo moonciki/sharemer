@@ -15,7 +15,7 @@ define(function(require, exports, module) {
             }
         },
 
-        renderHome: function (id) {
+        renderBlog: function (id) {
             var app = this;
 
             require.async('module/blog/BlogPage', function (BlogPage) {

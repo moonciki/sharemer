@@ -1,32 +1,36 @@
 define(function (require, exports, module) {
 
-    seajs.use('../css/module/blog/home.css');
+    seajs.use('../css/module/blog/blog.css');
     seajs.use('../css/module/blog/calendar.css');
 
-    var Template = require('module/blog/tpl/BlogView.tpl');
+    var blogHtml = require('module/blog/tpl/BlogView.tpl');
     var Blog = require('module/blog/model/Blog');
     var mydate = null;
+    var CommonView = require('module/blog/view/CommonView');
 
     var BlogView = Backbone.View.extend({
-        template: Template,
+        blog: blogHtml,
         current_mid: null,
         initialize: function () {
             this.model = new Blog();
             mydate = new Date();
-            this.$el.append(this.template);
+            this.commonView = new CommonView();
         },
 
         events: {
+            'click .user_header_menu_box': 'router',
             'click .f-btn-jian': 'btnJian',
             'click .f-btn-jia': 'btnJia',
             'click .f-btn-fhby': 'backThisMonth'
         },
 
+        router: function (event) {
+            var role = event.currentTarget.getAttribute("data-role");
+            this.commonView.router(role, this.model.id);
+        },
+
         request: function (id) {
-            if (id == null || id == undefined || id == "") {
-                window.location.href = "/#blog/404";
-                return;
-            }
+            this.commonView.initCommon(id, this.$el, this.blog, '.menu_blog');
             this.model.id = id;
             this.initCalendar(id);
         },
@@ -84,7 +88,7 @@ define(function (require, exports, module) {
             }
             //计算上月空格数
             for (var j = monthstart; j > 0; j--) {
-                mystr += "<div class='f-td f-null f-lastMonth' style='color:#ccc;'>" + (lastMonth - j + 1) + "</div>";
+                mystr += "<divBlogView.js class='f-td f-null f-lastMonth' style='color:#b3b3b3;'>" + (lastMonth - j + 1) + "</divBlogView.js>";
             }
             //本月单元格
             for (var i = 0; i < daysCount; i++) {
@@ -93,7 +97,7 @@ define(function (require, exports, module) {
             }
             //计算下月空格数
             for (var k = 0; k < 42 - (daysCount + monthstart); k++) {//表格保持等高6行42个单元格
-                mystr += "<div class='f-td f-null f-nextMounth' style='color:#ccc;'>" + (k + 1) + "</div>";
+                mystr += "<div class='f-td f-null f-nextMounth' style='color:#b3b3b3;'>" + (k + 1) + "</div>";
             }
             //写入日历
             this.$el.find(".f-rili-table .f-tbody").html(mystr);
