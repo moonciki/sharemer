@@ -24,7 +24,7 @@
                 <div class="blog_tag blog_tag_img"></div>
                 相册
             </div>
-            <div class="user_header_menu_box">
+            <div class="user_header_menu_box menu_timeline" data-role="menu_timeline">
                 <div class="blog_tag blog_tag_time"></div>
                 时光轴
             </div>

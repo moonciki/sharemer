@@ -2,7 +2,8 @@ define(function(require, exports, module) {
 
     var PlayerRouter = Backbone.Router.extend({
         routes: {
-            "blog/(:id)":"blog"
+            "blog/(:id)":"blog",
+            "timeline/(:id)":"timeline"
         },
 
         setApp: function(app) {
@@ -11,6 +12,10 @@ define(function(require, exports, module) {
 
         blog:function(id) {
             this.app.renderBlog(id);
+        },
+
+        timeline:function(id) {
+            this.app.renderTimeline(id);
         },
 
         defaultRoute: function(args) {

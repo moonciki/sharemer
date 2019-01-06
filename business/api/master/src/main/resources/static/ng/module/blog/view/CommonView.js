@@ -19,6 +19,9 @@ define(function (require, exports, module) {
                 case "menu_blog":
                     window.location.href = "/blog/#blog/" + this.commonId;
                     break;
+                case "menu_timeline":
+                    window.location.href = "/blog/#timeline/" + this.commonId;
+                    break;
             }
         },
 

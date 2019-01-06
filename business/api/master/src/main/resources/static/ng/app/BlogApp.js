@@ -29,10 +29,24 @@ define(function(require, exports, module) {
             });
         },
 
+        renderTimeline: function (id) {
+            var app = this;
+
+            require.async('module/blog/TimelinePage', function (TimelinePage) {
+                if (!(app.lastPage instanceof TimelinePage)) {
+                    app.reset();
+                    app.lastPage = new TimelinePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
         reset: function() {
             if (this.lastPage) {
                 this.lastPage.remove();
-                this.main$el.append('<div id="page" style="margin-top: 160px"/>');
+                this.main$el.append('<div id="page"/>');
             }
         }
     });
