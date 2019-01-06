@@ -562,3 +562,48 @@ label.required {
     border-bottom: 1px solid #c7c7c7;
     box-shadow: 0 3px 5px rgba(142, 142, 142, 0.2);
 }
+
+.home_tag {
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.home_tag_home {
+    background-image: url("/image/blog_home.png");
+}
+
+.home_tag_blog {
+    background-image: url("/image/blog_blog.png");
+}
+
+.home_tag_world {
+    background-image: url("/image/blog_world.png");
+}
+
+.home_tag_archive {
+    background-image: url("/image/blog_archive.png");
+}
+
+.home_tag_music {
+    background-image: url("/image/blog_music.png");
+}
+
+.home_tag_video {
+    background-image: url("/image/blog_video.png");
+}
+
+.home_tag_favlist {
+    background-image: url("/image/blog_favlist.png");
+}
+
+.home_tag_search {
+    background-image: url("/image/blog_search.png");
+}
+
+.home_tag_upload {
+    background-image: url("/image/blog_upload.png");
+}

@@ -1,13 +1,13 @@
 <div class="menu">
     <div class="menu_main">
         <div class="home menu_unit">
-            <span class="father_tag" onclick="window.location.href='/#home'"><span class="glyphicon glyphicon-home tu"/>首页</span>
+            <span class="father_tag" onclick="window.location.href='/#home'"><div class="home_tag home_tag_home"></div>首页</span>
         </div>
         <div class="howto menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-tree-conifer tu"/>博客</span>
+            <span class="father_tag"><div class="home_tag home_tag_blog"></div>博客</span>
         </div>
         <div class="sq menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-globe tu"></span>世界</span>
+            <span class="father_tag"><div class="home_tag home_tag_world"></div>世界</span>
             <div class="dropdown-content">
                 <ul>
                     <li style="color: #222; font-weight: bold">现实世界</li>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="archive menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-send tu"/>稿件库</span>
+            <span class="father_tag"><div class="home_tag home_tag_archive"></div>稿件库</span>
             <div class="dropdown-content">
                 <ul>
                     <li><span class="child_tag" onclick="window.location.href='/#archive/tag/2510'">电子</span></li>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="music menu_unit">
-            <span class="father_tag" onclick="window.location.href='/#music'"><span class="glyphicon glyphicon-music tu"/>音频库</span>
+            <span class="father_tag" onclick="window.location.href='/#music'"><div class="home_tag home_tag_music"></div>音频库</span>
             <div class="dropdown-content">
                 <ul>
                 <li><span class="child_tag" onclick="window.location.href='/#music/tag/2510'">电子</span></li>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="video menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-film tu"/>视频库</span>
+            <span class="father_tag"><div class="home_tag home_tag_video"></div>视频库</span>
             <div class="dropdown-content">
                 <ul>
                 <li><span class="child_tag" onclick="window.location.href='/#video/tag/2512'">原创音乐</span></li>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="favlist menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-list-alt tu"/>收藏单</span>
+            <span class="father_tag"><div class="home_tag home_tag_favlist"></div>收藏单</span>
             <div class="dropdown-content">
                 <ul>
                 <li><span class="child_tag" onclick="window.location.href='/#favlist/tag/2510'">电子</span></li>
@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="search menu_unit">
-            <span class="father_tag"><span class="glyphicon glyphicon-search tu"/>站内搜</span>
+            <span class="father_tag"><div class="home_tag home_tag_search"></div>站内搜</span>
             <div class="dropdown-content">
                 <ul>
                     <li><span class="child_tag" onclick="window.location.href='/#search/music'">音乐</span></li>
@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="tg menu_unit" onclick="window.location.href='/#upload'">
-            <span class="father_tag"><span class="glyphicon glyphicon-open tu"/>投稿</span>
+            <span class="father_tag"><div class="home_tag home_tag_upload"></div>投稿</span>
         </div>
     </div>
 </div>

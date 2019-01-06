@@ -49,7 +49,7 @@
     text-align: center;
     font-size: 30px;
     color: #FFF;
-    text-shadow:0px 0px 16px #000;
+    text-shadow: 0px 0px 16px #000;
 }
 
 .user_header_top_03 {
@@ -59,7 +59,7 @@
     text-align: center;
     font-size: 15px;
     color: #FFF;
-    text-shadow:0px 0px 16px #000;
+    text-shadow: 0px 0px 16px #000;
 }
 
 .user_header_menu {
@@ -96,4 +96,41 @@
     height: 15px;
     float: left;
     display: inline;
+}
+
+.blog_tag {
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.blog_tag_home {
+    background-image: url("/image/blog_home.png");
+}
+
+.blog_tag_img {
+    background-image: url("/image/blog_img.png");
+}
+
+.blog_tag_blog {
+    background-image: url("/image/blog_blog.png");
+}
+
+.blog_tag_time {
+    background-image: url("/image/blog_time.png");
+}
+
+.blog_tag_intro {
+    background-image: url("/image/blog_intro.png");
+}
+
+.blog_tag_share {
+    background-image: url("/image/blog_share.png");
+}
+
+.blog_tag_manager {
+    background-image: url("/image/blog_manager.png");
 }

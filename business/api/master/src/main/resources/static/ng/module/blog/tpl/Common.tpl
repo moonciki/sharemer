@@ -13,32 +13,32 @@
         </div>
         <div class="user_header_menu">
             <div class="user_header_menu_box menu_home" data-role="menu_home">
-                <span class="glyphicon glyphicon-home"></span>
-                &nbsp;&nbsp;首页
+                <div class="blog_tag blog_tag_home"></div>
+                首页
             </div>
             <div class="user_header_menu_box menu_blog" data-role="menu_blog">
-                <span class="glyphicon glyphicon-book"></span>
-                &nbsp;&nbsp;博客
+                <div class="blog_tag blog_tag_blog"></div>
+                博客
             </div>
             <div class="user_header_menu_box">
-                <span class="glyphicon glyphicon-picture"></span>
-                &nbsp;&nbsp;相册
+                <div class="blog_tag blog_tag_img"></div>
+                相册
             </div>
             <div class="user_header_menu_box">
-                <span class="glyphicon glyphicon-time"></span>
-                &nbsp;&nbsp;时光轴
+                <div class="blog_tag blog_tag_time"></div>
+                时光轴
             </div>
             <div class="user_header_menu_box">
-                <span class="glyphicon glyphicon-user"></span>
-                &nbsp;&nbsp;个人介绍
+                <div class="blog_tag blog_tag_intro"></div>
+                个人介绍
             </div>
             <div class="user_header_menu_box">
-                <span class="glyphicon glyphicon-globe"></span>
-                &nbsp;资源分享
+                <div class="blog_tag blog_tag_share"></div>
+                资源分享
             </div>
             <div class="user_header_menu_box">
-                <span class="glyphicon glyphicon-globe"></span>
-                &nbsp;博客管理
+                <div class="blog_tag blog_tag_manager"></div>
+                博客管理
             </div>
         </div>
         <span id="module_html"></span>

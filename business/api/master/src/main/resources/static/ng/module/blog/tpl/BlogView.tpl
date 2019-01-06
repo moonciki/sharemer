@@ -44,13 +44,34 @@
                 </h3>
                 <div class="f-rili-table">
                     <div class="f-rili-head celarfix">
-                        <div class="f-rili-th">周日</div>
-                        <div class="f-rili-th">周一</div>
-                        <div class="f-rili-th">周二</div>
-                        <div class="f-rili-th">周三</div>
-                        <div class="f-rili-th">周四</div>
-                        <div class="f-rili-th">周五</div>
-                        <div class="f-rili-th">周六</div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-7"></div>
+                            周日
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-1"></div>
+                            周一
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-2"></div>
+                            周二
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-3"></div>
+                            周三
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-4"></div>
+                            周四
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-5"></div>
+                            周五
+                        </div>
+                        <div class="f-rili-th">
+                            <div class="f-rili-qx f-rili-qx-6"></div>
+                            周六
+                        </div>
                         <div class="clear"></div>
                     </div>
                     <div class="f-tbody clearfix">
