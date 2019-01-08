@@ -22,6 +22,9 @@ define(function (require, exports, module) {
                 case "menu_timeline":
                     window.location.href = "/blog/#timeline/" + this.commonId;
                     break;
+                case "menu_resource":
+                    window.location.href = "/blog/#resource/favlist/" + this.commonId;
+                    break;
             }
         },
 

@@ -43,6 +43,34 @@ define(function(require, exports, module) {
             });
         },
 
+        renderFavlistResource: function (id) {
+            var app = this;
+
+            require.async('module/blog/FavlistResourcePage', function (FavlistResourcePage) {
+                if (!(app.lastPage instanceof FavlistResourcePage)) {
+                    app.reset();
+                    app.lastPage = new FavlistResourcePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
+        renderMusicResource: function (id) {
+            var app = this;
+
+            require.async('module/blog/MusicResourcePage', function (MusicResourcePage) {
+                if (!(app.lastPage instanceof MusicResourcePage)) {
+                    app.reset();
+                    app.lastPage = new MusicResourcePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
         reset: function() {
             if (this.lastPage) {
                 this.lastPage.remove();

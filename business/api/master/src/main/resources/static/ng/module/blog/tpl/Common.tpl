@@ -32,7 +32,7 @@
                 <div class="blog_tag blog_tag_intro"></div>
                 个人介绍
             </div>
-            <div class="user_header_menu_box">
+            <div class="user_header_menu_box menu_resource" data-role="menu_resource">
                 <div class="blog_tag blog_tag_share"></div>
                 资源分享
             </div>
