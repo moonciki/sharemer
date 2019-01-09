@@ -18,6 +18,13 @@
     </div>
     <div class="resource_body">
         <div class="resource_body_title">收藏单</div>
-        asf<br/>asf<br/>asf<br/>asf<br/>
+        <div class="resource_body_menu">
+            <div class="resource_body_menu_title">
+
+            </div>
+        </div>
+        <div class="resource_body_body">
+
+        </div>
     </div>
 </div>

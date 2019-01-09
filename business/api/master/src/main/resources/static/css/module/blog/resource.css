@@ -14,6 +14,28 @@
     font-size: 16px;
 }
 
+.resource_body_menu{
+    width: 100%;
+    height: 50px;
+    float: left;
+}
+
+.resource_body_menu_title{
+    min-width: 10px;
+    width: auto;
+    height: 50px;
+    padding-top: 10px;
+    padding-right: 20px;
+    float: right;
+}
+
+.resource_body_body{
+    width: 100%;
+    min-height: 50px;
+    height: auto;
+    padding: 20px;
+}
+
 .resource_body {
     float: left;
     width: 960px;

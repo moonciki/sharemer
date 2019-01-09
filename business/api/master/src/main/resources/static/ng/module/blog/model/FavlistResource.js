@@ -13,11 +13,11 @@ define(function (require, exports, module) {
     FavlistResource.prototype = {
         constructor: FavlistResource,
 
-        get_favlistResource: function (id) {
+        get_fav_list_by_uid: function (id) {
             var param = {};
-            param.id = id;
+            param.c_id = id;
             return HttpUtil.request({
-                url: STATEMENT.root + 'get_favlistResource',
+                url: STATEMENT.root + 'fav/fav_list',
                 method: 'GET',
                 data: param
             });

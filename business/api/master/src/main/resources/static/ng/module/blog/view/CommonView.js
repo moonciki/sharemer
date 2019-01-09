@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
 
     seajs.use('../css/module/blog/common.css');
+    seajs.use('../css/module/blog/resource_favlist.css');
     var commonHtml = require('module/blog/tpl/Common.tpl');
 
     var Common = require('module/blog/model/Common');
@@ -34,8 +35,8 @@ define(function (require, exports, module) {
                 return;
             }
             this.commonId = id;
-            el.append(this.common);
-            el.find('#module_html').append(tmp);
+            el.html(this.common);
+            el.find('#module_html').html(tmp);
             el.find(className).addClass("user_header_menu_box_bit");
 
             var view = this;

@@ -1,0 +1,35 @@
+.favlist_unit {
+    float: left;
+    width: 209px;
+    min-height: 20px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.favlist_unit_top {
+    float: left;
+    width: 209px;
+    height: 178px;
+    background-image: url("/image/favlist_cover.png");
+    background-size: 100%;
+}
+
+.favlist_unit_top_cover {
+    float: left;
+    width: 177px;
+    height: 177px;
+    cursor: pointer;
+    border: solid #dbdbdb 1px;
+    background-size: 100%;
+}
+
+.favlist_unit_bottom {
+    padding-left: 5px;
+    padding-top: 5px;
+    float: left;
+    font-size: 13px;
+    width: 180px;
+    height: 50px;
+    line-height: 2.1;
+}
