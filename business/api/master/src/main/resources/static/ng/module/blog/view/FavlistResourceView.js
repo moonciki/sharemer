@@ -17,12 +17,32 @@ define(function (require, exports, module) {
         },
 
         events: {
-            'click .user_header_menu_box': 'router'
+            'click .user_header_menu_box': 'router',
+
+            'click .resource_path': 'resourcePath'
         },
 
         router: function (event) {
             var role = event.currentTarget.getAttribute("data-role");
             this.commonView.router(role);
+        },
+
+        resourcePath: function(event){
+            var role = event.currentTarget.getAttribute("data-role");
+            switch (role) {
+                case "favlist":
+                    window.location.href = "/blog/#resource/favlist/" + this.model.id;
+                    break;
+                case "music":
+                    window.location.href = "/blog/#resource/music/" + this.model.id;
+                    break;
+                case "video":
+                    window.location.href = "/blog/#resource/video/" + this.model.id;
+                    break;
+                case "archive":
+                    window.location.href = "/blog/#resource/archive/" + this.model.id;
+                    break;
+            }
         },
 
         request: function (id) {

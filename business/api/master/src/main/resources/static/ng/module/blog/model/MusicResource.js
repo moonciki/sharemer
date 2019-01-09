@@ -8,20 +8,20 @@ define(function (require, exports, module) {
 
         this.id = null;
         this.lastPage = null;
+        this.current_page = null;
+        this.current_sort = null;
     };
 
     MusicResource.prototype = {
         constructor: MusicResource,
 
-        get_musicResource: function (id) {
-            var param = {};
-            param.id = id;
+        get_music_by_uid: function (param) {
             return HttpUtil.request({
-                url: STATEMENT.root + 'get_musicResource',
+                url: STATEMENT.root + 'get_music_by_uid',
                 method: 'GET',
                 data: param
             });
-        }
+        },
     };
 
     module.exports = MusicResource;
