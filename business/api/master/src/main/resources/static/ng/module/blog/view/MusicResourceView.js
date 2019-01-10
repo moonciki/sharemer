@@ -7,6 +7,7 @@ define(function (require, exports, module) {
     var MusicResource = require('module/blog/model/MusicResource');
     var mydate = null;
     var CommonView = require('module/blog/view/CommonView');
+    var PlayView = require('module/common/view/PlayView');
 
     var MusicResourceView = Backbone.View.extend({
         musicResource: musicResourceHtml,
@@ -22,7 +23,8 @@ define(function (require, exports, module) {
 
             'click .more_music': 'moreMusic',
             'click .info_media_sort': 'mediaSort',
-            'click .resource_path': 'resourcePath'
+            'click .resource_path': 'resourcePath',
+            'click .common_play': 'commonPlay'
         },
 
         router: function (event) {
@@ -52,6 +54,9 @@ define(function (require, exports, module) {
             this.commonView.initCommon(id, this.$el, this.musicResource, '.menu_resource');
             this.model.id = id;
             this.$el.find(".resource_infos").html("");
+            this.playView = new PlayView({
+                el: this.$el
+            });
             this.tagMusic();
         },
 
@@ -99,7 +104,7 @@ define(function (require, exports, module) {
             param.c_p = 1;
             this.model.current_page = 1;
             this.model.current_sort = 1;
-            this.$el.find('.more_add').html("<button type=\"button\" class=\"more_music btn btn-primary btn-lg btn-block\">加载更多</button>");
+            this.$el.find('.more_add').html("<button type=\"button\" class=\"more_music btn btn-info btn-lg btn-block\">加载更多</button>");
             view.$el.find(".resource_body_menu_title").html("<div class=\"u_info_tag u_info_tag_music\"></div><div class='info_media_sort_pointer time_dx' data-sort='1'>按时间倒序</div><div class='info_media_sort time_zx' data-sort='0'>按时间正序</div>");
             this.getMusicsByUid(param);
         },
@@ -125,9 +130,24 @@ define(function (require, exports, module) {
         },
 
         renderMusic: function (mus) {
-            var $div = mus.title + "<br/>";
+            var title = mus.title;
+            if (title != null && title.length > 11) {
+                title = title.substring(0, 11) + "...";
+            }
+            var ctime = mus.ctime;
+            if (ctime != null) {
+                ctime = ctime.replace("T", " ");
+            }
+            var $div = "<div class='resource_music_unit'>" +
+                "<div title='" + mus.title + "' class='common_play resource_music_unit_top' style=\"background-image: url('" + mus.cover + "?imageView2/1/w/160/h/160')\">" +
+                "<div class='resource_music_unit_top_play' data-type='0' data-url='//music.163.com/outchain/player?type=2&id=" + mus.song_id + "&auto=1&height=66' data-title='" + mus.title + "'></div></div>" +
+                "<span style='line-height: 1.8; font-size: 13px'><a href='/#music/info/" + mus.id + "' target='_blank'>" + title + "</a><br/><span style='font-size: 12px; color: #949494'>分享于" + ctime + "</span></span></div>";
             return $div;
         },
+
+        commonPlay: function (event) {
+            this.playView.commonPlay(event);
+        }
     });
     module.exports = MusicResourceView;
 });

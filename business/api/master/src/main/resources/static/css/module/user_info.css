@@ -407,7 +407,6 @@
     height:110px;
     background-size: 100% 100%;
     cursor: pointer;
-    border-radius: 4px;
     background-image: url("/image/play_bg.png");
 }
 

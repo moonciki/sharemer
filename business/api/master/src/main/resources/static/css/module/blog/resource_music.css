@@ -31,3 +31,34 @@
     float: right;
 }
 
+.resource_music_unit{
+    float: left;
+    width: 160px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.resource_music_unit_top{
+    float: left;
+    width: 160px;
+    height: 160px;
+    border-radius: 4px;
+    background-size: 100%;
+}
+
+.resource_music_unit_top_play{
+    display: none;
+    width:160px;
+    height:160px;
+    background-size: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    background-image: url("/image/mus_play.png");
+}
+
+.resource_music_unit_top:hover .resource_music_unit_top_play{
+    display: block;
+}
+
+
