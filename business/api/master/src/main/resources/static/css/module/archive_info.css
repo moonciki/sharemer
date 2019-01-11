@@ -224,3 +224,32 @@
     color: #a8a8a8;
     font-size: 13px;
 }
+
+.archive_tag {
+    background-size: 100% 100%;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.archive_tag_share {
+    background-image: url("/image/archive_share.png");
+}
+
+.archive_tag_play {
+    background-image: url("/image/archive_play.png");
+}
+
+.archive_tag_danmaku {
+    background-image: url("/image/archive_danmaku.png");
+}
+
+.archive_tag_fav {
+    background-image: url("/image/archive_fav.png");
+}
+
+.archive_tag_time {
+    background-image: url("/image/archive_time.png");
+}

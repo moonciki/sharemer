@@ -4,23 +4,24 @@
             <div class="a_info_main_page_title_1"></div>
             <div class="a_info_main_page_title_2">
                 <div class="a_info_main_page_title_2_unit">
-                    <span class="glyphicon glyphicon-play-circle" style="color: #66b1ff;"></span>
-                    &nbsp;播放：<span class="click_count">2333</span>
+                    <div class="archive_tag archive_tag_play"></div>
+                    播放：<span class="click_count">2333</span>
                 </div>
                 <div class="a_info_main_page_title_2_unit">
-                    <span class="glyphicon glyphicon-list-alt" style="color: #ff80aa;"></span>
-                    &nbsp;弹幕：<span class="danmaku_count">31</span>
+                    <div class="archive_tag archive_tag_danmaku"></div>
+                    弹幕：<span class="danmaku_count">31</span>
                 </div>
                 <div class="a_info_main_page_title_2_unit">
-                    <span class="glyphicon glyphicon-star" style="color: #ffa23b;"></span>
-                    &nbsp;收藏：<span class="follow_count">20</span>
+                    <div class="archive_tag archive_tag_fav"></div>
+                    收藏：<span class="follow_count">20</span>
                 </div>
                 <div class="a_info_main_page_title_2_unit">
-                    <span class="glyphicon glyphicon-share-alt" style="color: #17b7d0;"></span>
-                    &nbsp;分享：<span class="share_count">56</span>
+                    <div class="archive_tag archive_tag_share"></div>
+                    分享：<span class="share_count">56</span>
                 </div>
                 <div class="a_info_main_page_title_2_unit" style="width: 200px">
-                    <span class="publish_time"></span>
+                    <div class="archive_tag archive_tag_time"></div>
+                    发布时间：<span class="publish_time"></span>
                 </div>
             </div>
         </div>
