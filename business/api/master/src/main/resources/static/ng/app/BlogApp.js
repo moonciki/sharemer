@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
     var Top = require('component/Top');
 
@@ -7,11 +7,11 @@ define(function(require, exports, module) {
         main$el: $('.main'),
         pageEl: '#page',
 
-        initialize: function() {
+        initialize: function () {
             this.top = new Top();
             this.lastPage = null;
-            if(bootbox){
-                bootbox.setDefaults({title:'请求结果'});
+            if (bootbox) {
+                bootbox.setDefaults({title: '请求结果'});
             }
         },
 
@@ -71,7 +71,21 @@ define(function(require, exports, module) {
             });
         },
 
-        reset: function() {
+        renderVideoResource: function (id) {
+            var app = this;
+
+            require.async('module/blog/VideoResourcePage', function (VideoResourcePage) {
+                if (!(app.lastPage instanceof VideoResourcePage)) {
+                    app.reset();
+                    app.lastPage = new VideoResourcePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
+        reset: function () {
             if (this.lastPage) {
                 this.lastPage.remove();
                 this.main$el.append('<div id="page"/>');

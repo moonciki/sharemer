@@ -10,10 +10,12 @@ import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.service.music.MusicService;
 import sharemer.business.api.master.service.user.UserSercice;
+import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.utils.Constant;
 import sharemer.business.api.master.vo.FavListVo;
 import sharemer.business.api.master.vo.MusicVo;
 import sharemer.business.api.master.vo.UserVo;
+import sharemer.business.api.master.vo.VideoVo;
 import sharemer.component.global.resp.ConstantResults;
 import sharemer.component.global.resp.WrappedResult;
 
@@ -33,6 +35,9 @@ public class BlogController {
 
     @Resource
     private MusicService musicService;
+
+    @Resource
+    private VideoService videoService;
 
     @Resource
     private FavListService favListService;
@@ -79,6 +84,21 @@ public class BlogController {
         favListVo.setFavs(favs);
         return WrappedResult.success(favListVo);
 
+    }
+
+    @RequestMapping(value = "get_video_by_uid", method = RequestMethod.GET)
+    public WrappedResult getVideoByUid(@RequestParam(value = "uid") Integer uid,
+                                       @RequestParam(value = "sort") Integer sort,
+                                       @RequestParam(value = "c_p") Integer c_p){
+        if(c_p <= 0){
+            c_p = 1;
+        }
+        if(sort != 0 && sort != 1){
+            sort = 1;
+        }
+        c_p = (c_p-1)*20;
+        List<VideoVo> result = this.videoService.getVideosByUid(uid, sort, c_p);
+        return WrappedResult.success(result);
     }
 
 }
