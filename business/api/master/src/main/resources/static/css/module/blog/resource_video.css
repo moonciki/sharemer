@@ -47,13 +47,25 @@
     background-size: 100%;
 }
 
+.resource_video_unit_top_tip{
+    position: absolute;
+    min-width: 30px;
+    width: auto;
+    height: 20px;
+    padding: 2px 5px;
+    color: #FFF;
+    border-radius: 4px 0px 4px 0px;
+}
+
 .resource_video_unit_top_play{
+    position: absolute;
     display: none;
     width:160px;
     height:110px;
     background-size: 100%;
     cursor: pointer;
     border-radius: 4px;
+    z-index: 1000;
     background-image: url("/image/play_bg.png");
 }
 

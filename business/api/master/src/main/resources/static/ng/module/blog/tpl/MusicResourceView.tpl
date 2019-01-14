@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="resource_body">
-        <div class="resource_body_title">音乐</div>
+        <div class="resource_body_title"><div class="resource_tag resource_tag_music"></div>音乐</div>
         <div class="resource_body_menu">
             <div class="resource_body_menu_title">
 

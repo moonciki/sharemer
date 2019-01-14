@@ -22,6 +22,10 @@
     height: 200px;
     background-image: url("/image/blog_top_img.jpg");
     background-size: 100% 100%;
+    border-radius: 4px 4px 0px 0px;
+    border-right: solid 1px #c7c7c7;
+    border-left: solid 1px #c7c7c7;
+    border-top: solid 1px #c7c7c7;
 }
 
 .user_header_top_main {
@@ -66,7 +70,9 @@
     border-radius: 0 0 4px 4px;
     width: 1200px;
     height: 50px;
-    border: solid 1px #c7c7c7;
+    border-right: solid 1px #c7c7c7;
+    border-left: solid 1px #c7c7c7;
+    border-bottom: solid 1px #c7c7c7;
     background: rgba(255, 255, 255, 0.9);
 }
 

@@ -138,7 +138,7 @@ define(function (require, exports, module) {
             }
             var $div = "<div class='resource_video_unit'>" +
                 "<div title=\"" + mus.title + "\" class='common_play resource_video_unit_top' style=\"background-image: url('" + mus.cover + "?imageView2/1/w/160/h/110'), url('/image/default_v.jpg')\">" +
-                "<div class='resource_video_unit_top_play' data-type='1' data-url=\"" + mus.video_url + "\" data-title=\"" + mus.title + "\"></div></div>" +
+                "<div class='resource_video_unit_top_tip' style='background-color: "+mus.net_color+"'>"+mus.net_name+"</div><div class='resource_video_unit_top_play' data-type='1' data-url=\"" + mus.video_url + "\" data-title=\"" + mus.title + "\"></div></div>" +
                 "<span style='line-height: 1.8; font-size: 13px'><a href='/#video/info/" + mus.id + "' target='_blank'>" + title + "</a><br/><span style='font-size: 12px; color: #949494'>分享于" + ctime + "</span></span></div>";
             return $div;
         },
