@@ -85,6 +85,20 @@ define(function (require, exports, module) {
             });
         },
 
+        renderArchiveResource: function (id) {
+            var app = this;
+
+            require.async('module/blog/ArchiveResourcePage', function (ArchiveResourcePage) {
+                if (!(app.lastPage instanceof ArchiveResourcePage)) {
+                    app.reset();
+                    app.lastPage = new ArchiveResourcePage({
+                        el: app.pageEl
+                    });
+                }
+                app.lastPage.go(id);
+            });
+        },
+
         reset: function () {
             if (this.lastPage) {
                 this.lastPage.remove();

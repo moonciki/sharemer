@@ -7,15 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.po.FavList;
 import sharemer.business.api.master.po.User;
+import sharemer.business.api.master.service.archive.ArchiveService;
 import sharemer.business.api.master.service.favlist.FavListService;
 import sharemer.business.api.master.service.music.MusicService;
 import sharemer.business.api.master.service.user.UserSercice;
 import sharemer.business.api.master.service.video.VideoService;
 import sharemer.business.api.master.utils.Constant;
-import sharemer.business.api.master.vo.FavListVo;
-import sharemer.business.api.master.vo.MusicVo;
-import sharemer.business.api.master.vo.UserVo;
-import sharemer.business.api.master.vo.VideoVo;
+import sharemer.business.api.master.vo.*;
 import sharemer.component.global.resp.ConstantResults;
 import sharemer.component.global.resp.WrappedResult;
 
@@ -41,6 +39,9 @@ public class BlogController {
 
     @Resource
     private FavListService favListService;
+
+    @Resource
+    private ArchiveService archiveService;
 
     @RequestMapping(value = "get_user_info", method = RequestMethod.GET)
     public WrappedResult list(@RequestParam(value = "user_id") Integer user_id) {
@@ -98,6 +99,21 @@ public class BlogController {
         }
         c_p = (c_p-1)*20;
         List<VideoVo> result = this.videoService.getVideosByUid(uid, sort, c_p);
+        return WrappedResult.success(result);
+    }
+
+    @RequestMapping(value = "get_archive_by_uid", method = RequestMethod.GET)
+    public WrappedResult getArchiveByUid(@RequestParam(value = "uid") Integer uid,
+                                       @RequestParam(value = "sort") Integer sort,
+                                       @RequestParam(value = "c_p") Integer c_p) {
+        if (c_p <= 0) {
+            c_p = 1;
+        }
+        if (sort != 0 && sort != 1) {
+            sort = 1;
+        }
+        c_p = (c_p - 1) * 20;
+        List<ArchiveVo> result = this.archiveService.getArchivesByUid(uid, sort, c_p);
         return WrappedResult.success(result);
     }
 

@@ -139,7 +139,7 @@ define(function (require, exports, module) {
             var $div = "<div class='resource_music_unit'>" +
                 "<div title='" + mus.title + "' class='common_play resource_music_unit_top' style=\"background-image: url('" + mus.cover + "?imageView2/1/w/160/h/160')\">" +
                 "<div class='resource_music_unit_top_play' data-type='0' data-url=\"//music.163.com/outchain/player?type=2&id=" + mus.song_id + "&auto=1&height=66\" data-title=\"" + mus.title + "\"></div></div>" +
-                "<span style='line-height: 1.8; font-size: 13px'><a href='/#music/info/" + mus.id + "' target='_blank'>" + title + "</a><br/><span style='font-size: 12px; color: #949494'>分享于" + ctime + "</span></span></div>";
+                "<div style='float:left; line-height: 1.8; font-size: 13px'><a href='/#music/info/" + mus.id + "' target='_blank'>" + title + "</a><br/><span style='font-size: 12px; color: #949494'>分享于" + ctime + "</span></div></div>";
             return $div;
         },
 

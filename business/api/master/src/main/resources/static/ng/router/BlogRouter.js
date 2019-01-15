@@ -6,7 +6,8 @@ define(function (require, exports, module) {
             "timeline/(:id)": "timeline",
             "resource/favlist/(:id)": "favlistResource",
             "resource/music/(:id)": "musicResource",
-            "resource/video/(:id)": "videoResource"
+            "resource/video/(:id)": "videoResource",
+            "resource/archive/(:id)": "archiveResource"
         },
 
         setApp: function (app) {
@@ -31,6 +32,10 @@ define(function (require, exports, module) {
 
         videoResource: function (id) {
             this.app.renderVideoResource(id);
+        },
+
+        archiveResource: function (id) {
+            this.app.renderArchiveResource(id);
         },
 
         defaultRoute: function (args) {
