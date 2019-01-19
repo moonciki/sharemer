@@ -3,10 +3,6 @@
  */
 @charset "UTF-8";
 
-html {
-    zoom: 1.25
-}
-
 @font-face {
     font-family: ImmeHybrid;
     src: local("Microsoft Yahei"), local("STXihei");
