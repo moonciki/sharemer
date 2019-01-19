@@ -1,5 +1,6 @@
 package sharemer.business.api.master.controller;
 
+import sharemer.business.api.master.anno.NeedLogin;
 import sharemer.business.api.master.anno.NeedUser;
 import sharemer.business.api.master.po.User;
 import sharemer.business.api.master.rao.user.UserRao;
@@ -47,6 +48,18 @@ public class PathController {
     @NeedUser
     public ModelAndView blog(HttpServletRequest request) {
         ModelAndView view = new ModelAndView("blog");
+        User user = (User) request.getAttribute(Constant.LOGIN_USER);
+        String csrfToken = this.userRao.getCsrfToken();
+        view.addObject("SCRIPT", generate(user, csrfToken));
+        view.addObject("token", csrfToken);
+        return view;
+    }
+
+    @RequestMapping("/manager")
+    @NeedUser
+    @NeedLogin
+    public ModelAndView manager(HttpServletRequest request) {
+        ModelAndView view = new ModelAndView("manager");
         User user = (User) request.getAttribute(Constant.LOGIN_USER);
         String csrfToken = this.userRao.getCsrfToken();
         view.addObject("SCRIPT", generate(user, csrfToken));

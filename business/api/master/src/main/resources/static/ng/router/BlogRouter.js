@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-    var PlayerRouter = Backbone.Router.extend({
+    var BlogRouter = Backbone.Router.extend({
         routes: {
             "blog/(:id)": "blog",
             "timeline/(:id)": "timeline",
@@ -43,5 +43,5 @@ define(function (require, exports, module) {
         }
     });
 
-    module.exports = PlayerRouter;
+    module.exports = BlogRouter;
 });
