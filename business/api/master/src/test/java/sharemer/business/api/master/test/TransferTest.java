@@ -14,7 +14,7 @@ public class TransferTest {
     public void transferTest(){
         List<String> musicIds = new ArrayList<>();
         musicIds.add("1");
-        musicIds.add("2");
+        musicIds.add("5");
         String[] s = musicIds.toArray(new String[0]);
         for(String u : s){
             System.out.print(u + ",");
