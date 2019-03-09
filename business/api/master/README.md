@@ -1,7 +1,9 @@
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/business/api/master/src/main/resources/static/image/logo.png "ShareMer")
 # 社区主站
 >该模块是整个网站对外提供给用户访问和使用的核心部分，这篇文章仅用来展示其运行效果，不过因为网站烂尾，有些功能其实并没有达到预期的效果。<br/>
->该站静态资源以及文件存储是使用的七牛CDN，目前加速域名为static.sharemer.com（存储图片、脚本）和media.sharemer.com（用于存音视频文件）
+>该站静态资源以及文件存储是使用的七牛CDN，目前加速域名为：<br/>
+>① static.sharemer.com（存储图片、脚本）<br/>
+>② media.sharemer.com（用于存音视频文件）
 
 ------
 
