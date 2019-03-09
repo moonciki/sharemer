@@ -24,6 +24,7 @@
 博客|每个用户的个人空间都是自己的博客首页，里面有时间轴、博客、相册、收藏（与主站互通）等功能。
 世界|世界功能是一个很关键的功能，支持全站用户在任意资源（音视频、收藏单、博客）下点击分享按钮，选择世界频道，发送出去，世界频道是个即时的聊天窗口，用户打开对应频道的世界窗口后，站内任意用户分享的动态可以即时发现。
 
+### 运行效果及功能简介
 项目一共分为两个重要模块，分别点击进入即可查看功能介绍及效果图：<br/>
 - [Sharemer主站](https://github.com/exceting/sharemer/tree/master/business/api/master)
 - [Sharemer爬虫后台](https://github.com/exceting/sharemer/tree/master/business/manager/master)
