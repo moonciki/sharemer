@@ -65,10 +65,13 @@
 </ul>
 </div>
 
+------
+
 ## 稿件索引页
 >站内所有的资源均可以关联不同的tag，根据tag来进行分类快速浏览的页面叫做标签索引页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png "稿件索引页")
-<a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png" target="_blank">点我查看大图</a>
+[点我查看大图]
+(https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png)
 
 ## 稿件播放页
 >联动功能：弹幕、收藏、分享、评论
@@ -94,8 +97,9 @@
 ## 视频索引页
 >跟稿件索引页基本一致，限于篇幅，这里只给了大图链接
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_tag.png" target="_blank">点我查看视频索引页大图</a>
-## 视频播放页（以B站资源为例）
->![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png "视频播放页")
+## 视频播放页
+>以B站资源为例
+![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png "视频播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png" target="_blank">点我查看大图</a>
 
 ------
@@ -122,12 +126,6 @@
 
 ------
 
-## 视频播放页（以B站资源为例）
->![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png "视频播放页")
-<a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png" target="_blank">点我查看大图</a>
-
-------
-
 ## 站内搜
 >![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/search.png "站内搜")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/search.png" target="_blank">点我查看大图</a>
@@ -150,8 +148,9 @@
 ### 我在站内分享过的视频
 >![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_video.png "我在站内分享过的视频")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_video.png" target="_blank">点我查看大图</a>
-### 我的投稿（投稿审核状态和进度也是在这个页面查看）
->![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_archive.png "我的投稿")
+### 我的投稿
+>投稿审核状态和进度也是在这个页面查看
+![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_archive.png "我的投稿")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_archive.png" target="_blank">点我查看大图</a>
 
 ------
