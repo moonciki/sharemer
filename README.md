@@ -17,6 +17,7 @@
 本网站基于java语言，采用Spring boot、Mybatis框架，使用Gradle搭建及开发，其次采用Memcached做底层数据缓存、Redis做数据结构缓存，Mysql为底层持久化数据库，Druid作它的连接池，CDN采用七牛云存储。
 
 ### 主要功能
+<style> table th:first-of-type {     width: 100px; } </style>
 功能点|功能描述
 -------|:--
 音频分享|站外音频分享，支持爬取关键信息（仅支持网易云音乐）
