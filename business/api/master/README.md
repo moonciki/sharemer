@@ -14,25 +14,31 @@
 ##### 音频稿件播放页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_music_play.png "音频稿件播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_music_play.png" target="_blank">点我查看大图</a>
-------
+<br/><br/>
 #### 音频索引页（跟稿件索引页基本一致，限于篇幅，这里只给了大图链接）
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/music_tag.png" target="_blank">点我查看音频索引页大图</a>
 #### 音频播放页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/music_play.png "音频播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/music_play.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 视频索引页（跟稿件索引页基本一致，限于篇幅，这里只给了大图链接）
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_tag.png" target="_blank">点我查看视频索引页大图</a>
 #### 视频播放页（以B站资源为例）
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png "视频播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 收藏单索引页（跟稿件索引页基本一致，限于篇幅，这里只给了大图链接）
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/favlist_tag.png" target="_blank">点我查看收藏单索引页大图</a>
 #### 收藏单详情页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/favlist_info.png "收藏单详情页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/favlist_info.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 稿件上传
 ##### 上传页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/upload.jpg "上传页")
@@ -43,15 +49,21 @@
 ##### 稿件表单填写
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/upload_form.png "稿件表单")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/upload_form.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 视频播放页（以B站资源为例）
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png "视频播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/video_play.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 站内搜
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/search.png "站内搜")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/search.png" target="_blank">点我查看大图</a>
+
 ------
+
 #### 个人空间
 ##### 我的博客
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_blog.png "我的博客")
