@@ -1,7 +1,7 @@
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/business/api/master/src/main/resources/static/image/logo.png "ShareMer")
-### Sharemer音乐共享社区
+### 一个小众的音乐分享社区
 访问本站：首先你要有一副黑框眼镜，其次你的裤腰带要够到你的胳肢窝，然后你的姿势水平要足够高，最后你要会念诗（开玩笑的，活着挺好）
-
+### 前言
 >这个网站停停做做搞了很久，后面还是放弃了，放弃的原因有很多，总结了有以下几点吧：<br/>
 >- 自己一个人搞一个系统，太单调，又太难，没有人愿意一起交流技术和方案，时间久了，容易自闭:）
 >- 就算上线，针对目前这个移动互联网时代，娱乐向的web端网站已经很难很难吸引到任何流量了。
