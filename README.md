@@ -20,12 +20,16 @@
 
 <table border="1">
 <tr>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
+<td>功能点</td>
+<td>功能描述</td>
 </tr>
 <tr>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
+<td>音频分享</td>
+<td>站外音频分享，支持爬取关键信息（仅支持网易云音乐）</td>
+</tr>
+<tr>
+<td>视频分享</td>
+<td>站外视频分享，到目前为止支持用户拉取BiliBili（B站）、AcFun（A站）、MissEvan（M站）、音悦台上的视频信息（同下面爬虫）以及播放器</td>
 </tr>
 </table>
 
