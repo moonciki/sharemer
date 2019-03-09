@@ -4,6 +4,67 @@
 
 ------
 
+## 导航
+
+<div class="toc">
+<ul>
+    <li>
+        <ol>
+            <li>
+                <a href="#稿件索引页">稿件索引页</a>
+            </li>
+            <li>
+                <a href="#稿件播放页">稿件播放页</a>
+                <ol>
+                    <li><a href="#视频稿件播放页">视频稿件播放页</a></li>
+                    <li><a href="#音频稿件播放页">音频稿件播放页</a></li>
+                </ol>
+            </li>
+            <li>
+              <a href="#音频索引页">音频索引页</a>
+            </li>
+            <li>
+              <a href="#音频播放页">音频播放页</a>
+            </li>
+            <li>
+              <a href="#视频索引页">视频索引页</a>
+            </li>
+            <li>
+              <a href="#视频播放页">视频播放页</a>
+            </li>
+            <li>
+              <a href="#收藏单索引页">收藏单索引页</a>
+            </li>
+            <li>
+              <a href="#收藏单详情页">收藏单详情页</a>
+            </li>
+            <li>
+                <a href="#稿件上传">稿件上传</a>
+                <ol>
+                    <li><a href="#上传页">上传页</a></li>
+                    <li><a href="#上传中">上传中</a></li>
+                    <li><a href="#稿件表单填写">稿件表单填写</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#站内搜">站内搜</a>
+            </li>
+            <li>
+                <a href="#个人空间">个人空间</a>
+                <ol>
+                    <li><a href="#我的博客">我的博客</a></li>
+                    <li><a href="#时间轴">时间轴</a></li>
+                    <li><a href="#我的收藏单">我的收藏单</a></li>
+                    <li><a href="#我在站内分享过的音频">我在站内分享过的音频</a></li>
+                    <li><a href="#我在站内分享过的视频">我在站内分享过的视频</a></li>
+                    <li><a href="#我的投稿">我的投稿</a></li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+</ul>
+</div>
+
 ## 稿件索引页
 >站内所有的资源均可以关联不同的tag，根据tag来进行分类快速浏览的页面叫做标签索引页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png "稿件索引页")
