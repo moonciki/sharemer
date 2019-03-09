@@ -70,8 +70,7 @@
 ## 稿件索引页
 >站内所有的资源均可以关联不同的tag，根据tag来进行分类快速浏览的页面叫做标签索引页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png "稿件索引页")
-[点我查看大图]
-(https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png)
+<a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png" target="_blank">点我查看大图</a>
 
 ## 稿件播放页
 >联动功能：弹幕、收藏、分享、评论
