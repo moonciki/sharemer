@@ -27,5 +27,5 @@
 
 ### 运行效果及功能简介
 项目一共分为两个重要模块，分别点击进入即可查看功能介绍及效果图：<br/>
-- [Sharemer主站](https://github.com/exceting/sharemer/tree/master/business/api/master)
-- [Sharemer爬虫后台](https://github.com/exceting/sharemer/tree/master/business/manager/master)
+- [Sharemer主站](https://github.com/exceting/sharemer/blob/master/business/api/master/README.md)
+- [Sharemer爬虫后台](https://github.com/exceting/sharemer/tree/master/business/manager/master/README.md)
