@@ -3,18 +3,18 @@
     <div class="blog_body_main_left">
         <div class="blog_body_main_left_box">
             <div class="blog_body_main_left_box_title">
-                <span class="type_tag">数据结构</span>
-                <a href="">java数据结构-二叉树的基本解析</a>
+                <span class="type_tag">多线程</span>
+                <a href="">ThreadLocal三部曲（一）：ThreadLocal原理解析与源码解读</a>
             </div>
             <div class="blog_body_main_left_box_context">
-                说到二叉树我就想到西游记里的人参果树，今年年初。。。
+                分为两部分完成，首先是使用，第二部分是原理分析及其源码的解读。
             </div>
         </div>
 
         <div class="blog_body_main_left_box">
             <div class="blog_body_main_left_box_title">
                 <span class="type_tag">Spring Boot</span>
-                <a href="">spring boot基础教程-自动注入</a>
+                <a href="">spring boot基础教程</a>
             </div>
             <div class="blog_body_main_left_box_context">
                 爱是飞洒发大水爱是飞洒发大水爱是飞洒发大水爱是飞洒发大水爱是飞洒发大水爱是飞洒发大水
