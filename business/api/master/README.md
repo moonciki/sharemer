@@ -2,9 +2,10 @@
 # 社区主站
 >该模块是整个网站对外提供给用户访问和使用的核心部分，这篇文章仅用来展示其运行效果，不过因为网站烂尾，有些功能其实并没有达到预期的效果。
 
-# 资源标签索引页 & 播放页
->站内所有的资源均可以关联不同的tag，根据tag来进行分类快速浏览的页面叫做标签索引页
+------
+
 ## 稿件索引页
+>站内所有的资源均可以关联不同的tag，根据tag来进行分类快速浏览的页面叫做标签索引页
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png "稿件索引页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_tag.png" target="_blank">点我查看大图</a>
 ## 稿件播放页（联动功能：弹幕、收藏、分享、评论）
@@ -15,6 +16,9 @@
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_music_play.png "音频稿件播放页")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/archive_music_play.png" target="_blank">点我查看大图</a>
 <br/><br/>
+
+------
+
 ## 音频索引页（跟稿件索引页基本一致，限于篇幅，这里只给了大图链接）
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/music_tag.png" target="_blank">点我查看音频索引页大图</a>
 ## 音频播放页
@@ -83,5 +87,7 @@
 ### 我的投稿（投稿审核状态和进度也是在这个页面查看）
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_archive.png "我的投稿")
 <a href="https://raw.githubusercontent.com/exceting/sharemer/master/readme/blog_my_archive.png" target="_blank">点我查看大图</a>
+
+------
 
 >由于世界功能以及一些首页的运营页面还未完善，这里就不放效果图了~
