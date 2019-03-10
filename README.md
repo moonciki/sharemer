@@ -1,6 +1,9 @@
 ![blockchain](https://raw.githubusercontent.com/exceting/sharemer/master/business/api/master/src/main/resources/static/image/logo.png "ShareMer")
 ### 一个小众的音乐分享社区
 访问本站：首先你要有一副黑框眼镜，其次你的裤腰带要够到你的胳肢窝，然后你的姿势水平要足够高，最后你要会念诗（开玩笑的，活着挺好）
+### 网站域名
+www.sharemer.com<br/>
+ps：这个域名已被本人注册，且备案完成，因为网站不再维护，想要域名的可随时联系~毕竟也算是个简洁明了的域名嘛:)
 ### 前言
 这个ReadMe更新于停止维护该项目的半年后（2019-03-09，突然发疯，想要写一下）
 >这个网站停停做做搞了很久，后面还是放弃了，放弃的原因有很多，总结了有以下几点吧：<br/>
