@@ -14,9 +14,6 @@ import sharemer.component.mysql.vfs.SpringBootVFS;
 
 import javax.sql.DataSource;
 
-/**
- * Created by crop on 2018/7/1.
- */
 @Configuration
 @MapperScan(basePackages = "sharemer.business.manager.master", sqlSessionFactoryRef = "sqlSession", annotationClass = Mapper.class)
 public class DataSourceConfig {

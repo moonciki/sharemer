@@ -12,9 +12,6 @@ import sharemer.business.api.master.rao.user.UserRao;
 
 import javax.annotation.Resource;
 
-/**
- * Created by crop on 18/3/15.
- */
 @Configuration
 public class WebMVCConfig implements WebMvcConfigurer {
 
